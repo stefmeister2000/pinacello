@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Pinacello — Ananas Citroen Likeur | Breng de zomer naar je tuinfeest</title>
+<meta name="description" content="Pinacello: premium ananas-citroen likeur (17% · 500ml). Drink puur, met ijs of in cocktails. Bestel het Zomer Duo met gratis verzending — levering in BE & NL binnen 2 werkdagen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..900;1,9..144,500..900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#472B0E;
+    --ink-soft:rgba(71,43,14,.72);
+    --orange:#F04E23;
+    --orange-deep:#D8431C;
+    --yellow:#FFDD55;
+    --cream:#FFF6D8;
+    --white:#FFFDF4;
+    --glow:#FF9E3D;
+    --leaf:#2E7D4F;
+    --radius:26px;
+    --g-deep:#FFD84D;
+    --g-mid:#FFE874;
+    --g-soft:#FFF3C0;
+    --g-cream:#FFF6D8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'DM Sans',sans-serif;color:var(--ink);line-height:1.6;overflow-x:hidden;
+    background:linear-gradient(180deg,var(--g-deep) 0%,var(--g-mid) 12%,var(--g-soft) 28%,var(--g-mid) 44%,var(--g-cream) 62%,var(--g-mid) 78%,var(--g-soft) 90%,var(--g-deep) 100%);
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:800;line-height:1.08;letter-spacing:-.01em}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+  section{padding:64px 0;position:relative}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;justify-content:center;
+    background:var(--orange);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;
+    font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+    padding:17px 38px;border-radius:999px;border:none;cursor:pointer;
+    transition:transform .15s ease,background .15s ease,box-shadow .15s ease;
+    box-shadow:0 10px 26px rgba(216,67,28,.32);
+  }
+  .btn:hover{transform:translateY(-2px);background:var(--orange-deep);box-shadow:0 16px 34px rgba(216,67,28,.4)}
+  .btn--ghost{background:transparent;color:var(--orange);box-shadow:inset 0 0 0 2px var(--orange)}
+  .btn--ghost:hover{background:var(--orange);color:#fff}
+  .btn--big{font-size:1.05rem;padding:20px 46px}
+  .section-cta{text-align:center;margin-top:44px}
+
+  /* ── floating bubbles / fruit ── */
+  .bubble{position:absolute;border-radius:50%;pointer-events:none;
+    background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.85),rgba(255,255,255,.12) 55%,rgba(226,160,20,.18));
+    box-shadow:inset 0 0 24px rgba(255,255,255,.35);
+    animation:drift 9s ease-in-out infinite;
+  }
+  @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-26px)}}
+  .fruit{position:absolute;pointer-events:none;filter:drop-shadow(0 14px 18px rgba(71,43,14,.25));animation:drift 7s ease-in-out infinite}
+
+  /* ── marquee ── */
+  .marquee{background:var(--orange);color:#FFF3C0;overflow:hidden;white-space:nowrap;padding:9px 0;font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .marquee-inner{display:inline-block;animation:scroll 22s linear infinite}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .marquee span{margin:0 18px}
+
+  /* ── nav ── */
+  nav{position:relative;display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  nav .logo{font-family:'Caveat',cursive;font-size:2.3rem;font-weight:700;color:var(--ink);text-decoration:none;transform:rotate(-2deg)}
+  nav .links{display:flex;align-items:center;gap:26px;font-weight:600;font-size:.92rem}
+  nav .links a{color:var(--ink);text-decoration:none}
+  nav .shop-pill{background:var(--orange);color:#fff;padding:9px 26px;border-radius:999px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;text-decoration:none}
+  nav .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:9px;background:none;border:none;cursor:pointer}
+  nav .nav-toggle span{display:block;height:3px;border-radius:2px;background:var(--ink);transition:transform .2s,opacity .2s}
+  nav.open .nav-toggle span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  nav.open .nav-toggle span:nth-child(2){opacity:0}
+  nav.open .nav-toggle span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+  /* ── hero ── */
+  .hero{padding:22px 0 56px}
+  .hero-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:26px;align-items:center}
+  .hero h1{font-size:clamp(2.3rem,4.4vw,3.4rem);margin-bottom:12px}
+  .hero h1 em{font-style:italic;color:var(--orange)}
+  .hero .what{font-size:1.02rem;font-weight:600;margin-bottom:6px}
+  .hero .what b{color:var(--orange)}
+  .hero .desc{color:var(--ink-soft);font-size:.95rem;max-width:400px;margin-bottom:16px}
+  .rating-line{display:flex;align-items:center;gap:8px;font-weight:700;font-size:.88rem;margin-bottom:14px}
+  .stars{color:var(--orange);letter-spacing:2px}
+  .flavor-label{font-size:.8rem;font-weight:700;margin-bottom:8px}
+  .flavor-label b{color:var(--orange)}
+  .flavors{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+  .flavors a{display:inline-flex;align-items:center;gap:6px;padding:8px 15px 8px 11px;border-radius:999px;
+    background:rgba(255,253,244,.85);border:2px solid transparent;font-weight:700;font-size:.86rem;line-height:1;
+    color:var(--ink);text-decoration:none;box-shadow:0 4px 10px rgba(71,43,14,.1);
+    transition:transform .12s,border-color .12s,background .12s;-webkit-tap-highlight-color:transparent}
+  .flavors a .fe{font-size:1.15rem;line-height:1}
+  .flavors a:hover{transform:translateY(-2px)}
+  .flavors a:focus{outline:none}
+  .flavors a:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(240,78,35,.35)}
+  .flavors a.active{border-color:var(--orange);background:#fff;box-shadow:0 6px 16px rgba(240,78,35,.18)}
+  .purchase{margin-bottom:16px;font-size:.9rem}
+  .purchase label{display:flex;align-items:center;gap:9px;cursor:pointer;padding:4px 0;font-weight:600}
+  .purchase input{accent-color:var(--orange);width:16px;height:16px}
+  .purchase .sub-note{color:var(--orange);font-weight:700}
+  .buy-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .btn.atc{flex-wrap:wrap;gap:6px 12px;flex:1;min-width:0}
+  .btn.atc .atc-price{font-weight:800;white-space:nowrap}
+  .btn.atc .atc-price::before{content:"·";margin-right:12px;opacity:.55}
+  .qty{display:flex;align-items:center;border:2px solid var(--ink);border-radius:999px;overflow:hidden;flex-shrink:0}
+  .qty button{background:none;border:none;font-size:1.15rem;font-weight:700;color:var(--ink);width:38px;height:44px;cursor:pointer}
+  .qty span{min-width:26px;text-align:center;font-weight:700}
+  .trust-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .trust-chips span{background:rgba(255,253,244,.7);border-radius:999px;padding:6px 14px;font-size:.78rem;font-weight:700}
+  .hero-proof{margin-top:14px;font-size:.82rem;font-weight:600;color:var(--ink-soft)}
+  .hero-proof b{color:var(--ink)}
+
+  .stage{position:relative;display:flex;justify-content:center;align-items:center;min-height:600px}
+  .stage .glow{position:absolute;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,var(--glow) 0%,rgba(255,158,61,.55) 45%,rgba(255,158,61,0) 72%)}
+  .stage svg.bottle{position:relative;z-index:2;filter:drop-shadow(0 30px 44px rgba(71,43,14,.35));animation:drift 6s ease-in-out infinite}
+
+  /* ── spec bar: begrijp het product in 5 sec ── */
+  .specbar{padding:0 0 56px}
+  .specbar .inner{background:rgba(255,253,244,.8);border-radius:var(--radius);box-shadow:0 18px 38px rgba(71,43,14,.12);display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding:26px 22px;text-align:center}
+  .spec b{display:block;font-family:'Fraunces',serif;font-size:1.25rem;font-weight:800;color:var(--orange)}
+  .spec span{font-size:.76rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.05em}
+
+  /* ── markets / social proof ── */
+  .markets{text-align:center}
+  .markets h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-bottom:10px}
+  .markets .sub{color:var(--ink-soft);max-width:520px;margin:0 auto 48px}
+  .photos{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .photo{position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;box-shadow:0 16px 34px rgba(71,43,14,.16);background:linear-gradient(150deg,var(--g-mid),var(--glow))}
+  .photo img{width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .3s}
+  .photo.loaded img{opacity:1}
+  .photo .ph-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:var(--ink);opacity:.75}
+  .photo.loaded .ph-hint{display:none}
+
+  /* ── craft / zelfgemaakt ── */
+  .craft{text-align:center}
+  .craft-kicker{font-family:'Caveat',cursive;font-size:1.7rem;color:var(--orange);display:block;margin-bottom:2px}
+  .craft h2{font-size:clamp(2.1rem,4.8vw,3.2rem);margin-bottom:12px}
+  .craft-lead{color:var(--ink-soft);max-width:560px;margin:0 auto 44px;font-size:1.02rem}
+  .craft-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .craft-item{background:rgba(255,253,244,.7);border-radius:var(--radius);overflow:hidden;box-shadow:0 14px 30px rgba(71,43,14,.1);text-align:left}
+  .craft-item .photo{aspect-ratio:4/3;border-radius:0}
+  .craft-item .ci-body{padding:22px 24px 26px}
+  .craft-item h3{font-size:1.15rem;margin-bottom:6px}
+  .craft-item p{font-size:.9rem;color:var(--ink-soft)}
+
+  /* ── statement ── */
+  .statement{text-align:center;padding:56px 0}
+  .statement h2{font-size:clamp(2.4rem,5.6vw,4.2rem);color:var(--orange);margin-bottom:16px}
+  .statement p{max-width:520px;margin:0 auto;color:var(--ink-soft);font-size:1.02rem}
+
+  /* ── benefits ── */
+  .benefits{text-align:center}
+  .benefits h2{font-size:clamp(2.1rem,4.8vw,3.2rem);margin-bottom:8px}
+  .benefits .sub{color:var(--ink-soft);margin-bottom:50px}
+  .ben-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+  .ben .ico{width:104px;height:104px;margin:0 auto 16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:radial-gradient(circle at 32% 28%,#FFFDF4,#FFE874 70%);box-shadow:0 14px 28px rgba(71,43,14,.16);animation:drift 8s ease-in-out infinite}
+  .ben:nth-child(2) .ico{animation-delay:.7s}
+  .ben:nth-child(3) .ico{animation-delay:1.4s}
+  .ben:nth-child(4) .ico{animation-delay:2.1s}
+  .ben h3{text-transform:uppercase;font-size:1rem;letter-spacing:.06em;color:var(--orange);margin-bottom:5px;font-weight:800}
+  .ben p{font-size:.86rem;color:var(--ink-soft)}
+
+  /* ── serve ── */
+  .serve h2{text-align:center;font-size:clamp(2.1rem,4.8vw,3.2rem);margin-bottom:8px}
+  .serve .sub{text-align:center;color:var(--ink-soft);margin-bottom:50px}
+  .serve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .serve-card{background:rgba(255,253,244,.72);backdrop-filter:blur(6px);border-radius:var(--radius);padding:34px 28px;text-align:center;box-shadow:0 18px 38px rgba(71,43,14,.12)}
+  .serve-card .glass{font-size:3.6rem;display:block;margin-bottom:12px;animation:drift 7s ease-in-out infinite}
+  .serve-card:nth-child(2) .glass{animation-delay:.8s}
+  .serve-card:nth-child(3) .glass{animation-delay:1.6s}
+  .serve-card .tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:7px}
+  .serve-card h3{font-size:1.4rem;margin-bottom:9px}
+  .serve-card p{font-size:.9rem;color:var(--ink-soft)}
+
+  /* ── duo push banner ── */
+  .duo-push{padding:56px 0}
+  .duo-push .inner{background:var(--white);border-radius:var(--radius);box-shadow:0 22px 48px rgba(71,43,14,.16);padding:52px 48px;display:grid;grid-template-columns:1.2fr auto;gap:34px;align-items:center;position:relative;overflow:hidden}
+  .duo-push .tag{display:inline-block;background:var(--orange);color:#fff;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:14px}
+  .duo-push h2{font-size:clamp(1.8rem,4vw,2.7rem);margin-bottom:10px}
+  .duo-push h2 em{color:var(--orange)}
+  .duo-push p{color:var(--ink-soft);font-size:.98rem;max-width:480px}
+  .duo-push .bottles{font-size:4.6rem;filter:drop-shadow(0 14px 18px rgba(71,43,14,.2))}
+
+  /* ── bundles ── */
+  .offer{text-align:center}
+  .offer h2{font-size:clamp(2.3rem,5.2vw,3.6rem);color:var(--orange);margin-bottom:8px}
+  .offer .sub{color:var(--ink-soft);margin-bottom:14px}
+  .batch-note{display:inline-block;background:rgba(255,253,244,.8);border-radius:999px;padding:9px 22px;font-size:.82rem;font-weight:700;margin-bottom:48px;box-shadow:0 8px 20px rgba(71,43,14,.1)}
+  .batch-note b{color:var(--orange)}
+  .bundle-grid{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:26px;align-items:stretch}
+  .bundle{background:var(--white);border-radius:var(--radius);padding:38px 26px 30px;position:relative;display:flex;flex-direction:column;gap:6px;box-shadow:0 20px 44px rgba(71,43,14,.14)}
+  .bundle.best{box-shadow:0 26px 58px rgba(216,67,28,.3);outline:3px solid var(--orange);transform:scale(1.03)}
+  .bundle .flag{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;padding:7px 20px;border-radius:999px;white-space:nowrap}
+  .bundle .emoji{font-size:2.3rem}
+  .bundle h3{font-size:1.4rem}
+  .bundle .was{color:var(--ink-soft);text-decoration:line-through;font-size:.9rem;min-height:1.2em}
+  .bundle .now{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:900;color:var(--orange);line-height:1}
+  .bundle .per{font-size:.85rem;font-weight:700}
+  .bundle .per b{color:var(--orange)}
+  .bundle ul{list-style:none;font-size:.86rem;text-align:left;margin:14px auto 18px;max-width:240px}
+  .bundle ul li{padding:4px 0 4px 24px;position:relative}
+  .bundle ul li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:800}
+  .bundle ul li.x::before{content:"✗";color:rgba(71,43,14,.35)}
+  .bundle ul li.x{color:rgba(71,43,14,.45)}
+  .bundle .save{display:inline-block;background:#FBE3DC;color:var(--orange-deep);font-weight:800;font-size:.8rem;border-radius:999px;padding:5px 14px;margin:0 auto 12px}
+  .bundle .btn{margin-top:auto}
+
+  /* ── add-ons ── */
+  .addons{margin-top:54px}
+  .addons h3{font-size:1.5rem;margin-bottom:22px}
+  .addon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:840px;margin:0 auto}
+  .addon{background:rgba(255,253,244,.8);border-radius:18px;padding:22px;display:flex;align-items:center;gap:14px;text-align:left;box-shadow:0 12px 26px rgba(71,43,14,.1)}
+  .addon .ic{font-size:2rem}
+  .addon b{display:block;font-size:.92rem}
+  .addon span{font-size:.8rem;color:var(--ink-soft)}
+  .addon .price{margin-left:auto;font-weight:800;color:var(--orange);white-space:nowrap;font-size:.9rem}
+
+  .paypoints{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:38px}
+  .paypoints span{background:rgba(255,253,244,.85);border-radius:10px;padding:8px 16px;font-size:.78rem;font-weight:700;box-shadow:0 6px 14px rgba(71,43,14,.08)}
+  .offer .delivery{margin-top:16px;font-size:.85rem;font-weight:600;color:var(--ink-soft)}
+
+  /* ── guarantee ── */
+  .guarantee .g-box{background:rgba(255,253,244,.8);border-radius:var(--radius);box-shadow:0 18px 38px rgba(71,43,14,.12);display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;padding:40px 44px}
+  .guarantee .seal{width:92px;height:92px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#FFFDF4,var(--yellow) 75%);display:flex;align-items:center;justify-content:center;font-size:2.5rem;box-shadow:0 12px 24px rgba(71,43,14,.16)}
+  .guarantee h3{font-size:1.55rem;margin-bottom:6px}
+  .guarantee p{color:var(--ink-soft);font-size:.93rem}
+
+  /* ── reviews ── */
+  .reviews{text-align:center}
+  .reviews h2{font-size:clamp(2.1rem,4.8vw,3.2rem);margin-bottom:8px}
+  .reviews .sub{color:var(--ink-soft);font-weight:600;margin-bottom:48px}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;text-align:left}
+  .rev{background:rgba(255,253,244,.8);border-radius:var(--radius);padding:30px;box-shadow:0 18px 38px rgba(71,43,14,.12)}
+  .rev .stars{margin-bottom:10px;font-size:1rem}
+  .rev p{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:.99rem;line-height:1.5;margin-bottom:16px}
+  .rev .who{font-weight:700;font-size:.86rem}
+  .rev .who span{font-weight:500;color:var(--ink-soft);font-size:.78rem;display:block}
+  .verified{color:var(--leaf);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-top:8px;display:block}
+
+  /* ── FAQ / objections ── */
+  .faq h2{text-align:center;font-size:clamp(2.1rem,4.8vw,3rem);margin-bottom:8px}
+  .faq .sub{text-align:center;color:var(--ink-soft);margin-bottom:44px}
+  .faq details{border-bottom:2px solid rgba(71,43,14,.14)}
+  .faq summary{cursor:pointer;font-weight:700;font-size:1.06rem;padding:20px 6px;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Fraunces',serif}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-size:1.6rem;font-weight:400;color:var(--orange);transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{padding:0 6px 20px;color:var(--ink-soft);font-size:.94rem}
+
+  /* ── final ── */
+  .final{text-align:center;padding:96px 0 110px}
+  .final .kicker{font-family:'Caveat',cursive;font-size:2rem;color:var(--ink);display:block;margin-bottom:6px}
+  .final h2{font-size:clamp(2.6rem,6.5vw,4.6rem);color:var(--orange);margin-bottom:16px}
+  .final p{max-width:480px;margin:0 auto 30px;color:var(--ink-soft);font-size:1.02rem}
+  .final .micro{font-size:.82rem;color:var(--ink-soft);margin-top:18px;font-weight:600}
+
+  footer{background:var(--ink);color:rgba(255,246,216,.65);text-align:center;padding:48px 24px 40px}
+  footer .f-logo{font-family:'Caveat',cursive;font-size:2rem;color:var(--cream);display:inline-block;transform:rotate(-2deg)}
+  footer .f-links{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 24px;margin:18px 0 24px}
+  footer .f-links a{color:rgba(255,246,216,.85);text-decoration:none;font-weight:600;font-size:.9rem}
+  footer .f-links a:hover{color:var(--cream)}
+  footer .f-pay{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  footer .f-pay span{background:rgba(255,246,216,.1);border-radius:7px;padding:5px 12px;font-size:.72rem;font-weight:700;color:rgba(255,246,216,.8)}
+  footer .f-legal{font-size:.82rem;max-width:520px;margin:0 auto 12px;line-height:1.6}
+  footer .f-legal a{color:inherit}
+  footer .age{display:inline-flex;align-items:center;justify-content:center;border:1.5px solid rgba(255,246,216,.5);border-radius:50%;width:28px;height:28px;font-weight:800;font-size:.72rem;vertical-align:middle;margin-right:6px;color:var(--cream)}
+  footer .f-fine{font-size:.72rem;opacity:.6;border-top:1px solid rgba(255,246,216,.14);max-width:600px;margin:0 auto;padding-top:20px}
+
+  /* ── sticky mobile CTA ── */
+  .sticky-cta{position:fixed;bottom:0;left:0;right:0;background:var(--white);box-shadow:0 -8px 26px rgba(71,43,14,.2);padding:12px 18px;display:none;align-items:center;justify-content:space-between;gap:14px;z-index:60}
+  .sticky-cta .p{font-weight:700;font-size:.9rem;line-height:1.3}
+  .sticky-cta .p s{color:var(--ink-soft);font-weight:500}
+  .sticky-cta .p b{color:var(--orange)}
+  .sticky-cta .btn{padding:13px 24px;font-size:.8rem;white-space:nowrap}
+
+  @media(max-width:960px){
+    section{padding:52px 0}
+    nav .nav-toggle{display:flex}
+    nav .links{position:absolute;top:100%;right:0;left:0;flex-direction:column;align-items:stretch;gap:4px;
+      background:var(--white);border-radius:18px;box-shadow:0 18px 40px rgba(71,43,14,.22);
+      padding:10px;margin-top:6px;display:none;z-index:70}
+    nav.open .links{display:flex}
+    nav .links a{padding:14px 16px;border-radius:12px;font-size:1rem}
+    nav .links a:not(.shop-pill):active{background:var(--cream)}
+    nav .shop-pill{text-align:center;font-size:.86rem;padding:14px 16px;margin-top:2px}
+    .hero{padding-bottom:44px}
+    .hero-grid{grid-template-columns:1fr;text-align:center}
+    .hero .desc{margin:0 auto 16px}
+    .flavors,.buy-row,.rating-line,.trust-chips{justify-content:center}
+    .purchase label{justify-content:center}
+    .stage{min-height:460px;order:-1}
+    .stage svg.bottle{width:230px;height:auto}
+    .stage .glow{width:330px;height:330px}
+    .specbar .inner{grid-template-columns:repeat(3,1fr);gap:20px 6px}
+    .photos{grid-template-columns:repeat(2,1fr)}
+    .ben-grid{grid-template-columns:repeat(2,1fr);gap:32px 18px}
+    .serve-grid,.rev-grid,.bundle-grid,.addon-grid,.craft-grid{grid-template-columns:1fr}
+    .bundle.best{transform:none;order:-1}
+    .duo-push .inner{grid-template-columns:1fr;text-align:center;padding:40px 28px}
+    .duo-push p{margin:0 auto}
+    .guarantee .g-box{grid-template-columns:1fr;text-align:center;padding:34px 26px}
+    .guarantee .seal{margin:0 auto}
+    .sticky-cta{display:flex}
+    body{padding-bottom:72px}
+  }
+
+  /* ── telefoon-specifieke polish ── */
+  @media(max-width:560px){
+    section{padding:40px 0}
+    .wrap{padding:0 18px}
+    .marquee{font-size:.66rem;padding:8px 0}
+    nav{padding:12px 0}
+    nav .logo{font-size:1.85rem}
+
+    .hero{padding:4px 0 36px}
+    .hero-grid{gap:10px}
+    .stage{min-height:340px}
+    .stage svg.bottle{width:180px}
+    .stage .glow{width:250px;height:250px}
+    .stage .fruit{font-size:1.9rem!important}
+    .hero h1{font-size:2.05rem}
+    .hero .what{font-size:.94rem}
+    .hero .desc{font-size:.9rem}
+    .rating-line{font-size:.8rem}
+    .buy-row{flex-direction:column;align-items:stretch;gap:12px}
+    .buy-row .qty{align-self:center}
+    .buy-row .btn{width:100%;padding:18px 20px;font-size:.92rem}
+    .btn{letter-spacing:.05em;font-size:.86rem;padding:16px 24px;white-space:nowrap}
+    .btn--big{font-size:.95rem}
+    .btn.atc{flex-wrap:nowrap;justify-content:center;padding:18px 16px}
+    .btn.atc .atc-label{white-space:nowrap}
+    .flavors{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .flavors a{justify-content:center;padding:11px 10px;font-size:.82rem}
+    .trust-chips{gap:6px}
+    .trust-chips span{font-size:.7rem;padding:5px 11px}
+    .hero-proof{font-size:.78rem}
+
+    .specbar{padding-bottom:40px}
+    .specbar .inner{grid-template-columns:repeat(2,1fr);gap:18px 8px;padding:22px 16px}
+    .spec b{font-size:1.05rem}
+    .spec span{font-size:.66rem}
+
+    .markets h2,.benefits h2,.serve h2,.reviews h2,.offer h2,.faq h2{font-size:1.9rem}
+    .markets .sub{margin-bottom:32px}
+    .photos{grid-template-columns:repeat(2,1fr);gap:12px}
+    .section-cta{margin-top:30px}
+    .section-cta .btn{width:100%}
+
+    .statement{padding:36px 0}
+    .statement h2{font-size:2.2rem}
+    .statement p{font-size:.94rem}
+
+    .ben-grid{gap:26px 12px}
+    .ben .ico{width:82px;height:82px;font-size:2.3rem}
+    .ben h3{font-size:.88rem}
+    .ben p{font-size:.78rem}
+
+    .serve-card{padding:26px 20px}
+    .serve-card .glass{font-size:3rem}
+
+    .duo-push{padding:36px 0}
+    .duo-push .inner{padding:32px 22px;gap:22px}
+    .duo-push h2{font-size:1.55rem}
+    .duo-push p{font-size:.9rem}
+    .duo-push .bottles{font-size:3.4rem}
+    .duo-push .btn{width:100%}
+
+    .batch-note{font-size:.74rem;padding:8px 16px;margin-bottom:36px}
+    .bundle{padding:34px 20px 26px}
+    .bundle .now{font-size:2.2rem}
+    .addons h3{font-size:1.25rem}
+    .addon{padding:16px}
+    .addon .ic{font-size:1.6rem}
+    .paypoints{gap:7px;margin-top:28px}
+    .paypoints span{font-size:.7rem;padding:6px 12px}
+    .offer .delivery{font-size:.78rem}
+
+    .guarantee .g-box{padding:28px 20px;gap:18px}
+    .guarantee .seal{width:74px;height:74px;font-size:2rem}
+    .guarantee h3{font-size:1.3rem}
+    .guarantee .btn{width:100%}
+
+    .rev{padding:24px 20px}
+    .faq summary{font-size:.96rem;padding:16px 4px}
+    .faq details p{font-size:.88rem}
+
+    .final{padding:60px 0 72px}
+    .final h2{font-size:2.5rem}
+    .final .btn{width:100%}
+    .final .micro{font-size:.74rem}
+
+    footer{padding:40px 18px 34px}
+    footer .f-legal{font-size:.78rem}
+
+    .sticky-cta{padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
+    .sticky-cta .p{font-size:.84rem}
+    body{padding-bottom:calc(68px + env(safe-area-inset-bottom))}
+
+    .promo{padding:0}
+    .promo-card{max-width:none;width:100%;border-radius:24px 24px 0 0;margin-top:auto;padding:30px 22px calc(26px + env(safe-area-inset-bottom))}
+    .promo-emoji{font-size:2.6rem}
+    .promo-card h3{font-size:1.7rem}
+  }
+
+  /* ── 5% korting pop-up ── */
+  .promo{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:20px;
+    background:rgba(36,27,16,.55);backdrop-filter:blur(3px);animation:promo-fade .25s ease}
+  .promo[hidden]{display:none}
+  @keyframes promo-fade{from{opacity:0}to{opacity:1}}
+  .promo-card{position:relative;background:var(--white);border-radius:24px;max-width:400px;width:100%;
+    padding:40px 34px 30px;text-align:center;box-shadow:0 30px 70px rgba(36,27,16,.4);animation:promo-pop .3s ease}
+  @keyframes promo-pop{from{transform:translateY(16px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+  .promo-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:1.8rem;line-height:1;
+    color:var(--ink-soft);cursor:pointer;width:40px;height:40px;border-radius:50%}
+  .promo-close:hover{background:rgba(71,43,14,.08)}
+  .promo-emoji{font-size:3rem;margin-bottom:6px}
+  .promo-card h3{font-family:'Fraunces',serif;font-weight:800;font-size:1.9rem;margin-bottom:10px}
+  .promo-card h3 em{font-style:italic;color:var(--orange)}
+  .promo-card p{color:var(--ink-soft);font-size:.95rem;margin-bottom:18px}
+  .promo-card form{display:flex;flex-direction:column;gap:10px}
+  .promo-card input{font-family:'DM Sans',sans-serif;font-size:16px;padding:15px 18px;border:2px solid rgba(71,43,14,.2);
+    border-radius:999px;text-align:center;outline:none;transition:border-color .15s}
+  .promo-card input:focus{border-color:var(--orange)}
+  .promo-card input.err{border-color:var(--orange);background:#FDECE7}
+  .promo-card form .btn{width:100%;padding:15px 20px}
+  .promo-fine{font-size:.74rem;opacity:.7;margin:14px 0 0}
+  .promo-code{font-family:'Fraunces',serif;font-weight:900;font-size:2rem;letter-spacing:.08em;color:var(--orange);
+    background:var(--cream);border:2px dashed var(--orange);border-radius:14px;padding:12px;margin-bottom:14px}
+  .promo-success .btn{width:100%;margin-top:4px}
+</style>
+</head>
+<body>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-inner" id="marquee">
+    <span>☀ Gratis verzending vanaf 2 flessen</span><span>☀ Levering in BE &amp; NL binnen 2 werkdagen</span><span>☀ Gelimiteerde zomerbatch</span><span>☀ Ambachtelijk gestookt in België</span><span>☀ 18+ · Geniet met mate</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <nav id="nav">
+    <a class="logo" href="#">Pinacello</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="links" id="navLinks">
+      <a href="#geniet">Geniet</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">Vragen</a>
+      <a class="shop-pill" href="#bestel">Bestel</a>
+    </div>
+  </nav>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <div class="shop-panel">
+        <h1>Breng de <em>zomer</em> naar je tuinfeest.</h1>
+        <p class="what"><b id="p-name">Pinacello</b> — <span id="p-pack">ananas-citroen likeur · 22% · 500 ml</span></p>
+        <p class="desc" id="p-desc">Puur, on the rocks of als spritz.</p>
+        <div class="rating-line"><span class="stars">★★★★★</span><span>4,9/5 (300+ reviews)</span></div>
+
+        <div class="flavors">
+          <a href="#" data-flavor="pina" class="active"><span class="fe">🍍</span>Pinacello</a>
+          <a href="#" data-flavor="coco"><span class="fe">🥥</span>Cococello</a>
+          <a href="#" data-flavor="cali"><span class="fe">🍌</span>Calibana</a>
+          <a href="#" data-flavor="fram"><span class="fe">🍓</span>Frambolade</a>
+          <a href="#" data-flavor="vaquero"><span class="fe">🥃</span>Vaquero</a>
+          <a href="#" data-flavor="ivoir"><span class="fe">🍫</span>Ivoir</a>
+        </div>
+
+        <div class="buy-row">
+          <div class="qty">
+            <button type="button" id="q-min" aria-label="Minder">−</button>
+            <span id="q-val">1</span>
+            <button type="button" id="q-plus" aria-label="Meer">+</button>
+          </div>
+          <a class="btn atc" href="#bestel" id="atc"><span class="atc-label">Bestel de zomerfles</span><span class="atc-price" id="atc-price">€25,00</span></a>
+        </div>
+
+        <div class="trust-chips">
+          <span>🇧🇪 Belgisch merk</span>
+          <span>👐 Zelfgemaakt</span>
+          <span>🍹 Ideaal voor cocktails</span>
+          <span>🚚 Levering in BE &amp; NL</span>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="glow"></div>
+        <span class="fruit" style="top:4%;left:2%;font-size:3.6rem;animation-delay:.4s">🍍</span>
+        <span class="fruit" style="bottom:8%;right:2%;font-size:3.2rem;animation-delay:1.3s">🍋</span>
+        <span class="fruit" style="bottom:2%;left:10%;font-size:2.3rem;animation-delay:2.2s">🌴</span>
+        <span class="bubble" style="width:64px;height:64px;top:6%;right:10%"></span>
+        <span class="bubble" style="width:30px;height:30px;top:42%;left:0;animation-delay:1.5s"></span>
+        <span class="bubble" style="width:44px;height:44px;bottom:4%;right:24%;animation-delay:3s"></span>
+        <!-- gestileerde fles — vervang door productfoto (PNG met transparante achtergrond) -->
+        <svg class="bottle" width="310" height="595" viewBox="0 0 240 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fles Pinacello likeur">
+          <rect x="103" y="8" width="34" height="30" rx="4" fill="#1E1813"/>
+          <rect x="100" y="34" width="40" height="10" rx="3" fill="#332A21"/>
+          <path d="M100 44 h40 v38 c0 10 24 22 30 46 v290 c0 20 -14 34 -50 34 s-50 -14 -50 -34 v-290 c6 -24 30 -36 30 -46 z" fill="#f3f6f4" opacity=".35"/>
+          <path d="M100 44 h40 v38 c0 10 24 22 30 46 v290 c0 20 -14 34 -50 34 s-50 -14 -50 -34 v-290 c6 -24 30 -36 30 -46 z" fill="none" stroke="#cfd8d2" stroke-width="2"/>
+          <path class="liquid" d="M72 150 v268 c0 18 13 30 48 30 s48 -12 48 -30 v-268 c-4 -14 -14 -22 -22 -30 h-52 c-8 8 -18 16 -22 30 z" fill="#F7C844"/>
+          <path d="M72 150 v268 c0 18 13 30 48 30 s48 -12 48 -30 v-268 c-4 -14 -14 -22 -22 -30 h-52 c-8 8 -18 16 -22 30 z" fill="url(#shine)" opacity=".5"/>
+          <defs>
+            <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#fff" stop-opacity=".55"/>
+              <stop offset=".35" stop-color="#fff" stop-opacity="0"/>
+              <stop offset="1" stop-color="#c77b18" stop-opacity=".35"/>
+            </linearGradient>
+          </defs>
+          <rect x="84" y="200" width="72" height="150" rx="8" fill="#FFFDF7"/>
+          <text class="label-emoji" x="120" y="248" text-anchor="middle" font-size="28">🍍</text>
+          <text class="label-name" x="120" y="292" text-anchor="middle" font-family="Caveat,cursive" font-size="26" font-weight="700" fill="#241B10">Pinacello</text>
+          <text class="label-sub" x="120" y="312" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" letter-spacing="1" fill="#241B10">ANANAS · CITROEN LIKEUR</text>
+          <text x="120" y="330" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#8a7a5a">500 ML</text>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- ═══ SPEC BAR ═══ -->
+<div class="specbar">
+  <div class="wrap">
+    <div class="inner">
+      <div class="spec"><b>500 ml</b><span>inhoud per fles</span></div>
+      <div class="spec"><b>22%</b><span>alcohol</span></div>
+      <div class="spec"><b>Zelfgemaakt</b><span>door twee broers</span></div>
+      <div class="spec"><b>100%</b><span>natuurlijke smaak</span></div>
+      <div class="spec"><b>Koel</b><span>bewaren &amp; serveren</span></div>
+      <div class="spec"><b>1-2 dagen</b><span>levering BE &amp; NL</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ BUNDLES ═══ -->
+<section class="offer" id="bestel">
+  <span class="bubble" style="width:80px;height:80px;top:4%;right:6%"></span>
+  <span class="bubble" style="width:46px;height:46px;bottom:8%;left:5%;animation-delay:2s"></span>
+  <div class="wrap">
+    <h2>Haal de zomer in huis.</h2>
+    <p class="sub">Hoe meer zon je bestelt, hoe minder je betaalt per fles.</p>
+    <div class="batch-note">☀️ <b>Gelimiteerde zomerbatch</b> — op = op tot de volgende batch.</div>
+    <div class="bundle-grid">
+      <div class="bundle">
+        <div class="emoji">🍍</div>
+        <h3>Proef de zomer</h3>
+        <div class="was">&nbsp;</div>
+        <div class="now">€25</div>
+        <div class="per">€25,00 per fles</div>
+        <ul>
+          <li>1 fles · 500ml</li>
+          <li class="x">+ €5,95 verzending</li>
+        </ul>
+        <a class="btn btn--ghost" href="https://www.pinacello.com/shop">Kies deze</a>
+      </div>
+      <div class="bundle best">
+        <div class="flag">⭐ Meest gekozen</div>
+        <div class="emoji">🍾🍾</div>
+        <h3>Zomer Duo</h3>
+        <div class="was">€55,95 apart</div>
+        <div class="now">€45</div>
+        <div class="per"><b>€22,50 per fles</b></div>
+        <span class="save">Je bespaart €10,95</span>
+        <ul>
+          <li>2 flessen · 500ml</li>
+          <li><b>Gratis verzending</b></li>
+        </ul>
+        <a class="btn" href="https://www.pinacello.com/shop">Kies het Zomer Duo</a>
+      </div>
+      <div class="bundle">
+        <div class="emoji">🎉</div>
+        <h3>Feest-pakket</h3>
+        <div class="was">€80,95 apart</div>
+        <div class="now">€63</div>
+        <div class="per"><b>€21,00 per fles</b></div>
+        <span class="save">Je bespaart €17,95</span>
+        <ul>
+          <li>3 flessen · 500ml</li>
+          <li><b>Gratis verzending</b></li>
+        </ul>
+        <a class="btn btn--ghost" href="https://www.pinacello.com/shop">Kies deze</a>
+      </div>
+    </div>
+
+    <p class="delivery">📦 Gratis verzending vanaf 2 flessen · Levering in BE &amp; NL binnen 1-2 werkdagen</p>
+  </div>
+</section>
+
+<!-- ═══ MARKETS / PROOF ═══ -->
+<section class="markets">
+  <div class="wrap">
+    <h2>Al populair op Belgische markten.</h2>
+    <p class="sub">Honderden klanten proefden Pinacello al live.</p>
+    <!-- FOTO'S: vervang elke .photo achtergrond door <img src="..."> van markten/UGC -->
+    <div class="photos">
+      <div class="photo"><img src="markets/markt-1.jpg" alt="Pinacello marktstand vol flessen" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+      <div class="photo"><img src="markets/markt-2.jpg" alt="Pinacello op de kerstmarkt" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+      <div class="photo"><img src="markets/markt-3.jpg" alt="Pinacello op een zomerfeest" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+      <div class="photo"><img src="markets/markt-4.jpg" alt="Genieten van een Pinacello op het terras" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+    </div>
+    <div class="section-cta"><a class="btn" href="#bestel">Bestel nu</a></div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS / SERVE ═══ -->
+<section class="serve" id="geniet">
+  <div class="wrap">
+    <h2>Zo drink je het.</h2>
+    <p class="sub">Drie manieren, nul moeite.</p>
+    <div class="serve-grid">
+      <div class="serve-card">
+        <span class="glass">🥃</span>
+        <span class="tag">01 · Puur</span>
+        <h3>On the rocks</h3>
+        <p>Schenk goed gekoeld over ijs. Zo proef je de volle, fruitige smaak op z'n best.</p>
+      </div>
+      <div class="serve-card">
+        <span class="glass">🍹</span>
+        <span class="tag">02 · Bubbels</span>
+        <h3>Pinacello Spritz</h3>
+        <p>1 deel Pinacello, 2 delen prosecco of bruiswater, ijs en een schijfje citroen.</p>
+      </div>
+      <div class="serve-card">
+        <span class="glass">🍨</span>
+        <span class="tag">03 · Dessert</span>
+        <h3>Over vanille-ijs</h3>
+        <p>Een scheutje over een bol vanille-ijs — je zomerdessert is klaar.</p>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:26px;font-size:.88rem;font-weight:600;color:var(--ink-soft)">💡 Bewaar de fles in de koelkast en shake voor gebruik.</p>
+    <div class="section-cta"><a class="btn" href="#bestel">Bestel nu</a></div>
+  </div>
+</section>
+
+<!-- ═══ ZELFGEMAAKT / CRAFT ═══ -->
+<section class="craft">
+  <div class="wrap">
+    <span class="craft-kicker">Ambachtelijk uit België</span>
+    <h2>100% zelfgemaakt.</h2>
+    <p class="craft-lead">Geen fabriek, geen kunstmatige troep. Elke fles Pinacello wordt met de hand gemaakt door twee broers, met echte, natuurlijke ingrediënten.</p>
+    <!-- FOTO'S: vervang elke .photo achtergrond door <img src="..."> van het maakproces -->
+    <div class="craft-grid">
+      <div class="craft-item">
+        <div class="photo"><img src="craft/craft-1.jpg" alt="De makers met hun flessen" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+        <div class="ci-body"><h3>Met de hand gemaakt</h3><p>Zelf gestookt en gebotteld, fles per fles.</p></div>
+      </div>
+      <div class="craft-item">
+        <div class="photo"><img src="craft/craft-2.jpg" alt="Zelfgemaakt door de twee broers" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+        <div class="ci-body"><h3>Zelfgemaakt</h3><p>Door twee broers zelf gemaakt, nooit in een fabriek.</p></div>
+      </div>
+      <div class="craft-item">
+        <div class="photo"><img src="craft/craft-3.jpg" alt="Natuurlijke smaak" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+        <div class="ci-body"><h3>Natuurlijke smaak</h3><p>Echte vruchten, geen kunstmatige smaakstoffen.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REVIEWS ═══ -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <h2>Niet zomaar onze mening.</h2>
+    <p class="sub">★★★★★ 4,9/5 op basis van 300+ reviews</p>
+    <div class="rev-grid">
+      <div class="rev">
+        <div class="stars">★★★★★</div>
+        <p>"Op de markt geproefd en meteen twee flessen mee naar huis. Op de BBQ waren ze zo leeg — fris en niet te zoet."</p>
+        <div class="who">Sofie V. <span>Antwerpen · Zomer Duo</span></div>
+        <span class="verified">✓ Geverifieerde aankoop</span>
+      </div>
+      <div class="rev">
+        <div class="stars">★★★★★</div>
+        <p>"Als spritz met prosecco echt top. Verrassend verfijnd, en je proeft dat het met de hand gemaakt is."</p>
+        <div class="who">Thomas D. <span>Gent · kwam terug voor 3</span></div>
+        <span class="verified">✓ Geverifieerde aankoop</span>
+      </div>
+      <div class="rev">
+        <div class="stars">★★★★★</div>
+        <p>"Cadeau gegeven aan mijn schoonzus — groot succes. Zo'n handgemaakte fles maakt gewoon indruk."</p>
+        <div class="who">Els M. <span>Dilbeek · cadeau</span></div>
+        <span class="verified">✓ Geverifieerde aankoop</span>
+      </div>
+    </div>
+    <div class="section-cta"><a class="btn" href="#bestel">Kies je bundel</a></div>
+  </div>
+</section>
+
+<!-- ═══ GUARANTEE ═══ -->
+<section class="guarantee">
+  <div class="wrap">
+    <div class="g-box">
+      <div class="seal">🛡️</div>
+      <div>
+        <h3>Onze zonzeker-garantie</h3>
+        <p>Niet lekker? Geld terug. Fles gebroken bij levering? Gratis een nieuwe. Geen gedoe.</p>
+      </div>
+      <a class="btn" href="#bestel">Probeer risicoloos</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ / OBJECTIONS ═══ -->
+<section class="faq" id="faq">
+  <div class="wrap" style="max-width:740px">
+    <h2>Nog twijfels? Fair.</h2>
+    <p class="sub">De vragen die we het vaakst krijgen aan onze proefstand.</p>
+    <details>
+      <summary>Hoe smaakt het?</summary>
+      <p>Zoete, rijpe ananas met een frisse citroentwist. Tropisch, vol van smaak, zachte afdronk.</p>
+    </details>
+    <details>
+      <summary>Is het heel zoet?</summary>
+      <p>Nee — de citroen houdt de zoetheid in balans. Fris in plaats van plakkerig zoet.</p>
+    </details>
+    <details>
+      <summary>Hoe drink je het?</summary>
+      <p>Altijd goed gekoeld: puur, on the rocks, als shot of als spritz (1 deel Pinacello, 2 delen bruiswater of prosecco). Bewaar de fles in de koelkast en shake voor gebruik. Gratis receptenkaart bij elke bestelling.</p>
+    </details>
+    <details>
+      <summary>Is het een goed cadeau?</summary>
+      <p>"Die fles maakt indruk" is ons meest gehoorde compliment. Met het Zomer Duo heb je er meteen eentje om te geven én eentje om zelf te houden.</p>
+    </details>
+    <details>
+      <summary>Hoe snel wordt het geleverd?</summary>
+      <p>Voor 16u besteld = zelfde dag verzonden. Levering in BE &amp; NL binnen 1-2 werkdagen. Gratis vanaf 2 flessen, anders €5,95.</p>
+    </details>
+    <details>
+      <summary>Hoeveel alcohol zit erin?</summary>
+      <p>Pinacello bevat 22% alcohol en wordt enkel verkocht aan 18+. Geniet, maar drink met mate.</p>
+    </details>
+    <details>
+      <summary>Ik heb een horecazaak — kan ik inkopen?</summary>
+      <p>Zeker! Mail pina.cello01@gmail.com voor B2B-tarieven en een vrijblijvende offerte.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ═══ FINAL ═══ -->
+<section class="final">
+  <span class="fruit" style="top:12%;left:10%;font-size:3rem">🍍</span>
+  <span class="fruit" style="bottom:16%;right:9%;font-size:2.6rem;animation-delay:1.4s">🍋</span>
+  <span class="bubble" style="width:70px;height:70px;top:18%;right:22%"></span>
+  <span class="bubble" style="width:44px;height:44px;bottom:12%;left:24%;animation-delay:2.2s"></span>
+  <div class="wrap">
+    <span class="kicker">Life's a beach —</span>
+    <h2>Drink Pinacello!</h2>
+    <p>Bestel vandaag — binnen 2 dagen in huis, net op tijd voor het weekend.</p>
+    <a class="btn btn--big" href="https://www.pinacello.com/shop">Haal de zomer in huis</a>
+    <p class="micro">✓ Geld-terug &amp; breuk-garantie · ✓ Gratis verzending vanaf 2 flessen · ✓ Levering in 1-2 werkdagen</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="f-logo">Pinacello</span>
+    <nav class="f-links">
+      <a href="https://www.pinacello.com/shop">Webshop</a>
+      <a href="https://www.pinacello.com/contact-8">Contact</a>
+      <a href="https://www.pinacello.com/b2b-samenwerking">B2B</a>
+      <a href="https://www.pinacello.com" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+      <a href="https://www.pinacello.com" target="_blank" rel="noopener">Privacy Policy</a>
+    </nav>
+    <div class="f-pay"><span>Bancontact</span><span>Visa</span><span>Mastercard</span><span>Apple Pay</span><span>PayPal</span></div>
+    <p class="f-legal"><span class="age">18+</span> Alcohol enkel voor personen van 18 jaar of ouder. Geniet, maar drink met mate — <a href="https://www.drinkbewust.be" target="_blank" rel="noopener">drinkbewust.be</a></p>
+    <p class="f-fine">Pinacello · Kerselaarstraat 40, 1700 Dilbeek · Ondernemingsnr. 1006.157.937 · © 2026</p>
+  </div>
+</footer>
+
+<!-- ═══ STICKY MOBILE CTA ═══ -->
+<div class="sticky-cta">
+  <div class="p" id="sticky-p">Pinacello 500ml<br><b>€25,00</b></div>
+  <a class="btn" href="#bestel">In winkelwagen</a>
+</div>
+
+<!-- ═══ 5% KORTING POP-UP ═══ -->
+<div class="promo" id="promo" role="dialog" aria-modal="true" aria-labelledby="promo-title" hidden>
+  <div class="promo-card">
+    <button class="promo-close" id="promo-close" aria-label="Sluiten">×</button>
+    <div class="promo-body" id="promo-body">
+      <div class="promo-emoji">🍍</div>
+      <h3 id="promo-title">Krijg <em>5% korting</em></h3>
+      <p>Meld je aan en ontvang je kortingscode voor je eerste bestelling. Plus af en toe een zomerrecept.</p>
+      <form id="promo-form" novalidate>
+        <input type="email" id="promo-email" inputmode="email" autocomplete="email" placeholder="jouw@email.be" aria-label="E-mailadres" required>
+        <button type="submit" class="btn">Stuur mijn code</button>
+      </form>
+      <p class="promo-fine">Geen spam. Uitschrijven kan altijd. 18+</p>
+    </div>
+    <div class="promo-success" id="promo-success" hidden>
+      <div class="promo-emoji">🎉</div>
+      <h3>Yes! Hier is je code</h3>
+      <div class="promo-code" id="promo-code">ZOMER5</div>
+      <p>Gebruik <b>ZOMER5</b> aan de kassa voor 5% korting.</p>
+      <a class="btn" href="#bestel" id="promo-shop">Bestel nu</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // marquee: dupliceer inhoud zodat de loop naadloos is
+  var mq=document.getElementById('marquee');
+  mq.innerHTML+=mq.innerHTML;
+
+  // mobiel hamburger-menu
+  (function(){
+    var nav=document.getElementById('nav'),tgl=document.getElementById('navToggle');
+    tgl.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      tgl.setAttribute('aria-expanded',open);
+    });
+    nav.querySelectorAll('.links a').forEach(function(a){
+      a.addEventListener('click',function(){nav.classList.remove('open');tgl.setAttribute('aria-expanded','false');});
+    });
+  })();
+
+  // hero: smaak-thema's + aantal + abonnee-korting → prijs op de knop
+  (function(){
+    var FLAVORS={
+      pina:{name:'Pinacello',sub:'ANANAS · CITROEN LIKEUR',pack:'ananas-citroen likeur · 22% · 500 ml',price:25,emoji:'🍍',
+        desc:'Puur, on the rocks of als spritz.',
+        accent:'#F04E23',deep:'#D8431C',glow:'#FF9E3D',liquid:'#F7C844',
+        g:['#FFD84D','#FFE874','#FFF3C0','#FFF6D8'],fruits:['🍍','🍋','🌴']},
+      coco:{name:'Cococello',sub:'KOKOSNOOT CRÈME LIKEUR',pack:'kokosnoot crème likeur · 500 ml',price:25,emoji:'🥥',
+        desc:'Zacht en romig. Puur of over ijs.',
+        accent:'#A9713A',deep:'#8F5D2C',glow:'#EBCB9A',liquid:'#F4ECDD',
+        g:['#F0E2C6','#F7EDD8','#FCF6E9','#FFFBF2'],fruits:['🥥','🌴','🥥']},
+      cali:{name:'Calibana',sub:'BANAAN · VANILLE LIKEUR',pack:'banaan-vanille likeur · 500 ml',price:25,emoji:'🍌',
+        desc:'Romige banaan met vanille.',
+        accent:'#D89A1E',deep:'#B37E12',glow:'#F5CE5B',liquid:'#F3D98A',
+        g:['#FCE9A6','#FDF1C6','#FEF8E4','#FFFCF0'],fruits:['🍌','🌴','🍌']},
+      fram:{name:'Frambolade',sub:'FRAMBOZEN LIKEUR',pack:'frambozen likeur · 500 ml',price:30,emoji:'🍓',
+        desc:'Vol-fruitig en fris. Top als spritz.',
+        accent:'#D8264B',deep:'#B71C3E',glow:'#FF8FA0',liquid:'#D8455A',
+        g:['#FFB9C4','#FFD3DA','#FFE9EC','#FFF4F5'],fruits:['🍓','🍒','🍓']},
+      vaquero:{name:'Vaquero',sub:'RUM LIKEUR',pack:'rum likeur · 500 ml',price:30,emoji:'🥃',
+        desc:'Rum likeur met karakter.',
+        accent:'#9C3D2A',deep:'#7E3021',glow:'#D98A4B',liquid:'#7A2E1E',
+        g:['#EBC98F','#F3DCB0','#F9EDD3','#FCF5E4'],fruits:['🥃','🌴','🥃']},
+      ivoir:{name:'Ivoir',sub:'CHOCOLADE WHISKEY',pack:'witte chocolade whiskey · 500 ml',price:30,emoji:'🍫',
+        desc:'Zijdezacht — het dessert in je glas.',
+        accent:'#9C6224',deep:'#7F4E1B',glow:'#E9C284',liquid:'#F1E3C0',
+        g:['#EFD9B4','#F6E8CB','#FBF2DF','#FFF8EA'],fruits:['🍫','🥛','🍫']}
+    };
+    var qty=1,PRICE=25,NAME='Pinacello';
+    var q=document.getElementById('q-val'),out=document.getElementById('atc-price');
+    function fmt(n){return '€'+n.toFixed(2).replace('.',',');}
+    function upd(){
+      q.textContent=qty;
+      out.textContent=fmt(PRICE*qty);
+      document.getElementById('sticky-p').innerHTML=NAME+' 500ml<br><b>'+fmt(PRICE)+'</b>';
+    }
+    function theme(key){
+      var f=FLAVORS[key],r=document.documentElement.style;
+      r.setProperty('--orange',f.accent);r.setProperty('--orange-deep',f.deep);r.setProperty('--glow',f.glow);
+      r.setProperty('--g-deep',f.g[0]);r.setProperty('--g-mid',f.g[1]);r.setProperty('--g-soft',f.g[2]);r.setProperty('--g-cream',f.g[3]);
+      document.getElementById('p-name').textContent=f.name;
+      document.getElementById('p-pack').textContent=f.pack;
+      document.getElementById('p-desc').textContent=f.desc;
+      document.querySelectorAll('svg .liquid').forEach(function(el){el.setAttribute('fill',f.liquid);});
+      document.querySelectorAll('svg .label-name').forEach(function(el){el.textContent=f.name;});
+      document.querySelectorAll('svg .label-sub').forEach(function(el){el.textContent=f.sub;});
+      document.querySelectorAll('svg .label-emoji').forEach(function(el){el.textContent=f.emoji;});
+      document.querySelectorAll('.glow').forEach(function(el){
+        el.style.background='radial-gradient(circle,'+f.glow+' 0%,'+f.glow+'8C 45%,'+f.glow+'00 72%)';
+      });
+      document.querySelectorAll('.fruit').forEach(function(el,i){el.textContent=f.fruits[i%f.fruits.length];});
+      document.querySelectorAll('.flavors a').forEach(function(a){a.classList.toggle('active',a.dataset.flavor===key);});
+      PRICE=f.price;NAME=f.name;
+      upd();
+    }
+    document.querySelectorAll('.flavors a').forEach(function(a){
+      a.addEventListener('click',function(e){e.preventDefault();theme(a.dataset.flavor);});
+    });
+    document.getElementById('q-min').onclick=function(){if(qty>1)qty--;upd();};
+    document.getElementById('q-plus').onclick=function(){if(qty<12)qty++;upd();};
+    upd();
+  })();
+
+  // 5% korting pop-up: verschijnt één keer per bezoeker (na 7s of bij 45% scroll)
+  (function(){
+    var KEY='pinacello-promo-seen';
+    var promo=document.getElementById('promo');
+    if(!promo || localStorage.getItem(KEY)) return;
+    var body=document.getElementById('promo-body'),success=document.getElementById('promo-success');
+    var shown=false,timer;
+    function open(){
+      if(shown||localStorage.getItem(KEY))return;
+      shown=true;clearTimeout(timer);window.removeEventListener('scroll',onScroll);
+      promo.hidden=false;
+      setTimeout(function(){var i=document.getElementById('promo-email');if(i)i.focus();},260);
+    }
+    function close(){
+      promo.hidden=true;
+      localStorage.setItem(KEY,'1');
+    }
+    function onScroll(){
+      var d=(window.scrollY+window.innerHeight)/document.documentElement.scrollHeight;
+      if(d>0.45)open();
+    }
+    timer=setTimeout(open,7000);
+    window.addEventListener('scroll',onScroll,{passive:true});
+    document.getElementById('promo-close').onclick=close;
+    promo.addEventListener('click',function(e){if(e.target===promo)close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!promo.hidden)close();});
+    document.getElementById('promo-shop').onclick=close;
+    document.getElementById('promo-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      var input=document.getElementById('promo-email');
+      if(!input.value||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(input.value)){input.classList.add('err');input.focus();return;}
+      saveLead(input.value.trim());
+      localStorage.setItem(KEY,'1');
+      body.hidden=true;success.hidden=false;
+    });
+  })();
+
+  // ── LEAD-OPSLAG ──────────────────────────────────────────────
+  // Bewaart e-mails lokaal zodat er niets verloren gaat vóór de Wix-koppeling.
+  // Bekijk verzamelde leads in de console:  window.pinacelloLeads()
+  // KOPPELEN MET WIX: vervang de fetch-TODO hieronder door je Wix endpoint
+  // (Wix → Backend → http-functions.js, of Wix Forms / Ascend webhook).
+  function saveLead(email){
+    var lead={email:email,code:'ZOMER5',source:'promo-5pct',ts:new Date().toISOString(),page:location.pathname};
+    try{
+      var leads=JSON.parse(localStorage.getItem('pinacello-leads')||'[]');
+      leads.push(lead);
+      localStorage.setItem('pinacello-leads',JSON.stringify(leads));
+    }catch(err){}
+    // TODO WIX: stuur lead naar je backend, bv.
+    // fetch('/_functions/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)});
+  }
+  window.pinacelloLeads=function(){return JSON.parse(localStorage.getItem('pinacello-leads')||'[]');};
+</script>
+</body>
+</html>
