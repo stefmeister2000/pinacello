@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Het verhaal van twee broers — Pinacello</title>
+<meta name="description" content="Twee broers uit Dilbeek die van een idee aan de keukentafel naar marktkramen door heel België gingen. Dit is hun verhaal.">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600..900;1,9..144,600..900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#472B0E;
+    --ink-soft:rgba(71,43,14,.72);
+    --orange:#F04E23;
+    --orange-deep:#D8431C;
+    --cream:#FFF6D8;
+    --white:#FFFDF4;
+    --radius:24px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'DM Sans',sans-serif;color:var(--ink);line-height:1.7;overflow-x:hidden;
+    background:linear-gradient(180deg,#FFD84D 0%,#FFE874 18%,#FFF3C0 42%,#FFF6D8 70%,#FFE874 100%);
+    padding-bottom:96px;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:800;line-height:1.12;letter-spacing:-.01em}
+  .wrap{max-width:560px;margin:0 auto;padding:0 22px}
+  img{max-width:100%;display:block}
+
+  /* ── top ── */
+  .top{text-align:center;padding:26px 0 6px}
+  .top .logo{font-family:'Caveat',cursive;font-size:2.4rem;font-weight:700;color:var(--ink);text-decoration:none;display:inline-block;transform:rotate(-2deg)}
+
+  /* ── hero ── */
+  .hero{text-align:center;padding:14px 0 30px}
+  .eyebrow{font-family:'Caveat',cursive;font-size:1.6rem;color:var(--orange);display:block;margin-bottom:2px}
+  .hero h1{font-size:clamp(2.1rem,8.5vw,3rem);margin-bottom:14px}
+  .hero h1 em{font-style:italic;color:var(--orange)}
+  .hero p{color:var(--ink-soft);font-size:1.02rem;max-width:420px;margin:0 auto}
+
+  .photo{border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 44px rgba(71,43,14,.2);margin:26px 0}
+  .photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%;aspect-ratio:4/3}
+  .photo.tall img{aspect-ratio:4/5}
+
+  /* ── story ── */
+  .story{padding:8px 0 6px}
+  .story p{font-size:1.04rem;margin-bottom:16px}
+  .story p b{font-weight:700}
+  .pull{font-family:'Fraunces',serif;font-style:italic;font-weight:700;font-size:1.35rem;line-height:1.4;
+    color:var(--orange);text-align:center;margin:28px 0;padding:0 6px}
+
+  /* ── values ── */
+  .values{display:grid;grid-template-columns:1fr;gap:10px;margin:28px 0 6px}
+  .val{background:rgba(255,253,244,.8);border-radius:18px;box-shadow:0 12px 26px rgba(71,43,14,.1);
+    display:flex;align-items:center;gap:15px;padding:15px 18px;text-align:left}
+  .val .ic{font-size:1.75rem;line-height:1;flex-shrink:0}
+  .val .vt b{display:block;font-family:'Fraunces',serif;font-weight:800;font-size:1.02rem;line-height:1.25}
+  .val .vt span{font-size:.86rem;color:var(--ink-soft);line-height:1.4}
+
+  @media(min-width:560px){
+    .values{grid-template-columns:repeat(3,1fr);gap:12px;margin:30px 0 8px}
+    .val{flex-direction:column;text-align:center;gap:7px;padding:20px 12px}
+    .val .ic{font-size:1.9rem}
+    .val .vt b{font-size:.95rem}
+    .val .vt span{font-size:.78rem}
+  }
+
+  /* ── cta ── */
+  .cta{text-align:center;padding:34px 0 20px}
+  .cta h2{font-size:clamp(1.7rem,6.5vw,2.2rem);margin-bottom:10px}
+  .cta p{color:var(--ink-soft);margin-bottom:22px;font-size:.98rem}
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    background:var(--orange);color:#fff;font-weight:700;font-size:1rem;letter-spacing:.06em;
+    text-transform:uppercase;text-decoration:none;padding:20px 24px;border-radius:999px;
+    box-shadow:0 12px 30px rgba(216,67,28,.35);transition:transform .15s,background .15s;
+  }
+  .btn:hover{transform:translateY(-2px);background:var(--orange-deep)}
+  .cta .micro{margin-top:14px;font-size:.82rem;color:var(--ink-soft);font-weight:600}
+
+  /* ── sticky bottom cta (mobile) ── */
+  .sticky{position:fixed;bottom:0;left:0;right:0;padding:12px 18px calc(12px + env(safe-area-inset-bottom));
+    background:rgba(255,253,244,.94);backdrop-filter:blur(8px);box-shadow:0 -8px 26px rgba(71,43,14,.16);z-index:60}
+  .sticky .btn{padding:16px 20px;font-size:.9rem}
+
+  footer{text-align:center;font-size:.78rem;color:var(--ink-soft);padding:26px 22px 10px;line-height:1.8}
+  footer a{color:var(--ink-soft)}
+
+  @media(min-width:640px){
+    body{padding-bottom:40px}
+    .sticky{display:none}
+    .cta .btn{max-width:420px;margin:0 auto}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top"><a class="logo" href="index.html">Pinacello</a></div>
+
+  <section class="hero">
+    <span class="eyebrow">Het verhaal achter Pinacello</span>
+    <h1>Twee broers,<br>één <em>zomergevoel</em>.</h1>
+    <p>Van een idee aan de keukentafel naar marktkramen door heel België.</p>
+  </section>
+
+  <div class="photo"><img src="story/broers-1.jpg" alt="De twee broers achter Pinacello op een markt" loading="eager"></div>
+
+  <section class="story">
+    <p>Het begon simpel. <b>Twee broers uit Dilbeek</b> die samen iets wilden maken — geen fabriek, geen groot plan. Gewoon een keukentafel, een recept en heel veel proberen tot het precies goed smaakte.</p>
+    <p>Wat een zomerproject moest worden, stond een paar maanden later elk weekend op de markt. Zelf gemaakt, met de hand gebotteld, fles per fles. En steeds meer mensen die terugkwamen met dezelfde vraag: <i>"Hebben jullie er nog?"</i></p>
+
+    <div class="pull">"We maken alles nog altijd zelf. Precies zoals op dag één."</div>
+
+    <div class="photo tall"><img src="story/broers-2.jpg" alt="Pinacello op een drukke zomermarkt" loading="lazy"></div>
+
+    <p>Intussen staan we op markten en festivals door heel het land. Wat hetzelfde bleef: het is nog altijd ons twee, onze handen en dezelfde zorg voor elke fles die de deur uitgaat.</p>
+    <p>En dat blijft zo. <b>Zelfgemaakt in België</b> — en dat proef je.</p>
+
+    <div class="values">
+      <div class="val"><span class="ic">👐</span><div class="vt"><b>Zelfgemaakt</b><span>door ons twee</span></div></div>
+      <div class="val"><span class="ic">🇧🇪</span><div class="vt"><b>Belgisch</b><span>uit Dilbeek</span></div></div>
+      <div class="val"><span class="ic">🎪</span><div class="vt"><b>Op de markt</b><span>elk weekend</span></div></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Benieuwd wat we maken?</h2>
+    <p>Ontdek onze zelfgemaakte creaties en het verhaal per fles.</p>
+    <a class="btn" href="index.html">Ontdek Pinacello →</a>
+    <p class="micro">🇧🇪 Zelfgemaakt in Dilbeek · Levering in BE &amp; NL</p>
+  </section>
+
+  <footer>
+    <b>Pinacello</b> · Kerselaarstraat 40, 1700 Dilbeek · Ondernemingsnr. 1006.157.937<br>
+    <a href="terms.html">Algemene Voorwaarden</a> · <a href="privacy.html">Privacybeleid</a>
+  </footer>
+</div>
+
+<div class="sticky"><a class="btn" href="index.html">Ontdek Pinacello →</a></div>
+
+</body>
+</html>
