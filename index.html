@@ -883,18 +883,17 @@
     document.getElementById('promo-form').addEventListener('submit',function(e){
       e.preventDefault();
       var input=document.getElementById('promo-email');
-      if(!input.value||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(input.value)){input.classList.add('err');input.focus();return;}
-      saveLead(input.value.trim());
+      var email=input.value.trim();
+      if(!email||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){input.classList.add('err');input.focus();return;}
+      saveLead(email);                       // lokale back-up (gaat nooit verloren)
+      subscribe(email);                      // stuurt naar Resend via /api/subscribe
       localStorage.setItem(KEY,'1');
       body.hidden=true;success.hidden=false;
     });
   })();
 
-  // ── LEAD-OPSLAG ──────────────────────────────────────────────
-  // Bewaart e-mails lokaal zodat er niets verloren gaat vóór de Wix-koppeling.
-  // Bekijk verzamelde leads in de console:  window.pinacelloLeads()
-  // KOPPELEN MET WIX: vervang de fetch-TODO hieronder door je Wix endpoint
-  // (Wix → Backend → http-functions.js, of Wix Forms / Ascend webhook).
+  // ── LEAD-OPSLAG + RESEND ─────────────────────────────────────
+  // Bekijk lokaal verzamelde leads in de console:  window.pinacelloLeads()
   function saveLead(email){
     var lead={email:email,code:'ZOMER5',source:'promo-5pct',ts:new Date().toISOString(),page:location.pathname};
     try{
@@ -902,8 +901,14 @@
       leads.push(lead);
       localStorage.setItem('pinacello-leads',JSON.stringify(leads));
     }catch(err){}
-    // TODO WIX: stuur lead naar je backend, bv.
-    // fetch('/_functions/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lead)});
+  }
+  // Stuurt het e-mailadres naar onze server, die het toevoegt aan de Resend-audience.
+  // De Resend API-key staat NOOIT hier — enkel server-side (zie server.js op Railway).
+  function subscribe(email){
+    try{
+      fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({email:email,source:'promo-5pct'})}).catch(function(){});
+    }catch(err){}
   }
   window.pinacelloLeads=function(){return JSON.parse(localStorage.getItem('pinacello-leads')||'[]');};
 </script>
