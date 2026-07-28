@@ -16,25 +16,32 @@ const AUDIENCE_NAME = process.env.RESEND_AUDIENCE_NAME || 'Pinacello nieuwsbrief
 // Onthoudt de audience-id zodat we ze niet elke keer opnieuw moeten opzoeken.
 let cachedAudienceId = process.env.RESEND_AUDIENCE_ID || null;
 
-// Zoekt de lijst op naam of maakt ze aan als ze nog niet bestaat.
+// Bepaalt in welke lijst de contacten belanden.
+// Voorkeur: lijst met naam AUDIENCE_NAME → anders de standaardlijst ("Contacts")
+// → anders maakt hij er zelf een aan. Zo verschijnen contacten altijd zichtbaar
+// in het Resend-dashboard, ook in het nieuwe Contacts/Segments/Topics-model.
 async function resolveAudience(KEY) {
   if (cachedAudienceId) return cachedAudienceId;
 
-  // 1) Bestaat er al een lijst met deze naam?
   const listRes = await fetch('https://api.resend.com/audiences', {
     headers: { Authorization: `Bearer ${KEY}` },
   });
   if (listRes.ok) {
-    const list = await listRes.json();
-    const found = (list.data || []).find((a) => a.name === AUDIENCE_NAME);
-    if (found) {
-      cachedAudienceId = found.id;
-      console.log(`Resend-lijst gevonden: "${AUDIENCE_NAME}" (${found.id})`);
+    const audiences = (await listRes.json()).data || [];
+    const named = audiences.find((a) => a.name === AUDIENCE_NAME);
+    if (named) {
+      cachedAudienceId = named.id;
+      console.log(`Resend-lijst gevonden: "${AUDIENCE_NAME}" (${named.id})`);
+      return cachedAudienceId;
+    }
+    if (audiences.length) {
+      cachedAudienceId = audiences[0].id; // standaardlijst (Contacts)
+      console.log(`Resend standaardlijst gebruikt: "${audiences[0].name}" (${audiences[0].id})`);
       return cachedAudienceId;
     }
   }
 
-  // 2) Zo niet: maak de lijst aan.
+  // Geen enkele lijst gevonden: maak er een aan.
   const createRes = await fetch('https://api.resend.com/audiences', {
     method: 'POST',
     headers: { Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' },
