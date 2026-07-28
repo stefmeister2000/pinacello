@@ -528,7 +528,7 @@
           <li>1 fles · 500ml</li>
           <li class="x">+ €5,95 verzending</li>
         </ul>
-        <a class="btn btn--ghost" href="https://www.pinacello.com/shop">Kies deze</a>
+        <a class="btn btn--ghost" href="https://www.pinacello.com/product-page/pinacello-500ml-1ananas-likeur">Kies deze</a>
       </div>
       <div class="bundle best">
         <div class="flag">⭐ Meest gekozen</div>
@@ -746,7 +746,7 @@
 <!-- ═══ STICKY MOBILE CTA ═══ -->
 <div class="sticky-cta">
   <div class="p" id="sticky-p">Pinacello 500ml<br><b>€25,00</b></div>
-  <a class="btn" href="#bestel">In winkelwagen</a>
+  <a class="btn" id="sticky-btn" href="https://www.pinacello.com/product-page/pinacello-500ml-1ananas-likeur">Bestel nu</a>
 </div>
 
 <!-- ═══ 5% KORTING POP-UP ═══ -->
@@ -794,37 +794,46 @@
   (function(){
     var FLAVORS={
       pina:{name:'Pinacello',sub:'ANANAS · CITROEN LIKEUR',pack:'ananas-citroen likeur · 22% · 500 ml',price:25,emoji:'🍍',
+        url:'https://www.pinacello.com/product-page/pinacello-500ml-1ananas-likeur',
         desc:'Puur, on the rocks of als spritz.',
         accent:'#F04E23',deep:'#D8431C',glow:'#FF9E3D',liquid:'#F7C844',
         g:['#FFD84D','#FFE874','#FFF3C0','#FFF6D8'],fruits:['🍍','🍋','🌴']},
       coco:{name:'Cococello',sub:'KOKOSNOOT CRÈME LIKEUR',pack:'kokosnoot crème likeur · 500 ml',price:25,emoji:'🥥',
+        url:'https://www.pinacello.com/product-page/cococello',
         desc:'Zacht en romig. Puur of over ijs.',
         accent:'#A9713A',deep:'#8F5D2C',glow:'#EBCB9A',liquid:'#F4ECDD',
         g:['#F0E2C6','#F7EDD8','#FCF6E9','#FFFBF2'],fruits:['🥥','🌴','🥥']},
       cali:{name:'Calibana',sub:'BANAAN · VANILLE LIKEUR',pack:'banaan-vanille likeur · 500 ml',price:25,emoji:'🍌',
+        url:'https://www.pinacello.com/product-page/calibana',
         desc:'Romige banaan met vanille.',
         accent:'#D89A1E',deep:'#B37E12',glow:'#F5CE5B',liquid:'#F3D98A',
         g:['#FCE9A6','#FDF1C6','#FEF8E4','#FFFCF0'],fruits:['🍌','🌴','🍌']},
       fram:{name:'Frambolade',sub:'FRAMBOZEN LIKEUR',pack:'frambozen likeur · 500 ml',price:30,emoji:'🍓',
+        url:'https://www.pinacello.com/product-page/frambolade',
         desc:'Vol-fruitig en fris. Top als spritz.',
         accent:'#D8264B',deep:'#B71C3E',glow:'#FF8FA0',liquid:'#D8455A',
         g:['#FFB9C4','#FFD3DA','#FFE9EC','#FFF4F5'],fruits:['🍓','🍒','🍓']},
       vaquero:{name:'Vaquero',sub:'RUM LIKEUR',pack:'rum likeur · 500 ml',price:30,emoji:'🥃',
+        url:'https://www.pinacello.com/product-page/vaquero-rum-likeur',
         desc:'Rum likeur met karakter.',
         accent:'#9C3D2A',deep:'#7E3021',glow:'#D98A4B',liquid:'#7A2E1E',
         g:['#EBC98F','#F3DCB0','#F9EDD3','#FCF5E4'],fruits:['🥃','🌴','🥃']},
       ivoir:{name:'Ivoir',sub:'CHOCOLADE WHISKEY',pack:'witte chocolade whiskey · 500 ml',price:30,emoji:'🍫',
+        url:'https://www.pinacello.com/product-page/ivoir-chocolade-whiskey',
         desc:'Zijdezacht — het dessert in je glas.',
         accent:'#9C6224',deep:'#7F4E1B',glow:'#E9C284',liquid:'#F1E3C0',
         g:['#EFD9B4','#F6E8CB','#FBF2DF','#FFF8EA'],fruits:['🍫','🥛','🍫']}
     };
-    var qty=1,PRICE=25,NAME='Pinacello';
+    var qty=1,PRICE=25,NAME='Pinacello',SHOP_URL=FLAVORS.pina.url;
     var q=document.getElementById('q-val'),out=document.getElementById('atc-price');
+    var atc=document.getElementById('atc'),stickyBtn=document.getElementById('sticky-btn');
     function fmt(n){return '€'+n.toFixed(2).replace('.',',');}
     function upd(){
       q.textContent=qty;
       out.textContent=fmt(PRICE*qty);
       document.getElementById('sticky-p').innerHTML=NAME+' 500ml<br><b>'+fmt(PRICE)+'</b>';
+      atc.setAttribute('href',SHOP_URL);
+      if(stickyBtn)stickyBtn.setAttribute('href',SHOP_URL);
     }
     function theme(key){
       var f=FLAVORS[key],r=document.documentElement.style;
@@ -842,7 +851,7 @@
       });
       document.querySelectorAll('.fruit').forEach(function(el,i){el.textContent=f.fruits[i%f.fruits.length];});
       document.querySelectorAll('.flavors a').forEach(function(a){a.classList.toggle('active',a.dataset.flavor===key);});
-      PRICE=f.price;NAME=f.name;
+      PRICE=f.price;NAME=f.name;SHOP_URL=f.url;
       upd();
     }
     document.querySelectorAll('.flavors a').forEach(function(a){

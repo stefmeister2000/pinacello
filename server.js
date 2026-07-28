@@ -11,6 +11,19 @@ app.use(express.static(__dirname)); // serveert index.html, verhaal.html, /marke
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
+// Diagnose: open /api/health in de browser om te zien of alles goed staat.
+// Toont GEEN geheimen — enkel of de env vars aanwezig zijn.
+app.get('/api/health', (req, res) => {
+  res.json({
+    server: 'ok',
+    node_has_fetch: typeof fetch === 'function',
+    RESEND_API_KEY: process.env.RESEND_API_KEY ? 'set ✓' : 'MISSING ✗',
+    RESEND_AUDIENCE_ID: process.env.RESEND_AUDIENCE_ID ? 'set ✓' : 'MISSING ✗',
+    RESEND_FROM: process.env.RESEND_FROM ? 'set ✓ (welkomstmail aan)' : 'niet gezet (geen welkomstmail)',
+    ready_to_save: !!(process.env.RESEND_API_KEY && process.env.RESEND_AUDIENCE_ID),
+  });
+});
+
 app.post('/api/subscribe', async (req, res) => {
   const email = ((req.body && req.body.email) || '').trim().toLowerCase();
   const source = (req.body && req.body.source) || 'website';
