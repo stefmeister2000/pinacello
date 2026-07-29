@@ -8,7 +8,8 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
-app.use(express.static(__dirname)); // serveert index.html, verhaal.html, /markets, /craft, ...
+// extensions:['html'] → /verhaal serveert verhaal.html, /terms → terms.html, enz.
+app.use(express.static(__dirname, { extensions: ['html'] }));
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 const AUDIENCE_NAME = process.env.RESEND_AUDIENCE_NAME || 'Pinacello nieuwsbrief';
