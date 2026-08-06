@@ -149,10 +149,11 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
 
   /* ── markets / social proof ── */
   .markets{text-align:center}
+  .markets .wrap{max-width:1340px}
   .markets h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-bottom:10px}
   .markets .sub{color:var(--ink-soft);max-width:520px;margin:0 auto 48px}
-  .photos{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .photo{position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;box-shadow:0 16px 34px rgba(71,43,14,.16);background:linear-gradient(150deg,var(--g-mid),var(--glow))}
+  .photos{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .photo{position:relative;aspect-ratio:4/4.4;border-radius:16px;overflow:hidden;box-shadow:0 16px 34px rgba(71,43,14,.16);background:linear-gradient(150deg,var(--g-mid),var(--glow))}
   .photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;opacity:0;transition:opacity .3s}
   .photo.loaded img{opacity:1}
   .photo .ph-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:var(--ink);opacity:.75}
@@ -214,9 +215,8 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
   .offer .sub{color:var(--ink-soft);margin-bottom:14px}
   .batch-note{display:inline-block;background:rgba(255,253,244,.8);border-radius:999px;padding:9px 22px;font-size:.82rem;font-weight:700;margin-bottom:48px;box-shadow:0 8px 20px rgba(71,43,14,.1)}
   .batch-note b{color:var(--orange)}
-  .bundle-grid{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:26px;align-items:stretch}
-  .bundle-grid.combo-single{grid-template-columns:minmax(0,420px);justify-content:center}
-  .combo-single .bundle.best{transform:none}
+  .bundle-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:22px;align-items:stretch}
+  .bundle{flex:0 1 330px}
   .bundle{background:var(--white);border-radius:var(--radius);padding:38px 26px 30px;position:relative;display:flex;flex-direction:column;gap:6px;box-shadow:0 20px 44px rgba(71,43,14,.14)}
   .bundle.best{box-shadow:0 26px 58px rgba(216,67,28,.3);outline:3px solid var(--orange);transform:scale(1.03)}
   .bundle .flag{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;padding:7px 20px;border-radius:999px;white-space:nowrap}
@@ -538,7 +538,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     <h2>Bestel jouw favoriet.</h2>
     <p class="sub">Los verkrijgbaar, of samen in het voordelige duo-pakket.</p>
     <div class="bundle-grid">
-      <div class="bundle">
+      <div class="bundle" data-single="pina">
         <div class="emoji">🍍</div>
         <h3>Pinacello</h3>
         <div class="was">&nbsp;</div>
@@ -549,6 +549,18 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
           <li class="x">+ €5,95 verzending</li>
         </ul>
         <a class="btn btn--ghost" href="https://www.pinacello.com/product-page/kopie-van-pinacello-ananas-citroen-likeur-500ml">Kies deze</a>
+      </div>
+      <div class="bundle" data-single="coco" style="display:none">
+        <div class="emoji">🥥</div>
+        <h3>Cococello</h3>
+        <div class="was">&nbsp;</div>
+        <div class="now">€25</div>
+        <div class="per">1 fles · 500ml</div>
+        <ul>
+          <li>Kokosnoot crème likeur</li>
+          <li class="x">+ €5,95 verzending</li>
+        </ul>
+        <a class="btn btn--ghost" href="https://www.pinacello.com/product-page/cococello">Kies deze</a>
       </div>
       <div class="bundle best">
         <div class="flag">⭐ Meest gekozen</div>
@@ -563,18 +575,6 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
           <li><b>Gratis verzending</b></li>
         </ul>
         <a class="btn" href="https://www.pinacello.com/product-page/pina-en-cococello-pakket">Bestel het pakket →</a>
-      </div>
-      <div class="bundle">
-        <div class="emoji">🥥</div>
-        <h3>Cococello</h3>
-        <div class="was">&nbsp;</div>
-        <div class="now">€25</div>
-        <div class="per">1 fles · 500ml</div>
-        <ul>
-          <li>Kokosnoot crème likeur</li>
-          <li class="x">+ €5,95 verzending</li>
-        </ul>
-        <a class="btn btn--ghost" href="https://www.pinacello.com/product-page/cococello">Kies deze</a>
       </div>
     </div>
 
@@ -870,6 +870,11 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
       });
       document.querySelectorAll('.fruit').forEach(function(el,i){el.textContent=f.fruits[i%f.fruits.length];});
       document.querySelectorAll('.flavors a').forEach(function(a){a.classList.toggle('active',a.dataset.flavor===key);});
+      // In de offer-sectie: toon enkel de losse fles van de gekozen smaak + het combo-pakket
+      var single=(key==='coco')?'coco':'pina';
+      document.querySelectorAll('.bundle[data-single]').forEach(function(el){
+        el.style.display=(el.dataset.single===single)?'':'none';
+      });
       PRICE=f.price;NAME=f.name;SHOP_URL=f.url;
       upd();
     }
