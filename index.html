@@ -548,7 +548,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
           <li>Ananas-citroen likeur</li>
           <li class="x">+ €5,95 verzending</li>
         </ul>
-        <a class="btn btn--ghost" href="https://www.pinacello.com/product-page/kopie-van-pinacello-ananas-citroen-likeur-500ml">Kies deze</a>
+        <a class="btn btn--ghost" href="https://www.pinacello.com/checkout?checkoutId=ca727402-063e-4c45-8e55-b284a6561f1c">Kies deze</a>
       </div>
       <div class="bundle" data-single="coco" style="display:none">
         <div class="emoji">🥥</div>
@@ -560,7 +560,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
           <li>Kokosnoot crème likeur</li>
           <li class="x">+ €5,95 verzending</li>
         </ul>
-        <a class="btn btn--ghost" href="https://www.pinacello.com/product-page/cococello">Kies deze</a>
+        <a class="btn btn--ghost" href="https://www.pinacello.com/checkout?checkoutId=ca727402-e366-44a9-809c-927a38d7f5e6">Kies deze</a>
       </div>
       <div class="bundle best">
         <div class="flag">⭐ Meest gekozen</div>
@@ -574,7 +574,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
           <li>1× Pinacello + 1× Cococello</li>
           <li><b>Gratis verzending</b></li>
         </ul>
-        <a class="btn" href="https://www.pinacello.com/product-page/pina-en-cococello-pakket">Bestel het pakket →</a>
+        <a class="btn" href="https://www.pinacello.com/checkout?checkoutId=ca727402-334b-4671-9473-fbbff7181c82">Bestel het pakket →</a>
       </div>
     </div>
 
@@ -765,7 +765,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
 <!-- ═══ STICKY MOBILE CTA ═══ -->
 <div class="sticky-cta">
   <div class="p" id="sticky-p">Pinacello 500ml<br><b>€25,00</b></div>
-  <a class="btn" id="sticky-btn" href="https://www.pinacello.com/product-page/kopie-van-pinacello-ananas-citroen-likeur-500ml">Bestel nu</a>
+  <a class="btn" id="sticky-btn" href="https://www.pinacello.com/checkout?checkoutId=ca727402-063e-4c45-8e55-b284a6561f1c">Bestel nu</a>
 </div>
 
 <!-- ═══ 5% KORTING POP-UP ═══ -->
@@ -813,12 +813,12 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
   (function(){
     var FLAVORS={
       pina:{name:'Pinacello',sub:'ANANAS · CITROEN LIKEUR',pack:'ananas-citroen likeur · 22% · 500 ml',price:25,emoji:'🍍',
-        url:'https://www.pinacello.com/product-page/kopie-van-pinacello-ananas-citroen-likeur-500ml',
+        url:'https://www.pinacello.com/checkout?checkoutId=ca727402-063e-4c45-8e55-b284a6561f1c',
         desc:'Puur, on the rocks of als spritz.',
         accent:'#F04E23',deep:'#D8431C',glow:'#FF9E3D',liquid:'#F7C844',
         g:['#FFD84D','#FFE874','#FFF3C0','#FFF6D8'],fruits:['🍍','🍋','🌴']},
       coco:{name:'Cococello',sub:'KOKOSNOOT CRÈME LIKEUR',pack:'kokosnoot crème likeur · 500 ml',price:25,emoji:'🥥',
-        url:'https://www.pinacello.com/product-page/cococello',
+        url:'https://www.pinacello.com/checkout?checkoutId=ca727402-e366-44a9-809c-927a38d7f5e6',
         desc:'Zacht en romig. Puur of over ijs.',
         accent:'#A9713A',deep:'#8F5D2C',glow:'#EBCB9A',liquid:'#F4ECDD',
         g:['#F0E2C6','#F7EDD8','#FCF6E9','#FFFBF2'],fruits:['🥥','🌴','🥥']},
@@ -950,7 +950,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     function fb(ev){ if(typeof fbq==='function') fbq('track',ev); }
     // InitiateCheckout: klik op een koop-/checkout-knop naar de Wix-webshop
     document.addEventListener('click',function(e){
-      var a=e.target.closest('a[href*="pinacello.com/product-page"],a[href*="pinacello.com/shop"]');
+      var a=e.target.closest('a[href*="pinacello.com/checkout"],a[href*="pinacello.com/product-page"],a[href*="pinacello.com/shop"]');
       if(a) fb('InitiateCheckout');
     });
     // Lead: geldige e-mail-inschrijving via de 5%-pop-up
