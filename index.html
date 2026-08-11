@@ -420,38 +420,12 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     .sticky-cta{padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
     .sticky-cta .p{font-size:.84rem}
     body{padding-bottom:calc(68px + env(safe-area-inset-bottom))}
-
-    .promo{padding:0}
-    .promo-card{max-width:none;width:100%;border-radius:24px 24px 0 0;margin-top:auto;padding:30px 22px calc(26px + env(safe-area-inset-bottom))}
-    .promo-emoji{font-size:2.6rem}
-    .promo-card h3{font-size:1.7rem}
   }
 
-  /* ── 5% korting pop-up ── */
-  .promo{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:20px;
-    background:rgba(36,27,16,.55);backdrop-filter:blur(3px);animation:promo-fade .25s ease}
-  .promo[hidden]{display:none}
-  @keyframes promo-fade{from{opacity:0}to{opacity:1}}
-  .promo-card{position:relative;background:var(--white);border-radius:24px;max-width:400px;width:100%;
-    padding:40px 34px 30px;text-align:center;box-shadow:0 30px 70px rgba(36,27,16,.4);animation:promo-pop .3s ease}
-  @keyframes promo-pop{from{transform:translateY(16px) scale(.97);opacity:0}to{transform:none;opacity:1}}
-  .promo-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:1.8rem;line-height:1;
-    color:var(--ink-soft);cursor:pointer;width:40px;height:40px;border-radius:50%}
-  .promo-close:hover{background:rgba(71,43,14,.08)}
-  .promo-emoji{font-size:3rem;margin-bottom:6px}
-  .promo-card h3{font-family:'Fraunces',serif;font-weight:800;font-size:1.9rem;margin-bottom:10px}
-  .promo-card h3 em{font-style:italic;color:var(--orange)}
-  .promo-card p{color:var(--ink-soft);font-size:.95rem;margin-bottom:18px}
-  .promo-card form{display:flex;flex-direction:column;gap:10px}
-  .promo-card input{font-family:'DM Sans',sans-serif;font-size:16px;padding:15px 18px;border:2px solid rgba(71,43,14,.2);
-    border-radius:999px;text-align:center;outline:none;transition:border-color .15s}
-  .promo-card input:focus{border-color:var(--orange)}
-  .promo-card input.err{border-color:var(--orange);background:#FDECE7}
-  .promo-card form .btn{width:100%;padding:15px 20px}
-  .promo-fine{font-size:.74rem;opacity:.7;margin:14px 0 0}
-  .promo-code{font-family:'Fraunces',serif;font-weight:900;font-size:2rem;letter-spacing:.08em;color:var(--orange);
-    background:var(--cream);border:2px dashed var(--orange);border-radius:14px;padding:12px;margin-bottom:14px}
-  .promo-success .btn{width:100%;margin-top:4px}
+  /* ── 10% korting-code chip ── */
+  .promo-note{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:2px dashed var(--orange);
+    border-radius:999px;padding:9px 20px;font-size:.9rem;font-weight:700;color:var(--ink);margin-top:18px;box-shadow:0 8px 20px rgba(71,43,14,.1)}
+  .promo-note b{color:var(--orange);letter-spacing:.06em}
 </style>
 </head>
 <body>
@@ -459,7 +433,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
 <!-- ═══ MARQUEE ═══ -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-inner" id="marquee">
-    <span>☀ Gratis verzending vanaf 2 flessen</span><span>☀ Levering in BE &amp; NL binnen 2 werkdagen</span><span>☀ Gelimiteerde zomerbatch</span><span>☀ Ambachtelijk gestookt in België</span><span>☀ 18+ · Geniet met mate</span>
+    <span>🎟️ 10% korting online met code PINAPARTNER</span><span>☀ Gratis verzending vanaf 2 flessen</span><span>☀ Levering in BE &amp; NL binnen 2 werkdagen</span><span>☀ Ambachtelijk gestookt in België</span><span>☀ 18+ · Geniet met mate</span>
   </div>
 </div>
 
@@ -578,6 +552,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
       </div>
     </div>
 
+    <div style="text-align:center"><span class="promo-note">🎟️ Gebruik code <b>PINAPARTNER</b> voor 10% korting online</span></div>
     <p class="delivery">📦 Gratis verzending vanaf 2 flessen · Levering in BE &amp; NL binnen 1-2 werkdagen</p>
   </div>
 </section>
@@ -768,30 +743,6 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
   <a class="btn" id="sticky-btn" href="https://www.pinacello.com/checkout?checkoutId=ca727402-063e-4c45-8e55-b284a6561f1c">Bestel nu</a>
 </div>
 
-<!-- ═══ 5% KORTING POP-UP ═══ -->
-<div class="promo" id="promo" role="dialog" aria-modal="true" aria-labelledby="promo-title" hidden>
-  <div class="promo-card">
-    <button class="promo-close" id="promo-close" aria-label="Sluiten">×</button>
-    <div class="promo-body" id="promo-body">
-      <div class="promo-emoji">🍍</div>
-      <h3 id="promo-title">Krijg <em>5% korting</em></h3>
-      <p>Meld je aan en ontvang je kortingscode voor je eerste bestelling. Plus af en toe een zomerrecept.</p>
-      <form id="promo-form" novalidate>
-        <input type="email" id="promo-email" inputmode="email" autocomplete="email" placeholder="jouw@email.be" aria-label="E-mailadres" required>
-        <button type="submit" class="btn">Stuur mijn code</button>
-      </form>
-      <p class="promo-fine">Geen spam. Uitschrijven kan altijd. 18+</p>
-    </div>
-    <div class="promo-success" id="promo-success" hidden>
-      <div class="promo-emoji">🎉</div>
-      <h3>Yes! Hier is je code</h3>
-      <div class="promo-code" id="promo-code">ZOMER5</div>
-      <p>Gebruik <b>ZOMER5</b> aan de kassa voor 5% korting.</p>
-      <a class="btn" href="#bestel" id="promo-shop">Bestel nu</a>
-    </div>
-  </div>
-</div>
-
 <script>
   // marquee: dupliceer inhoud zodat de loop naadloos is
   var mq=document.getElementById('marquee');
@@ -886,65 +837,6 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     upd();
   })();
 
-  // 5% korting pop-up: verschijnt één keer per bezoeker (na 7s of bij 45% scroll)
-  (function(){
-    var KEY='pinacello-promo-seen';
-    var promo=document.getElementById('promo');
-    if(!promo || localStorage.getItem(KEY)) return;
-    var body=document.getElementById('promo-body'),success=document.getElementById('promo-success');
-    var shown=false,timer;
-    function open(){
-      if(shown||localStorage.getItem(KEY))return;
-      shown=true;clearTimeout(timer);window.removeEventListener('scroll',onScroll);
-      promo.hidden=false;
-      setTimeout(function(){var i=document.getElementById('promo-email');if(i)i.focus();},260);
-    }
-    function close(){
-      promo.hidden=true;
-      localStorage.setItem(KEY,'1');
-    }
-    function onScroll(){
-      var d=(window.scrollY+window.innerHeight)/document.documentElement.scrollHeight;
-      if(d>0.45)open();
-    }
-    timer=setTimeout(open,7000);
-    window.addEventListener('scroll',onScroll,{passive:true});
-    document.getElementById('promo-close').onclick=close;
-    promo.addEventListener('click',function(e){if(e.target===promo)close();});
-    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!promo.hidden)close();});
-    document.getElementById('promo-shop').onclick=close;
-    document.getElementById('promo-form').addEventListener('submit',function(e){
-      e.preventDefault();
-      var input=document.getElementById('promo-email');
-      var email=input.value.trim();
-      if(!email||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){input.classList.add('err');input.focus();return;}
-      saveLead(email);                       // lokale back-up (gaat nooit verloren)
-      subscribe(email);                      // stuurt naar Resend via /api/subscribe
-      localStorage.setItem(KEY,'1');
-      body.hidden=true;success.hidden=false;
-    });
-  })();
-
-  // ── LEAD-OPSLAG + RESEND ─────────────────────────────────────
-  // Bekijk lokaal verzamelde leads in de console:  window.pinacelloLeads()
-  function saveLead(email){
-    var lead={email:email,code:'ZOMER5',source:'promo-5pct',ts:new Date().toISOString(),page:location.pathname};
-    try{
-      var leads=JSON.parse(localStorage.getItem('pinacello-leads')||'[]');
-      leads.push(lead);
-      localStorage.setItem('pinacello-leads',JSON.stringify(leads));
-    }catch(err){}
-  }
-  // Stuurt het e-mailadres naar onze server, die het toevoegt aan de Resend-audience.
-  // De Resend API-key staat NOOIT hier — enkel server-side (zie server.js op Railway).
-  function subscribe(email){
-    try{
-      fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({email:email,source:'promo-5pct'})}).catch(function(){});
-    }catch(err){}
-  }
-  window.pinacelloLeads=function(){return JSON.parse(localStorage.getItem('pinacello-leads')||'[]');};
-
   // ── Meta Pixel — conversie-events ──
   (function(){
     function fb(ev){ if(typeof fbq==='function') fbq('track',ev); }
@@ -952,12 +844,6 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     document.addEventListener('click',function(e){
       var a=e.target.closest('a[href*="pinacello.com/checkout"],a[href*="pinacello.com/product-page"],a[href*="pinacello.com/shop"]');
       if(a) fb('InitiateCheckout');
-    });
-    // Lead: geldige e-mail-inschrijving via de 5%-pop-up
-    var pf=document.getElementById('promo-form');
-    if(pf) pf.addEventListener('submit',function(){
-      var input=document.getElementById('promo-email'), v=input&&input.value.trim();
-      if(v && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) fb('Lead');
     });
   })();
 </script>
