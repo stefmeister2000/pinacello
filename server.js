@@ -1,134 +1,89 @@
-// Pinacello — statische site + Resend-koppeling
-// De Resend API-key staat NOOIT in de code. Zet hem als environment variable
-// op Railway:  RESEND_API_KEY   (verplicht)
-// Optioneel:   RESEND_AUDIENCE_ID (anders maakt de server de lijst zelf aan)
-//              RESEND_AUDIENCE_NAME (naam van de lijst, standaard 'Pinacello nieuwsbrief')
-//              RESEND_FROM (welkomstmail — vereist een geverifieerd domein)
+// Pinacello — statische site + Mailchimp-koppeling
+// De Mailchimp API-key staat NOOIT in de code. Zet hem als environment variable
+// op Railway:  MAILCHIMP_API_KEY   (verplicht, formaat: xxxxxxxx-usXX)
+// Optioneel:   MAILCHIMP_AUDIENCE_ID (anders gebruikt de server de eerste audience)
 
 const express = require('express');
+const crypto = require('crypto');
 const app = express();
 app.use(express.json());
 // extensions:['html'] → /verhaal serveert verhaal.html, /terms → terms.html, enz.
 app.use(express.static(__dirname, { extensions: ['html'] }));
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-const AUDIENCE_NAME = process.env.RESEND_AUDIENCE_NAME || 'Pinacello nieuwsbrief';
+
+// Mailchimp-datacenter zit achteraan in de key (bv. "...-us16").
+function mcDc(key) { return (key || '').split('-').pop(); }
+function mcAuth(key) { return 'Basic ' + Buffer.from('anystring:' + key).toString('base64'); }
+function mcUrl(key, path) { return `https://${mcDc(key)}.api.mailchimp.com/3.0${path}`; }
 
 // Onthoudt de audience-id zodat we ze niet elke keer opnieuw moeten opzoeken.
-let cachedAudienceId = process.env.RESEND_AUDIENCE_ID || null;
+let cachedListId = process.env.MAILCHIMP_AUDIENCE_ID || null;
 
-// Bepaalt in welke lijst de contacten belanden.
-// Voorkeur: lijst met naam AUDIENCE_NAME → anders de standaardlijst ("Contacts")
-// → anders maakt hij er zelf een aan. Zo verschijnen contacten altijd zichtbaar
-// in het Resend-dashboard, ook in het nieuwe Contacts/Segments/Topics-model.
-async function resolveAudience(KEY) {
-  if (cachedAudienceId) return cachedAudienceId;
-
-  const listRes = await fetch('https://api.resend.com/audiences', {
-    headers: { Authorization: `Bearer ${KEY}` },
-  });
-  if (listRes.ok) {
-    const audiences = (await listRes.json()).data || [];
-    const named = audiences.find((a) => a.name === AUDIENCE_NAME);
-    if (named) {
-      cachedAudienceId = named.id;
-      console.log(`Resend-lijst gevonden: "${AUDIENCE_NAME}" (${named.id})`);
-      return cachedAudienceId;
-    }
-    if (audiences.length) {
-      cachedAudienceId = audiences[0].id; // standaardlijst (Contacts)
-      console.log(`Resend standaardlijst gebruikt: "${audiences[0].name}" (${audiences[0].id})`);
-      return cachedAudienceId;
-    }
-  }
-
-  // Geen enkele lijst gevonden: maak er een aan.
-  const createRes = await fetch('https://api.resend.com/audiences', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name: AUDIENCE_NAME }),
-  });
-  if (!createRes.ok) {
-    throw new Error(`audience aanmaken faalde: ${createRes.status} ${await createRes.text()}`);
-  }
-  const created = await createRes.json();
-  cachedAudienceId = created.id;
-  console.log(`Resend-lijst aangemaakt: "${AUDIENCE_NAME}" (${created.id})`);
-  return cachedAudienceId;
+// Zoekt de audience-id op (of gebruikt de eerste als er geen env var is).
+async function resolveList(key) {
+  if (cachedListId) return cachedListId;
+  const r = await fetch(mcUrl(key, '/lists?fields=lists.id,lists.name'), { headers: { Authorization: mcAuth(key) } });
+  if (!r.ok) throw new Error(`lists ophalen faalde: ${r.status} ${await r.text()}`);
+  const lists = (await r.json()).lists || [];
+  if (!lists.length) throw new Error('geen enkele Mailchimp-audience gevonden');
+  cachedListId = lists[0].id;
+  console.log(`Mailchimp-audience: "${lists[0].name}" (${lists[0].id})`);
+  return cachedListId;
 }
 
-// Diagnose: open /api/health in de browser om te zien of alles goed staat.
-// Toont GEEN geheimen — enkel of de key aanwezig is en welke lijst gebruikt wordt.
+// Diagnose: open /api/health in de browser. Toont GEEN geheimen.
 app.get('/api/health', async (req, res) => {
-  const KEY = process.env.RESEND_API_KEY;
-  let audience = null, audienceError = null;
-  if (KEY) {
-    try { audience = await resolveAudience(KEY); }
-    catch (e) { audienceError = String(e.message || e); }
+  const key = process.env.MAILCHIMP_API_KEY;
+  let listId = null, listError = null;
+  if (key) {
+    try { listId = await resolveList(key); }
+    catch (e) { listError = String(e.message || e); }
   }
   res.json({
     server: 'ok',
     node_has_fetch: typeof fetch === 'function',
-    RESEND_API_KEY: KEY ? 'set ✓' : 'MISSING ✗',
-    RESEND_FROM: process.env.RESEND_FROM ? 'set ✓ (welkomstmail aan)' : 'niet gezet (geen welkomstmail)',
-    audience_name: AUDIENCE_NAME,
-    audience_id: audience,
-    audience_error: audienceError,
-    ready_to_save: !!(KEY && audience),
+    MAILCHIMP_API_KEY: key ? 'set ✓' : 'MISSING ✗',
+    datacenter: key ? mcDc(key) : null,
+    audience_id: listId,
+    audience_error: listError,
+    ready_to_save: !!(key && listId),
   });
 });
 
 app.post('/api/subscribe', async (req, res) => {
   const email = ((req.body && req.body.email) || '').trim().toLowerCase();
-
   if (!EMAIL_RE.test(email)) {
     return res.status(400).json({ ok: false, error: 'invalid_email' });
   }
 
-  const KEY = process.env.RESEND_API_KEY;
-  if (!KEY) {
-    console.error('Ontbrekende env var: RESEND_API_KEY');
+  const key = process.env.MAILCHIMP_API_KEY;
+  if (!key) {
+    console.error('Ontbrekende env var: MAILCHIMP_API_KEY');
     return res.status(500).json({ ok: false, error: 'not_configured' });
   }
 
   try {
-    // De lijst opzoeken of aanmaken (gebeurt automatisch, maar één keer).
-    const AUDIENCE = await resolveAudience(KEY);
-
-    // Contact toevoegen aan de Resend-lijst.
-    const add = await fetch(`https://api.resend.com/audiences/${AUDIENCE}/contacts`, {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, unsubscribed: false }),
+    const listId = await resolveList(key);
+    // PUT met subscriber-hash = idempotente upsert: voegt toe als nieuw, negeert dubbels.
+    const hash = crypto.createHash('md5').update(email).digest('hex');
+    const r = await fetch(mcUrl(key, `/lists/${listId}/members/${hash}`), {
+      method: 'PUT',
+      headers: { Authorization: mcAuth(key), 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email_address: email,
+        status_if_new: 'subscribed', // nieuw contact meteen ingeschreven
+        merge_fields: {},
+      }),
     });
 
-    if (!add.ok && add.status !== 409) { // 409 = bestaat al, dat is ok
-      const detail = await add.text();
-      console.error('Resend contact-fout', add.status, detail);
-      return res.status(502).json({ ok: false, error: 'resend_failed' });
+    if (!r.ok) {
+      const detail = await r.text();
+      console.error('Mailchimp-fout', r.status, detail);
+      return res.status(502).json({ ok: false, error: 'mailchimp_failed' });
     }
 
-    // Optionele welkomstmail met de kortingscode — enkel als RESEND_FROM gezet is
-    // en het domein geverifieerd is in Resend.
-    if (process.env.RESEND_FROM) {
-      fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          from: process.env.RESEND_FROM,
-          to: email,
-          subject: 'Je 5% kortingscode 🍍',
-          html: `<div style="font-family:sans-serif;font-size:16px;color:#472B0E;line-height:1.6">
-            <p>Welkom bij Pinacello! ☀️</p>
-            <p>Hier is je code voor <b>5% korting</b> op je eerste bestelling:</p>
-            <p style="font-size:26px;font-weight:800;letter-spacing:2px;color:#F04E23">ZOMER5</p>
-            <p>Proost — en geniet met mate.</p>
-          </div>`,
-        }),
-      }).catch((e) => console.error('Resend mail-fout', e));
-    }
-
-    return res.json({ ok: true, code: 'ZOMER5' });
+    return res.json({ ok: true });
   } catch (err) {
     console.error('Serverfout', err);
     return res.status(500).json({ ok: false, error: 'server_error' });

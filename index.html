@@ -420,8 +420,34 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     .sticky-cta{padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
     .sticky-cta .p{font-size:.84rem}
     body{padding-bottom:calc(68px + env(safe-area-inset-bottom))}
+    .promo{padding:0}
+    .promo-card{max-width:none;width:100%;border-radius:24px 24px 0 0;margin-top:auto;padding:30px 22px calc(26px + env(safe-area-inset-bottom))}
+    .promo-emoji{font-size:2.6rem}
+    .promo-card h3{font-size:1.7rem}
   }
 
+  /* ── nieuwsbrief pop-up ── */
+  .promo{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:20px;
+    background:rgba(36,27,16,.55);backdrop-filter:blur(3px);animation:promo-fade .25s ease}
+  .promo[hidden]{display:none}
+  @keyframes promo-fade{from{opacity:0}to{opacity:1}}
+  .promo-card{position:relative;background:var(--white);border-radius:24px;max-width:400px;width:100%;
+    padding:40px 34px 30px;text-align:center;box-shadow:0 30px 70px rgba(36,27,16,.4);animation:promo-pop .3s ease}
+  @keyframes promo-pop{from{transform:translateY(16px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+  .promo-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:1.8rem;line-height:1;
+    color:var(--ink-soft);cursor:pointer;width:40px;height:40px;border-radius:50%}
+  .promo-close:hover{background:rgba(71,43,14,.08)}
+  .promo-emoji{font-size:3rem;margin-bottom:6px}
+  .promo-card h3{font-family:'Fraunces',serif;font-weight:800;font-size:1.9rem;margin-bottom:10px}
+  .promo-card h3 em{font-style:italic;color:var(--orange)}
+  .promo-card p{color:var(--ink-soft);font-size:.95rem;margin-bottom:18px}
+  .promo-card form{display:flex;flex-direction:column;gap:10px}
+  .promo-card input{font-family:'DM Sans',sans-serif;font-size:16px;padding:15px 18px;border:2px solid rgba(71,43,14,.2);
+    border-radius:999px;text-align:center;outline:none;transition:border-color .15s}
+  .promo-card input:focus{border-color:var(--orange)}
+  .promo-card input.err{border-color:var(--orange);background:#FDECE7}
+  .promo-card form .btn{width:100%;padding:15px 20px}
+  .promo-fine{font-size:.74rem;opacity:.7;margin:14px 0 0}
 </style>
 </head>
 <body>
@@ -738,6 +764,29 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
   <a class="btn" id="sticky-btn" href="https://www.pinacello.com/product-page/kopie-van-pinacello-ananas-citroen-likeur-500ml">Bestel nu</a>
 </div>
 
+<!-- ═══ NIEUWSBRIEF POP-UP ═══ -->
+<div class="promo" id="promo" role="dialog" aria-modal="true" aria-labelledby="promo-title" hidden>
+  <div class="promo-card">
+    <button class="promo-close" id="promo-close" aria-label="Sluiten">×</button>
+    <div class="promo-body" id="promo-body">
+      <div class="promo-emoji">🍍</div>
+      <h3 id="promo-title">Blijf op de <em>hoogte</em></h3>
+      <p>Schrijf je in en mis geen nieuwe smaken, recepten of acties.</p>
+      <form id="promo-form" novalidate>
+        <input type="email" id="promo-email" inputmode="email" autocomplete="email" placeholder="jouw@email.be" aria-label="E-mailadres" required>
+        <button type="submit" class="btn">Schrijf me in</button>
+      </form>
+      <p class="promo-fine">Geen spam. Uitschrijven kan altijd. 18+</p>
+    </div>
+    <div class="promo-success" id="promo-success" hidden>
+      <div class="promo-emoji">🎉</div>
+      <h3>Je bent ingeschreven!</h3>
+      <p>Bedankt — je hoort binnenkort van ons.</p>
+      <button class="btn" id="promo-shop" type="button">Sluiten</button>
+    </div>
+  </div>
+</div>
+
 <script>
   // marquee: dupliceer inhoud zodat de loop naadloos is
   var mq=document.getElementById('marquee');
@@ -830,6 +879,41 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     document.getElementById('q-min').onclick=function(){if(qty>1)qty--;upd();};
     document.getElementById('q-plus').onclick=function(){if(qty<12)qty++;upd();};
     upd();
+  })();
+
+  // ── Nieuwsbrief pop-up → Mailchimp (via /api/subscribe) ──
+  (function(){
+    var KEY='pinacello-newsletter-seen';
+    var promo=document.getElementById('promo');
+    if(!promo || localStorage.getItem(KEY)) return;
+    var body=document.getElementById('promo-body'),success=document.getElementById('promo-success');
+    var shown=false,timer;
+    function open(){
+      if(shown||localStorage.getItem(KEY))return;
+      shown=true;clearTimeout(timer);window.removeEventListener('scroll',onScroll);
+      promo.hidden=false;
+      setTimeout(function(){var i=document.getElementById('promo-email');if(i)i.focus();},260);
+    }
+    function close(){promo.hidden=true;localStorage.setItem(KEY,'1');}
+    function onScroll(){var d=(window.scrollY+window.innerHeight)/document.documentElement.scrollHeight;if(d>0.45)open();}
+    timer=setTimeout(open,7000);
+    window.addEventListener('scroll',onScroll,{passive:true});
+    document.getElementById('promo-close').onclick=close;
+    promo.addEventListener('click',function(e){if(e.target===promo)close();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!promo.hidden)close();});
+    document.getElementById('promo-shop').onclick=close;
+    document.getElementById('promo-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      var input=document.getElementById('promo-email');
+      var email=input.value.trim();
+      if(!email||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){input.classList.add('err');input.focus();return;}
+      // Naar onze server → Mailchimp. De API-key staat NOOIT hier (enkel server-side).
+      fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({email:email,source:'popup'})}).catch(function(){});
+      if(typeof fbq==='function')fbq('track','Lead');
+      localStorage.setItem(KEY,'1');
+      body.hidden=true;success.hidden=false;
+    });
   })();
 
   // ── Meta Pixel — conversie-events ──
