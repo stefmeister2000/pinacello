@@ -83,7 +83,19 @@ app.post('/api/subscribe', async (req, res) => {
       return res.status(502).json({ ok: false, error: 'mailchimp_failed' });
     }
 
-    return res.json({ ok: true });
+    // Tag toevoegen op basis van de bron, zodat je bv. de pop-up-inschrijvingen
+    // apart kan filteren/segmenteren in Mailchimp (Audience → Tags).
+    const source = String((req.body && req.body.source) || 'website')
+      .toLowerCase().replace(/[^a-z0-9_-]+/g, '-').slice(0, 40) || 'website';
+    try {
+      await fetch(mcUrl(key, `/lists/${listId}/members/${hash}/tags`), {
+        method: 'POST',
+        headers: { Authorization: mcAuth(key), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tags: [{ name: source, status: 'active' }] }),
+      });
+    } catch (e) { console.error('tag-fout', e); }
+
+    return res.json({ ok: true, tag: source });
   } catch (err) {
     console.error('Serverfout', err);
     return res.status(500).json({ ok: false, error: 'server_error' });
