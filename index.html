@@ -448,6 +448,9 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
   .promo-card input.err{border-color:var(--orange);background:#FDECE7}
   .promo-card form .btn{width:100%;padding:15px 20px}
   .promo-fine{font-size:.74rem;opacity:.7;margin:14px 0 0}
+  .promo-code{font-family:'Fraunces',serif;font-weight:900;font-size:2rem;letter-spacing:.08em;color:var(--orange);
+    background:var(--cream);border:2px dashed var(--orange);border-radius:14px;padding:12px;margin-bottom:14px}
+  .promo-success .btn{width:100%;margin-top:4px}
 </style>
 </head>
 <body>
@@ -770,19 +773,20 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     <button class="promo-close" id="promo-close" aria-label="Sluiten">×</button>
     <div class="promo-body" id="promo-body">
       <div class="promo-emoji">🍍</div>
-      <h3 id="promo-title">Blijf op de <em>hoogte</em></h3>
-      <p>Schrijf je in en mis geen nieuwe smaken, recepten of acties.</p>
+      <h3 id="promo-title">Krijg <em>5% korting</em></h3>
+      <p>Schrijf je in en ontvang meteen 5% korting op je eerste bestelling.</p>
       <form id="promo-form" novalidate>
         <input type="email" id="promo-email" inputmode="email" autocomplete="email" placeholder="jouw@email.be" aria-label="E-mailadres" required>
-        <button type="submit" class="btn">Schrijf me in</button>
+        <button type="submit" class="btn">Stuur mijn code</button>
       </form>
       <p class="promo-fine">Geen spam. Uitschrijven kan altijd. 18+</p>
     </div>
     <div class="promo-success" id="promo-success" hidden>
       <div class="promo-emoji">🎉</div>
-      <h3>Je bent ingeschreven!</h3>
-      <p>Bedankt — je hoort binnenkort van ons.</p>
-      <button class="btn" id="promo-shop" type="button">Sluiten</button>
+      <h3>Yes! Hier is je code</h3>
+      <div class="promo-code">WELKOM5</div>
+      <p>Gebruik <b>WELKOM5</b> aan de kassa voor 5% korting.</p>
+      <a class="btn" id="promo-shop" href="https://www.pinacello.com/product-page/kopie-van-pinacello-ananas-citroen-likeur-500ml">Bestel nu</a>
     </div>
   </div>
 </div>
