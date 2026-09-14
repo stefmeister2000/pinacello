@@ -787,6 +787,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
         <input type="email" id="promo-email" inputmode="email" autocomplete="email" placeholder="jouw@email.be" aria-label="E-mailadres" required>
         <button type="submit" class="btn">Stuur mijn code</button>
       </form>
+      <p id="promo-error" role="alert" hidden></p>
       <p class="promo-fine">Geen spam. Uitschrijven kan altijd. 18+</p>
     </div>
     <div class="promo-success" id="promo-success" hidden>
@@ -914,17 +915,36 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     promo.addEventListener('click',function(e){if(e.target===promo)close();});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!promo.hidden)close();});
     document.getElementById('promo-shop').onclick=close;
-    document.getElementById('promo-form').addEventListener('submit',function(e){
+    var submitting=false,completed=false;
+    document.getElementById('promo-form').addEventListener('submit',async function(e){
       e.preventDefault();
+      if(submitting||completed)return;
       var input=document.getElementById('promo-email');
       var email=input.value.trim();
       if(!email||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){input.classList.add('err');input.focus();return;}
-      // Naar onze server → Mailchimp. De API-key staat NOOIT hier (enkel server-side).
-      fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({email:email,source:'popup'})}).catch(function(){});
-      if(typeof fbq==='function')fbq('track','Lead');
-      localStorage.setItem(KEY,'1');
+      var button=this.querySelector('button[type="submit"]');
+      var error=document.getElementById('promo-error');
+      input.classList.remove('err');
+      error.hidden=true;
+      submitting=true;button.disabled=true;
+      try {
+        var response=await fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({email:email,source:'popup'})});
+        var result=await response.json();
+        if(!response.ok||result.ok!==true)throw new Error('subscribe_failed');
+      } catch(err) {
+        error.textContent='Inschrijven is niet gelukt. Probeer het opnieuw.';
+        error.hidden=false;
+        submitting=false;button.disabled=false;
+        return;
+      }
+      completed=true;submitting=false;
       body.hidden=true;success.hidden=false;
+      try {localStorage.setItem(KEY,'1');} catch(err) {}
+      if(typeof gtag==='function')gtag('event','generate_lead',{
+        send_to:'G-T758CLG2LQ',form_id:'promo-form',lead_source:'newsletter_popup'
+      });
+      if(typeof fbq==='function')fbq('track','Lead');
     });
   })();
 
@@ -935,6 +955,23 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     document.addEventListener('click',function(e){
       var a=e.target.closest('a[href*="pinacello.com/checkout"],a[href*="pinacello.com/product-page"],a[href*="pinacello.com/shop"]');
       if(a) fb('InitiateCheckout');
+      if(e.defaultPrevented||!a||typeof gtag!=='function')return;
+      var url=new URL(a.href,window.location.href);
+      if(url.hostname!=='www.pinacello.com'&&url.hostname!=='pinacello.com')return;
+      var checkout=/^\/checkout(?:\/|$)/.test(url.pathname);
+      var params={send_to:'G-T758CLG2LQ',link_url:url.origin+url.pathname,
+        link_id:a.id||'',link_text:a.textContent.trim().slice(0,100)};
+      // Geef Analytics tijd om te verzenden voor navigatie, ook met een adblocker.
+      if(e.button===0&&!e.ctrlKey&&!e.metaKey&&!e.shiftKey&&!e.altKey&&
+          (!a.target||a.target==='_self')&&!a.hasAttribute('download')) {
+        e.preventDefault();
+        var navigated=false;
+        function navigate(){if(!navigated){navigated=true;window.location.assign(a.href);}}
+        params.event_callback=navigate;
+        params.event_timeout=800;
+        setTimeout(navigate,800);
+      }
+      gtag('event',checkout?'begin_checkout':'shop_click',params);
     });
   })();
 </script>
