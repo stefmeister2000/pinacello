@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T758CLG2LQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T758CLG2LQ', {page_path:'/ivoir-chocolade-whiskey', content_group:'IVOIR'});
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '988479144234543');
+fbq('track', 'PageView');
+</script>
+
+<!-- End Meta Pixel Code -->
+<title>IVOIR — Belgische witte chocolade & whisky | Pinacello</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍫</text></svg>">
+<meta name="description" content="Ontdek IVOIR van Pinacello: een romige likeur met Belgische witte chocolade en Belgische whisky. 23% alcohol, 500 ml. Puur, gekoeld of bij je koffie.">
+<meta property="og:title" content="IVOIR — een zacht moment, met karakter.">
+<meta property="og:description" content="Belgische witte chocolade ontmoet Belgische whisky. Ontdek IVOIR van Pinacello.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://static.wixstatic.com/media/43bd99_e309d9091718486dabf5ff38e15812ef~mv2.png">
+<meta name="theme-color" content="#633E2D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500..900;1,9..144,500..900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#39251D;
+    --ink-soft:rgba(57,37,29,.72);
+    --orange:#805033;
+    --orange-deep:#603822;
+    --yellow:#E8C996;
+    --cream:#F7EAD6;
+    --white:#FFFAF1;
+    --glow:#C69A68;
+    --leaf:#2E7D4F;
+    --radius:26px;
+    --g-deep:#E5C79F;
+    --g-mid:#F0D9B8;
+    --g-soft:#F7EAD6;
+    --g-cream:#F7EAD6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'DM Sans',sans-serif;color:var(--ink);line-height:1.6;overflow-x:hidden;
+    background:linear-gradient(180deg,var(--g-deep) 0%,var(--g-mid) 12%,var(--g-soft) 28%,var(--g-mid) 44%,var(--g-cream) 62%,var(--g-mid) 78%,var(--g-soft) 90%,var(--g-deep) 100%);
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:800;line-height:1.08;letter-spacing:-.01em}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+  section{padding:64px 0;position:relative}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;justify-content:center;
+    background:var(--orange);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;
+    font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;
+    padding:17px 38px;border-radius:999px;border:none;cursor:pointer;
+    transition:transform .15s ease,background .15s ease,box-shadow .15s ease;
+    box-shadow:0 10px 26px rgba(96,56,34,.32);
+  }
+  .btn:hover{transform:translateY(-2px);background:var(--orange-deep);box-shadow:0 16px 34px rgba(96,56,34,.4)}
+  .btn--ghost{background:transparent;color:var(--orange);box-shadow:inset 0 0 0 2px var(--orange)}
+  .btn--ghost:hover{background:var(--orange);color:#fff}
+  .btn--big{font-size:1.05rem;padding:20px 46px}
+  .section-cta{text-align:center;margin-top:44px}
+
+  /* ── floating bubbles / fruit ── */
+  .bubble{position:absolute;border-radius:50%;pointer-events:none;
+    background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.85),rgba(255,255,255,.12) 55%,rgba(226,160,20,.18));
+    box-shadow:inset 0 0 24px rgba(255,255,255,.35);
+    animation:drift 9s ease-in-out infinite;
+  }
+  @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-26px)}}
+  .fruit{position:absolute;pointer-events:none;filter:drop-shadow(0 14px 18px rgba(57,37,29,.25));animation:drift 7s ease-in-out infinite}
+
+  /* ── marquee ── */
+  .marquee{background:var(--orange);color:#F7EAD6;overflow:hidden;white-space:nowrap;padding:9px 0;font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .marquee-inner{display:inline-block;animation:scroll 22s linear infinite}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .marquee span{margin:0 18px}
+
+  /* ── nav ── */
+  nav{position:relative;display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  nav .logo{font-family:'Caveat',cursive;font-size:2.3rem;font-weight:700;color:var(--ink);text-decoration:none;transform:rotate(-2deg)}
+  nav .links{display:flex;align-items:center;gap:26px;font-weight:600;font-size:.92rem}
+  nav .links a{color:var(--ink);text-decoration:none}
+  nav .shop-pill{background:var(--orange);color:#fff;padding:9px 26px;border-radius:999px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;text-decoration:none}
+  nav .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:9px;background:none;border:none;cursor:pointer}
+  nav .nav-toggle span{display:block;height:3px;border-radius:2px;background:var(--ink);transition:transform .2s,opacity .2s}
+  nav.open .nav-toggle span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  nav.open .nav-toggle span:nth-child(2){opacity:0}
+  nav.open .nav-toggle span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+  /* ── hero ── */
+  .hero{position:relative;display:flex;align-items:center;min-height:90vh;padding:48px 0 64px;overflow:hidden;
+    background:#BFE6EE url('hero/hero.jpg') no-repeat;background-size:cover;background-position:72% center}
+  .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(90deg,rgba(255,246,216,.97) 0%,rgba(255,246,216,.93) 24%,rgba(255,246,216,.6) 44%,rgba(255,246,216,.12) 60%,rgba(255,246,216,0) 72%)}
+  .hero .wrap{position:relative;z-index:2;width:100%}
+  .hero-content{max-width:540px}
+  .hero-eyebrow{display:inline-block;font-family:'Caveat',cursive;font-size:1.65rem;color:var(--orange);margin-bottom:6px;transform:rotate(-1.5deg)}
+  .hero h1{font-size:clamp(2.5rem,4.8vw,3.9rem);margin-bottom:14px;text-shadow:0 1px 0 rgba(255,253,244,.6)}
+  .hero h1 em{font-style:italic;color:var(--orange)}
+  .hero .what{font-size:1.05rem;font-weight:600;margin-bottom:6px}
+  .hero .what b{color:var(--orange)}
+  .hero .desc{color:var(--ink-soft);font-size:.98rem;max-width:400px;margin-bottom:16px}
+  .rating-line{display:flex;align-items:center;gap:8px;font-weight:700;font-size:.88rem;margin-bottom:14px}
+  .stars{color:var(--orange);letter-spacing:2px}
+  .flavor-label{font-size:.8rem;font-weight:700;margin-bottom:8px}
+  .flavor-label b{color:var(--orange)}
+  .flavors{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+  .flavors a{display:inline-flex;align-items:center;gap:6px;padding:8px 15px 8px 11px;border-radius:999px;
+    background:rgba(255,253,244,.85);border:2px solid transparent;font-weight:700;font-size:.86rem;line-height:1;
+    color:var(--ink);text-decoration:none;box-shadow:0 4px 10px rgba(57,37,29,.1);
+    transition:transform .12s,border-color .12s,background .12s;-webkit-tap-highlight-color:transparent}
+  .flavors a .fe{font-size:1.15rem;line-height:1}
+  .flavors a:hover{transform:translateY(-2px)}
+  .flavors a:focus{outline:none}
+  .flavors a:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(128,80,51,.35)}
+  .flavors a.active{border-color:var(--orange);background:#fff;box-shadow:0 6px 16px rgba(128,80,51,.18)}
+  .purchase{margin-bottom:16px;font-size:.9rem}
+  .purchase label{display:flex;align-items:center;gap:9px;cursor:pointer;padding:4px 0;font-weight:600}
+  .purchase input{accent-color:var(--orange);width:16px;height:16px}
+  .purchase .sub-note{color:var(--orange);font-weight:700}
+  .buy-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .btn.atc{flex-wrap:wrap;gap:6px 12px;flex:1;min-width:0}
+  .btn.atc .atc-price{font-weight:800;white-space:nowrap}
+  .btn.atc .atc-price::before{content:"·";margin-right:12px;opacity:.55}
+  .qty{display:flex;align-items:center;border:2px solid var(--ink);border-radius:999px;overflow:hidden;flex-shrink:0}
+  .qty button{background:none;border:none;font-size:1.15rem;font-weight:700;color:var(--ink);width:38px;height:44px;cursor:pointer}
+  .qty span{min-width:26px;text-align:center;font-weight:700}
+  .trust-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .trust-chips span{background:rgba(255,253,244,.7);border-radius:999px;padding:6px 14px;font-size:.78rem;font-weight:700}
+  .hero-proof{margin-top:14px;font-size:.82rem;font-weight:600;color:var(--ink-soft)}
+  .hero-proof b{color:var(--ink)}
+
+  .stage{position:relative;display:flex;justify-content:center;align-items:center;min-height:600px}
+  .stage .glow{position:absolute;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,var(--glow) 0%,rgba(255,158,61,.55) 45%,rgba(255,158,61,0) 72%)}
+  .stage svg.bottle{position:relative;z-index:2;filter:drop-shadow(0 30px 44px rgba(57,37,29,.35));animation:drift 6s ease-in-out infinite}
+
+  /* ── spec bar: begrijp het product in 5 sec ── */
+  .specbar{padding:52px 0 56px}
+  .specbar .inner{background:rgba(255,253,244,.8);border-radius:var(--radius);box-shadow:0 18px 38px rgba(57,37,29,.12);display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding:26px 22px;text-align:center}
+  .spec b{display:block;font-family:'Fraunces',serif;font-size:1.25rem;font-weight:800;color:var(--orange)}
+  .spec span{font-size:.76rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.05em}
+
+  /* ── markets / social proof ── */
+  .markets{text-align:center}
+  .markets .wrap{max-width:1340px}
+  .markets h2{font-size:clamp(2rem,4.6vw,3.2rem);margin-bottom:10px}
+  .markets .sub{color:var(--ink-soft);max-width:520px;margin:0 auto 48px}
+  .photos{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .photo{position:relative;aspect-ratio:4/4.4;border-radius:16px;overflow:hidden;box-shadow:0 16px 34px rgba(57,37,29,.16);background:linear-gradient(150deg,var(--g-mid),var(--glow))}
+  .photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;opacity:0;transition:opacity .3s}
+  .photo.loaded img{opacity:1}
+  .photo .ph-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;color:var(--ink);opacity:.75}
+  .photo.loaded .ph-hint{display:none}
+
+  /* ── craft / zelfgemaakt ── */
+  .craft{text-align:center}
+  .craft-kicker{font-family:'Caveat',cursive;font-size:1.7rem;color:var(--orange);display:block;margin-bottom:2px}
+  .craft h2{font-size:clamp(2.1rem,4.8vw,3.2rem);margin-bottom:12px}
+  .craft-lead{color:var(--ink-soft);max-width:560px;margin:0 auto 44px;font-size:1.02rem}
+  .craft-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .craft-item{background:rgba(255,253,244,.7);border-radius:var(--radius);overflow:hidden;box-shadow:0 14px 30px rgba(57,37,29,.1);text-align:left}
+  .craft-item .photo{aspect-ratio:4/3;border-radius:0}
+  .craft-item .ci-body{padding:22px 24px 26px}
+  .craft-item h3{font-size:1.15rem;margin-bottom:6px}
+  .craft-item p{font-size:.9rem;color:var(--ink-soft)}
+
+  /* ── statement ── */
+  .statement{text-align:center;padding:56px 0}
+  .statement h2{font-size:clamp(2.4rem,5.6vw,4.2rem);color:var(--orange);margin-bottom:16px}
+  .statement p{max-width:520px;margin:0 auto;color:var(--ink-soft);font-size:1.02rem}
+
+  /* ── benefits ── */
+  .benefits{text-align:center}
+  .benefits h2{font-size:clamp(2.1rem,4.8vw,3.2rem);margin-bottom:8px}
+  .benefits .sub{color:var(--ink-soft);margin-bottom:50px}
+  .ben-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+  .ben .ico{width:104px;height:104px;margin:0 auto 16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:radial-gradient(circle at 32% 28%,#FFFAF1,#F0D9B8 70%);box-shadow:0 14px 28px rgba(57,37,29,.16);animation:drift 8s ease-in-out infinite}
+  .ben:nth-child(2) .ico{animation-delay:.7s}
+  .ben:nth-child(3) .ico{animation-delay:1.4s}
+  .ben:nth-child(4) .ico{animation-delay:2.1s}
+  .ben h3{text-transform:uppercase;font-size:1rem;letter-spacing:.06em;color:var(--orange);margin-bottom:5px;font-weight:800}
+  .ben p{font-size:.86rem;color:var(--ink-soft)}
+
+  /* ── serve ── */
+  .serve h2{text-align:center;font-size:clamp(2.1rem,4.8vw,3.2rem);margin-bottom:8px}
+  .serve .sub{text-align:center;color:var(--ink-soft);margin-bottom:50px}
+  .serve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .serve-card{background:rgba(255,253,244,.72);backdrop-filter:blur(6px);border-radius:var(--radius);padding:34px 28px;text-align:center;box-shadow:0 18px 38px rgba(57,37,29,.12)}
+  .serve-card .glass{font-size:3.6rem;display:block;margin-bottom:12px;animation:drift 7s ease-in-out infinite}
+  .serve-card:nth-child(2) .glass{animation-delay:.8s}
+  .serve-card:nth-child(3) .glass{animation-delay:1.6s}
+  .serve-card .tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:7px}
+  .serve-card h3{font-size:1.4rem;margin-bottom:9px}
+  .serve-card p{font-size:.9rem;color:var(--ink-soft)}
+
+  /* ── duo push banner ── */
+  .duo-push{padding:56px 0}
+  .duo-push .inner{background:var(--white);border-radius:var(--radius);box-shadow:0 22px 48px rgba(57,37,29,.16);padding:52px 48px;display:grid;grid-template-columns:1.2fr auto;gap:34px;align-items:center;position:relative;overflow:hidden}
+  .duo-push .tag{display:inline-block;background:var(--orange);color:#fff;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:14px}
+  .duo-push h2{font-size:clamp(1.8rem,4vw,2.7rem);margin-bottom:10px}
+  .duo-push h2 em{color:var(--orange)}
+  .duo-push p{color:var(--ink-soft);font-size:.98rem;max-width:480px}
+  .duo-push .bottles{font-size:4.6rem;filter:drop-shadow(0 14px 18px rgba(57,37,29,.2))}
+
+  /* ── bundles ── */
+  .offer{text-align:center}
+  .offer h2{font-size:clamp(2.3rem,5.2vw,3.6rem);color:var(--orange);margin-bottom:8px}
+  .offer .sub{color:var(--ink-soft);margin-bottom:14px}
+  .batch-note{display:inline-block;background:rgba(255,253,244,.8);border-radius:999px;padding:9px 22px;font-size:.82rem;font-weight:700;margin-bottom:48px;box-shadow:0 8px 20px rgba(57,37,29,.1)}
+  .batch-note b{color:var(--orange)}
+  .bundle-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:22px;align-items:stretch}
+  .bundle{flex:0 1 330px}
+  .bundle{background:var(--white);border-radius:var(--radius);padding:38px 26px 30px;position:relative;display:flex;flex-direction:column;gap:6px;box-shadow:0 20px 44px rgba(57,37,29,.14)}
+  .bundle.best{box-shadow:0 26px 58px rgba(96,56,34,.3);outline:3px solid var(--orange);transform:scale(1.03)}
+  .bundle .flag{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;padding:7px 20px;border-radius:999px;white-space:nowrap}
+  .bundle .emoji{font-size:2.3rem}
+  .bundle h3{font-size:1.4rem}
+  .bundle .was{color:var(--ink-soft);text-decoration:line-through;font-size:.9rem;min-height:1.2em}
+  .bundle .now{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:900;color:var(--orange);line-height:1}
+  .bundle .per{font-size:.85rem;font-weight:700}
+  .bundle .per b{color:var(--orange)}
+  .bundle ul{list-style:none;font-size:.86rem;text-align:left;margin:14px auto 18px;max-width:240px}
+  .bundle ul li{padding:4px 0 4px 24px;position:relative}
+  .bundle ul li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:800}
+  .bundle ul li.x::before{content:"✗";color:rgba(57,37,29,.35)}
+  .bundle ul li.x{color:rgba(57,37,29,.45)}
+  .bundle .save{display:inline-block;background:#FBE3DC;color:var(--orange-deep);font-weight:800;font-size:.8rem;border-radius:999px;padding:5px 14px;margin:0 auto 12px}
+  .bundle .btn{margin-top:auto}
+
+  /* ── add-ons ── */
+  .addons{margin-top:54px}
+  .addons h3{font-size:1.5rem;margin-bottom:22px}
+  .addon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:840px;margin:0 auto}
+  .addon{background:rgba(255,253,244,.8);border-radius:18px;padding:22px;display:flex;align-items:center;gap:14px;text-align:left;box-shadow:0 12px 26px rgba(57,37,29,.1)}
+  .addon .ic{font-size:2rem}
+  .addon b{display:block;font-size:.92rem}
+  .addon span{font-size:.8rem;color:var(--ink-soft)}
+  .addon .price{margin-left:auto;font-weight:800;color:var(--orange);white-space:nowrap;font-size:.9rem}
+
+  .paypoints{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:38px}
+  .paypoints span{background:rgba(255,253,244,.85);border-radius:10px;padding:8px 16px;font-size:.78rem;font-weight:700;box-shadow:0 6px 14px rgba(57,37,29,.08)}
+  .offer .delivery{margin-top:16px;font-size:.85rem;font-weight:600;color:var(--ink-soft)}
+
+  /* ── guarantee ── */
+  .guarantee .g-box{background:rgba(255,253,244,.8);border-radius:var(--radius);box-shadow:0 18px 38px rgba(57,37,29,.12);display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;padding:40px 44px}
+  .guarantee .seal{width:92px;height:92px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#FFFAF1,var(--yellow) 75%);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 24px rgba(57,37,29,.16)}
+  .guarantee .seal svg{width:46px;height:46px;filter:drop-shadow(0 3px 5px rgba(57,37,29,.25))}
+  .guarantee h3{font-size:1.55rem;margin-bottom:6px}
+  .guarantee p{color:var(--ink-soft);font-size:.93rem}
+
+  /* ── reviews ── */
+  .reviews{text-align:center}
+  .reviews h2{font-size:clamp(2.1rem,4.8vw,3.2rem);margin-bottom:8px}
+  .reviews .sub{color:var(--ink-soft);font-weight:600;margin-bottom:48px}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;text-align:left}
+  .rev{background:rgba(255,253,244,.8);border-radius:var(--radius);padding:30px;box-shadow:0 18px 38px rgba(57,37,29,.12)}
+  .rev .stars{margin-bottom:10px;font-size:1rem}
+  .rev p{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:.99rem;line-height:1.5;margin-bottom:16px}
+  .rev .who{font-weight:700;font-size:.86rem}
+  .rev .who span{font-weight:500;color:var(--ink-soft);font-size:.78rem;display:block}
+  .verified{color:var(--leaf);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-top:8px;display:block}
+
+  /* ── FAQ / objections ── */
+  .faq h2{text-align:center;font-size:clamp(2.1rem,4.8vw,3rem);margin-bottom:8px}
+  .faq .sub{text-align:center;color:var(--ink-soft);margin-bottom:44px}
+  .faq details{border-bottom:2px solid rgba(57,37,29,.14)}
+  .faq summary{cursor:pointer;font-weight:700;font-size:1.06rem;padding:20px 6px;list-style:none;display:flex;justify-content:space-between;align-items:center;font-family:'Fraunces',serif}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-size:1.6rem;font-weight:400;color:var(--orange);transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{padding:0 6px 20px;color:var(--ink-soft);font-size:.94rem}
+
+  /* ── final ── */
+  .final{text-align:center;padding:96px 0 110px}
+  .final .kicker{font-family:'Caveat',cursive;font-size:2rem;color:var(--ink);display:block;margin-bottom:6px}
+  .final h2{font-size:clamp(2.6rem,6.5vw,4.6rem);color:var(--orange);margin-bottom:16px}
+  .final p{max-width:480px;margin:0 auto 30px;color:var(--ink-soft);font-size:1.02rem}
+  .final .micro{font-size:.82rem;color:var(--ink-soft);margin-top:18px;font-weight:600}
+
+  footer{background:var(--ink);color:rgba(255,246,216,.65);text-align:center;padding:48px 24px 40px}
+  footer .f-logo{font-family:'Caveat',cursive;font-size:2rem;color:var(--cream);display:inline-block;transform:rotate(-2deg)}
+  footer .f-links{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 24px;margin:18px 0 24px}
+  footer .f-links a{color:rgba(255,246,216,.85);text-decoration:none;font-weight:600;font-size:.9rem}
+  footer .f-links a:hover{color:var(--cream)}
+  footer .f-pay{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  footer .f-pay span{background:rgba(255,246,216,.1);border-radius:7px;padding:5px 12px;font-size:.72rem;font-weight:700;color:rgba(255,246,216,.8)}
+  footer .f-legal{font-size:.82rem;max-width:520px;margin:0 auto 12px;line-height:1.6}
+  footer .f-legal a{color:inherit}
+  footer .age{display:inline-flex;align-items:center;justify-content:center;border:1.5px solid rgba(255,246,216,.5);border-radius:50%;width:28px;height:28px;font-weight:800;font-size:.72rem;vertical-align:middle;margin-right:6px;color:var(--cream)}
+  footer .f-fine{font-size:.72rem;opacity:.6;border-top:1px solid rgba(255,246,216,.14);max-width:600px;margin:0 auto;padding-top:20px}
+
+  /* ── sticky mobile CTA ── */
+  .sticky-cta{position:fixed;bottom:0;left:0;right:0;background:var(--white);box-shadow:0 -8px 26px rgba(57,37,29,.2);padding:12px 18px;display:none;align-items:center;justify-content:space-between;gap:14px;z-index:60}
+  .sticky-cta .p{font-weight:700;font-size:.9rem;line-height:1.3}
+  .sticky-cta .p s{color:var(--ink-soft);font-weight:500}
+  .sticky-cta .p b{color:var(--orange)}
+  .sticky-cta .btn{padding:13px 24px;font-size:.8rem;white-space:nowrap}
+
+  @media(max-width:960px){
+    section{padding:52px 0}
+    nav .nav-toggle{display:flex}
+    nav .links{position:absolute;top:100%;right:0;left:0;flex-direction:column;align-items:stretch;gap:4px;
+      background:var(--white);border-radius:18px;box-shadow:0 18px 40px rgba(57,37,29,.22);
+      padding:10px;margin-top:6px;display:none;z-index:70}
+    nav.open .links{display:flex}
+    nav .links a{padding:14px 16px;border-radius:12px;font-size:1rem}
+    nav .links a:not(.shop-pill):active{background:var(--cream)}
+    nav .shop-pill{text-align:center;font-size:.86rem;padding:14px 16px;margin-top:2px}
+    .hero{min-height:78vh;padding:36px 0 48px;background-position:78% center}
+    .hero::before{background:linear-gradient(90deg,rgba(255,246,216,.97) 0%,rgba(255,246,216,.92) 52%,rgba(255,246,216,.45) 78%,rgba(255,246,216,0) 100%)}
+    .hero-content{max-width:620px}
+    .specbar .inner{grid-template-columns:repeat(3,1fr);gap:20px 6px}
+    .photos{grid-template-columns:repeat(2,1fr)}
+    .ben-grid{grid-template-columns:repeat(2,1fr);gap:32px 18px}
+    .serve-grid,.rev-grid,.bundle-grid,.addon-grid,.craft-grid{grid-template-columns:1fr}
+    .bundle.best{transform:none;order:-1}
+    .duo-push .inner{grid-template-columns:1fr;text-align:center;padding:40px 28px}
+    .duo-push p{margin:0 auto}
+    .guarantee .g-box{grid-template-columns:1fr;text-align:center;padding:34px 26px}
+    .guarantee .seal{margin:0 auto}
+    .sticky-cta{display:flex}
+    body{padding-bottom:72px}
+  }
+
+  /* ── telefoon-specifieke polish ── */
+  @media(max-width:560px){
+    section{padding:40px 0}
+    .wrap{padding:0 18px}
+    .marquee{font-size:.66rem;padding:8px 0}
+    nav{padding:12px 0}
+    nav .logo{font-size:1.85rem}
+
+    .hero{min-height:auto;padding:calc(66vw + 20px) 0 36px;align-items:stretch;background:var(--g-soft)}
+    .hero::before{top:0;left:0;right:0;bottom:auto;height:66vw;background:url('hero/hero.jpg') no-repeat 72% 32%;background-size:cover;
+      -webkit-mask-image:linear-gradient(180deg,#000 80%,transparent 100%);mask-image:linear-gradient(180deg,#000 80%,transparent 100%)}
+    .hero-content{max-width:none}
+    .hero-eyebrow{font-size:1.45rem}
+    .hero h1{font-size:2.15rem}
+    .hero .what{font-size:.94rem}
+    .hero .desc{font-size:.9rem}
+    .rating-line{font-size:.8rem}
+    .buy-row{flex-direction:column;align-items:stretch;gap:12px}
+    .buy-row .qty{align-self:center}
+    .buy-row .btn{width:100%;padding:18px 20px;font-size:.92rem}
+    .btn{letter-spacing:.05em;font-size:.86rem;padding:16px 24px;white-space:nowrap}
+    .btn--big{font-size:.95rem}
+    .btn.atc{flex-wrap:nowrap;justify-content:center;padding:18px 16px}
+    .btn.atc .atc-label{white-space:nowrap}
+    .flavors{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .flavors a{justify-content:center;padding:11px 10px;font-size:.82rem}
+    .trust-chips{gap:6px}
+    .trust-chips span{font-size:.7rem;padding:5px 11px}
+    .hero-proof{font-size:.78rem}
+
+    .specbar{padding:34px 0 40px}
+    .specbar .inner{grid-template-columns:repeat(2,1fr);gap:18px 8px;padding:22px 16px}
+    .spec b{font-size:1.05rem}
+    .spec span{font-size:.66rem}
+
+    .markets h2,.benefits h2,.serve h2,.reviews h2,.offer h2,.faq h2{font-size:1.9rem}
+    .markets .sub{margin-bottom:32px}
+    .photos{grid-template-columns:repeat(2,1fr);gap:12px}
+    .section-cta{margin-top:30px}
+    .section-cta .btn{width:100%}
+
+    .statement{padding:36px 0}
+    .statement h2{font-size:2.2rem}
+    .statement p{font-size:.94rem}
+
+    .ben-grid{gap:26px 12px}
+    .ben .ico{width:82px;height:82px;font-size:2.3rem}
+    .ben h3{font-size:.88rem}
+    .ben p{font-size:.78rem}
+
+    .serve-card{padding:26px 20px}
+    .serve-card .glass{font-size:3rem}
+
+    .duo-push{padding:36px 0}
+    .duo-push .inner{padding:32px 22px;gap:22px}
+    .duo-push h2{font-size:1.55rem}
+    .duo-push p{font-size:.9rem}
+    .duo-push .bottles{font-size:3.4rem}
+    .duo-push .btn{width:100%}
+
+    .batch-note{font-size:.74rem;padding:8px 16px;margin-bottom:36px}
+    .bundle{padding:34px 20px 26px}
+    .bundle .now{font-size:2.2rem}
+    .addons h3{font-size:1.25rem}
+    .addon{padding:16px}
+    .addon .ic{font-size:1.6rem}
+    .paypoints{gap:7px;margin-top:28px}
+    .paypoints span{font-size:.7rem;padding:6px 12px}
+    .offer .delivery{font-size:.78rem}
+
+    .guarantee .g-box{padding:28px 20px;gap:18px}
+    .guarantee .seal{width:74px;height:74px}
+    .guarantee .seal svg{width:38px;height:38px}
+    .guarantee h3{font-size:1.3rem}
+    .guarantee .btn{width:100%}
+
+    .rev{padding:24px 20px}
+    .faq summary{font-size:.96rem;padding:16px 4px}
+    .faq details p{font-size:.88rem}
+
+    .final{padding:60px 0 72px}
+    .final h2{font-size:2.5rem}
+    .final .btn{width:100%}
+    .final .micro{font-size:.74rem}
+
+    footer{padding:40px 18px 34px}
+    footer .f-legal{font-size:.78rem}
+
+    .sticky-cta{padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
+    .sticky-cta .p{font-size:.84rem}
+    body{padding-bottom:calc(68px + env(safe-area-inset-bottom))}
+    .promo{padding:20px}
+    .promo-card{padding:34px 24px 26px}
+    .promo-emoji{font-size:2.6rem}
+    .promo-card h3{font-size:1.7rem}
+  }
+
+  /* ── nieuwsbrief pop-up ── */
+  .promo{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:20px;
+    background:rgba(36,27,16,.55);backdrop-filter:blur(3px);animation:promo-fade .25s ease}
+  .promo[hidden]{display:none}
+  @keyframes promo-fade{from{opacity:0}to{opacity:1}}
+  .promo-card{position:relative;background:var(--white);border-radius:24px;max-width:400px;width:100%;
+    padding:40px 34px 30px;text-align:center;box-shadow:0 30px 70px rgba(36,27,16,.4);animation:promo-pop .3s ease}
+  @keyframes promo-pop{from{transform:translateY(16px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+  .promo-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:1.8rem;line-height:1;
+    color:var(--ink-soft);cursor:pointer;width:40px;height:40px;border-radius:50%}
+  .promo-close:hover{background:rgba(57,37,29,.08)}
+  .promo-emoji{font-size:3rem;margin-bottom:6px}
+  .promo-card h3{font-family:'Fraunces',serif;font-weight:800;font-size:1.9rem;margin-bottom:10px}
+  .promo-card h3 em{font-style:italic;color:var(--orange)}
+  .promo-card p{color:var(--ink-soft);font-size:.95rem;margin-bottom:18px}
+  .promo-card form{display:flex;flex-direction:column;gap:10px}
+  .promo-card input{font-family:'DM Sans',sans-serif;font-size:16px;padding:15px 18px;border:2px solid rgba(57,37,29,.2);
+    border-radius:999px;text-align:center;outline:none;transition:border-color .15s}
+  .promo-card input:focus{border-color:var(--orange)}
+  .promo-card input.err{border-color:var(--orange);background:#FDECE7}
+  .promo-card form .btn{width:100%;padding:15px 20px}
+  .promo-fine{font-size:.74rem;opacity:.7;margin:14px 0 0}
+  .promo-code{font-family:'Fraunces',serif;font-weight:900;font-size:2rem;letter-spacing:.08em;color:var(--orange);
+    background:var(--cream);border:2px dashed var(--orange);border-radius:14px;padding:12px;margin-bottom:14px}
+  .promo-success .btn{width:100%;margin-top:4px}
+
+  :focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+  nav .links .shop-pill{color:#fff}
+  .ivoir-hero{min-height:0;background:none;padding:42px 0 68px;overflow:visible}
+  .ivoir-hero::before{display:none}
+  .ivoir-hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+  .ivoir-hero .hero-content{max-width:540px}
+  .ivoir-hero h1{font-size:clamp(2.8rem,4.8vw,4.2rem)}
+  .ivoir-hero .desc{font-size:1.05rem;max-width:430px;margin:18px 0 24px}
+  .ivoir-hero .hero-eyebrow{margin-bottom:14px}
+  .ivoir-hero .hero-photo{width:100%;height:auto;aspect-ratio:4/4.7;object-fit:cover;border-radius:120px 120px 26px 26px;box-shadow:0 24px 50px rgba(57,37,29,.18)}
+  .ivoir-hero .buy-row{margin-top:24px}
+  .hero-price{font-family:'Fraunces',serif;font-size:2rem;font-weight:800}
+  .price-note{font-size:.78rem;color:var(--ink-soft);margin:8px 0 0}
+  .hero-secondary{display:inline-block;margin-top:20px;color:var(--ink);font-size:.9rem;text-underline-offset:5px}
+  .specbar .inner{grid-template-columns:repeat(4,1fr)}
+  .ivoir-story{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;text-align:left}
+  .ivoir-story img{width:100%;height:auto;border-radius:var(--radius);box-shadow:0 18px 38px rgba(57,37,29,.15)}
+  .ivoir-story p{color:var(--ink-soft);margin:20px 0;font-size:1.02rem}
+  .ivoir-story h2{font-size:clamp(2rem,4vw,3rem)}
+  .ivoir-story .craft-kicker{margin-bottom:12px}
+  .brothers{text-align:center}
+  .brothers h2{font-size:clamp(2.1rem,4.8vw,3.2rem);margin-bottom:18px}
+  .brothers .intro{max-width:590px;margin:0 auto 36px;color:var(--ink-soft);font-size:1.02rem}
+  .brothers-gallery{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:900px;margin:0 auto}
+  .brothers-gallery figure{min-width:0;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:0 18px 38px rgba(57,37,29,.12)}
+  .brothers-gallery img{display:block;width:100%;height:auto;aspect-ratio:4/4.3;object-fit:cover;object-position:center 30%}
+  .brothers-gallery figcaption{padding:18px 20px;font-size:.88rem;font-weight:600}
+  .brothers .story-link{display:inline-block;margin-top:28px;color:var(--orange-deep);font-weight:700;text-underline-offset:5px}
+  @media(max-width:560px){.brothers-gallery{grid-template-columns:1fr;gap:22px}.brothers .intro{font-size:.94rem}.brothers-gallery img{aspect-ratio:4/4.3}}
+  .tasting{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .tasting span{padding:8px 16px;background:var(--white);border-radius:999px;font-size:.8rem;font-weight:700}
+  .ivoir-offer{display:grid;grid-template-columns:1fr 1fr;max-width:870px;margin:40px auto 0;overflow:hidden;border-radius:var(--radius);background:var(--white);box-shadow:0 20px 44px rgba(57,37,29,.15);text-align:left}
+  .ivoir-offer img{width:100%;height:100%;min-height:0;aspect-ratio:4/5;object-fit:cover}
+  .ivoir-offer .offer-copy{padding:40px;align-self:center}
+  .ivoir-offer h3{font-size:2rem;margin:10px 0}
+  .ivoir-offer p{color:var(--ink-soft);margin:16px 0}
+  .ivoir-offer ul{list-style:none;margin:22px 0;font-size:.9rem}
+  .ivoir-offer li{margin:8px 0}
+  .ivoir-offer li::before{content:'✓';color:var(--orange);margin-right:10px;font-weight:700}
+  .ivoir-offer .btn{width:100%;padding-left:20px;padding-right:20px}
+  .serve-card .glass{animation:none}
+  .final .fruit{filter:none}
+  .faq summary{gap:20px}
+  @media(max-width:960px){
+    .ivoir-hero .wrap{gap:30px;grid-template-columns:1fr 1fr}
+    .ivoir-hero h1{font-size:2.8rem}
+    .ivoir-hero .buy-row .btn{padding:18px 22px;font-size:.88rem}
+    .ivoir-story{gap:30px}
+    .ivoir-offer .offer-copy{padding:28px}
+  }
+  @media(max-width:680px){
+    .ivoir-hero{padding:16px 0 40px}
+    .ivoir-hero .wrap{grid-template-columns:1fr;gap:28px}
+    .ivoir-hero .hero-photo{grid-row:1;aspect-ratio:5/4;object-position:center 52%;border-radius:60px 60px 22px 22px;max-height:410px}
+    .ivoir-hero h1{font-size:2.7rem}
+    .ivoir-hero .hero-eyebrow{font-size:1.4rem;margin-bottom:10px}
+    .ivoir-hero .desc{font-size:.96rem}
+    .ivoir-hero .buy-row{display:block}
+    .ivoir-hero .buy-row .btn{width:100%}
+    .ivoir-story{grid-template-columns:1fr}
+    .ivoir-offer{grid-template-columns:1fr}
+    .ivoir-offer img{max-height:340px;object-position:center 55%}
+    .specbar .inner{grid-template-columns:repeat(2,1fr)}
+    .final .fruit{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
+/></noscript>
+<div class="marquee"><div class="marquee-inner" id="marquee"><span>Belgische witte chocolade</span><span>Belgische whisky</span><span>23% · 500 ml</span><span>18+ · Geniet met mate</span></div></div>
+<div class="wrap"><nav id="nav" aria-label="Hoofdnavigatie">
+  <a class="logo" href="/">Pinacello</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  <div class="links" id="navLinks"><a href="#smaak">De smaak</a><a href="#broers">De broers</a><a href="#geniet">Geniet</a><a href="#faq">Vragen</a><a class="shop-pill" href="#bestel">Bestel IVOIR</a></div>
+</nav></div>
+<header class="hero ivoir-hero"><div class="wrap">
+  <div class="hero-content">
+    <span class="hero-eyebrow">Belgische chocolade. Een warme whiskytoets.</span>
+    <h1>Een zacht moment.<br>Met <em>karakter.</em></h1>
+    <p class="what"><b>IVOIR</b> — witte chocolade &amp; whisky</p>
+    <p class="desc">Romige Belgische witte chocolade en Belgische whisky, samen in één fles. Voor dat heerlijke moment na het eten.</p>
+    <div class="hero-price">€30,00 <span style="font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500">/ 500 ml</span></div>
+    <p class="price-note">Normale prijs · bekijk de actuele prijs in de webshop.</p>
+    <div class="buy-row"><a class="btn atc" id="ivoir-hero-buy" data-placement="hero" href="https://www.pinacello.com/product-page/ivoir-chocolade-whiskey">Ontdek IVOIR in de shop →</a></div>
+    <div class="trust-chips"><span>🇧🇪 Belgische ingrediënten</span><span>🍫 Witte chocolade</span><span>🥃 23% alcohol</span></div>
+    <a class="hero-secondary" href="#geniet">Zo geniet je van IVOIR ↓</a>
+  </div>
+  <img class="hero-photo" src="/ivoir-assets/ivoir-moment.png" width="1402" height="1122" alt="IVOIR witte-chocoladelikeur met twee glazen, witte chocolade en kaarslicht" fetchpriority="high">
+</div></header>
+<main>
+<div class="specbar"><div class="wrap"><div class="inner">
+  <div class="spec"><b>Witte chocolade</b><span>uit België</span></div><div class="spec"><b>Belgische whisky</b><span>warm van karakter</span></div><div class="spec"><b>23%</b><span>alcohol</span></div><div class="spec"><b>500 ml</b><span>om van te genieten</span></div>
+</div></div>
+<section class="craft" id="smaak"><div class="wrap ivoir-story">
+  <img src="/ivoir-assets/ivoir-bottle.jpg" width="919" height="1061" alt="IVOIR Chocolat, een Belgische crème likeur van 23%, in een fles van 500 ml" loading="lazy">
+  <div><span class="craft-kicker">Het zachte van chocolade. Het warme van whisky.</span><h2>Twee Belgische smaken.<br>Eén romige verleiding.</h2>
+    <p>Witte chocolade geeft IVOIR zijn zachte, romige smaak. De Belgische whisky voegt warmte en karakter toe. Samen vormen ze een volle likeur die je rustig wilt proeven.</p>
+    <p>Voor een avond aan tafel, een koffie na het eten of een klein genietmoment. Schenk een glas, neem je tijd.</p>
+    <div class="tasting"><span>Romig</span><span>Witte chocolade</span><span>Warme whiskytoets</span></div>
+  </div>
+</div></section>
+<section class="serve" id="geniet"><div class="wrap"><h2>Jouw moment. Jouw IVOIR.</h2><p class="sub">Drie eenvoudige manieren om te genieten.</p>
+<div class="serve-grid">
+  <div class="serve-card"><span class="glass" aria-hidden="true">🥃</span><span class="tag">01 · Puur</span><h3>Gewoon, gekoeld.</h3><p>Schenk IVOIR licht gekoeld in een klein glas. Zo komen de romige chocolade en warme whiskytoets samen.</p></div>
+  <div class="serve-card"><span class="glass" aria-hidden="true">🧊</span><span class="tag">02 · Met ijs</span><h3>On the rocks.</h3><p>Een paar ijsblokjes, een scheutje IVOIR. Laat even rusten en geniet op je eigen tempo.</p></div>
+  <div class="serve-card"><span class="glass" aria-hidden="true">☕</span><span class="tag">03 · Bij de koffie</span><h3>Een romige twist.</h3><p>Geef je koffie een zachte toets van witte chocolade en whisky met een klein scheutje IVOIR.</p></div>
+</div><p class="delivery" style="text-align:center;margin-top:28px">Bewaar in de koelkast en schud voor gebruik.</p>
+<div class="section-cta"><a class="btn" href="#bestel">Kies jouw genietmoment</a></div>
+</div></section>
+<section class="brothers" id="broers"><div class="wrap">
+  <span class="craft-kicker">De gezichten achter Pinacello</span>
+  <h2>Twee broers. Eén passie.</h2>
+  <p class="intro">Achter Pinacello staan twee broers uit Dilbeek. Van de eerste recepten aan de keukentafel tot onze eigen stand op de markt: we maken, proeven en delen onze likeuren samen. IVOIR hoort bij dat verhaal.</p>
+  <div class="brothers-gallery">
+    <figure><img src="/story/broers-1.jpg" width="1097" height="1400" alt="De twee broers achter Pinacello samen aan hun stand" loading="lazy"><figcaption>Wij zijn de broers achter Pinacello.</figcaption></figure>
+    <figure><img src="/markets/markt-4.jpg" width="1200" height="1198" alt="De twee broers bij de Pinacello-stand met hun collectie likeuren" loading="lazy"><figcaption>Samen op de markt, tussen onze flessen.</figcaption></figure>
+  </div>
+  <a class="story-link" href="/verhaal">Lees ons verhaal →</a>
+</div></section>
+<section class="offer" id="bestel"><div class="wrap"><h2>Haal IVOIR in huis.</h2><p class="sub">Voor jezelf, om te delen of om cadeau te geven.</p>
+  <div class="ivoir-offer"><img src="/ivoir-assets/ivoir-moment.png" width="1402" height="1122" alt="IVOIR met witte chocolade en twee glazen om te delen" loading="lazy"><div class="offer-copy">
+    <span class="craft-kicker">Een fles vol zachtheid</span><h3>IVOIR Chocolat</h3><p>Witte-chocoladelikeur met Belgische whisky.</p><div class="hero-price">€30,00</div><p class="price-note">Normale prijs · 1 fles van 500 ml</p>
+    <ul><li>Belgische witte chocolade</li><li>Belgische whisky · 23% alcohol</li><li>Puur, met ijs of in je koffie</li></ul>
+    <a class="btn" id="ivoir-offer-buy" data-placement="offer" href="https://www.pinacello.com/product-page/ivoir-chocolade-whiskey">Bestel IVOIR →</a>
+    <p class="price-note">Actuele prijs, eventuele acties en verzendkosten vind je in de webshop.</p>
+  </div></div>
+</div></section>
+<section class="faq" id="faq"><div class="wrap" style="max-width:740px"><h2>Nog een vraag?</h2><p class="sub">Dit wil je weten over IVOIR.</p>
+  <details><summary>Wat is IVOIR?</summary><p>IVOIR is een romige likeur van Pinacello, gemaakt met Belgische whisky en Belgische witte chocolade.</p></details>
+  <details><summary>Hoe smaakt IVOIR?</summary><p>Zacht en romig, met witte chocolade en een warme whiskytoets. Een volle smaak om rustig van te genieten.</p></details>
+  <details><summary>Hoe serveer ik het?</summary><p>Puur en licht gekoeld, met een paar ijsblokjes of als toevoeging aan je koffie. Schud de fles voor gebruik.</p></details>
+  <details><summary>Hoe bewaar ik de fles?</summary><p>Bewaar IVOIR in de koelkast voor een optimale smaak. Volg de bewaar- en houdbaarheidsinformatie op het etiket.</p></details>
+  <details><summary>Hoeveel alcohol en inhoud heeft een fles?</summary><p>Een fles bevat 500 ml. IVOIR heeft een alcoholpercentage van 23%. Alleen voor personen van 18 jaar of ouder; geniet met mate.</p></details>
+  <details><summary>Waar kan ik bestellen?</summary><p>Via de Pinacello-webshop. Daar vind je de actuele prijs, beschikbaarheid en verzendinformatie. <a href="https://www.pinacello.com/product-page/ivoir-chocolade-whiskey" data-placement="faq" style="color:var(--orange)">Bekijk IVOIR in de webshop.</a></p></details>
+  <details><summary>Ik heb een horecazaak. Kan ik inkopen?</summary><p>Neem contact op via <a href="https://www.pinacello.com/b2b-samenwerking" style="color:var(--orange)">onze B2B-pagina</a> om de mogelijkheden te bespreken.</p></details>
+</div></section>
+<section class="final"><span class="fruit" style="top:16%;left:8%;font-size:3rem" aria-hidden="true">🍫</span><span class="fruit" style="bottom:18%;right:8%;font-size:3rem" aria-hidden="true">🥃</span><div class="wrap"><span class="kicker">Nog even blijven zitten…</span><h2>Schenk een moment IVOIR.</h2><p>Witte chocolade, Belgische whisky en goed gezelschap. Meer hoeft het niet te zijn.</p><a class="btn btn--big" id="ivoir-final-buy" data-placement="final" href="https://www.pinacello.com/product-page/ivoir-chocolade-whiskey">Ontdek jouw nieuwe favoriet</a><p class="micro">23% alcohol · 500 ml · 18+ · Geniet met mate</p></div></section>
+</main>
+<footer>
+  <div class="wrap">
+    <span class="f-logo">Pinacello</span>
+    <nav class="f-links" aria-label="Footernavigatie">
+      <a href="/">Pinacello</a>
+      <a href="https://www.pinacello.com/shop">Webshop</a>
+      <a href="https://www.pinacello.com/contact-8">Contact</a>
+      <a href="https://www.pinacello.com/b2b-samenwerking">B2B</a>
+      <a href="/terms.html">Algemene Voorwaarden</a>
+      <a href="/privacy.html">Privacybeleid</a>
+    </nav>
+    <div class="f-pay"><span>Bancontact</span><span>Visa</span><span>Mastercard</span><span>Apple Pay</span><span>PayPal</span></div>
+    <p class="f-legal"><span class="age">18+</span> Alcohol enkel voor personen van 18 jaar of ouder. Geniet, maar drink met mate — <a href="https://www.drinkbewust.be" target="_blank" rel="noopener">drinkbewust.be</a></p>
+    <p class="f-fine">Pinacello · Kerselaarstraat 40, 1700 Dilbeek · Ondernemingsnr. 1006.157.937 · © 2026</p>
+  </div>
+</footer>
+
+<div class="sticky-cta"><div class="p">IVOIR · 500 ml<br><b>€30,00</b></div><a class="btn" id="ivoir-sticky-buy" data-placement="sticky" href="https://www.pinacello.com/product-page/ivoir-chocolade-whiskey">Bekijk in shop</a></div>
+<script>
+  var mq=document.getElementById('marquee');
+  var duplicate=document.createElement('span');
+  duplicate.innerHTML=mq.innerHTML;
+  duplicate.setAttribute('aria-hidden','true');
+  mq.appendChild(duplicate);
+  (function(){
+    var nav=document.getElementById('nav'),toggle=document.getElementById('navToggle');
+    function close(){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}
+    toggle.addEventListener('click',function(){toggle.setAttribute('aria-expanded',String(nav.classList.toggle('open')));});
+    nav.querySelectorAll('.links a').forEach(function(a){a.addEventListener('click',close);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  })();
+  // The dedicated path identifies this page in GA4. Clicks also identify the product and CTA.
+  (function(){
+    document.addEventListener('click',function(e){
+      var a=e.target.closest('a[data-placement]');
+      if(!a||e.defaultPrevented)return;
+      var url=new URL(a.href,window.location.href);
+      if(url.hostname!=='www.pinacello.com'||url.pathname!=='/product-page/ivoir-chocolade-whiskey')return;
+      if(typeof fbq==='function')fbq('track','InitiateCheckout',{content_name:'IVOIR',content_ids:['ivoir'],content_type:'product'});
+      if(typeof gtag!=='function')return;
+      var params={send_to:'G-T758CLG2LQ',landing_page:'ivoir',product_id:'ivoir',
+        link_url:url.origin+url.pathname,link_id:a.id||'',link_text:a.textContent.trim(),
+        cta_placement:a.dataset.placement};
+      if(e.button===0&&!e.ctrlKey&&!e.metaKey&&!e.shiftKey&&!e.altKey&&
+          (!a.target||a.target==='_self')&&!a.hasAttribute('download')){
+        e.preventDefault();
+        var navigated=false;
+        function navigate(){if(!navigated){navigated=true;window.location.assign(a.href);}}
+        params.event_callback=navigate;params.event_timeout=800;setTimeout(navigate,800);
+      }
+      gtag('event','shop_click',params);
+    });
+  })();
+</script>
+</body>
+</html>

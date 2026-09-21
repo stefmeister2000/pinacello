@@ -21,3 +21,30 @@ npx serve .
 - Replace placeholder review numbers with real figures
 - Connect the e-mailpopup to Wix (search `TODO WIX` in `index.html`)
 - Confirm alcohol %, prices and delivery details
+
+## IVOIR landing page
+
+- Page: `ivoir-chocolade-whiskey.html`
+- Public path on this landing-page server: `/ivoir-chocolade-whiskey`
+- Preview: `npm start`, then `http://localhost:3000/ivoir-chocolade-whiskey`
+- Photos: `ivoir-assets/`, from the existing [IVOIR product page](https://www.pinacello.com/product-page/ivoir-chocolade-whiskey).
+- This is an independent landing page; product buttons open the existing Wix product page.
+- Product copy uses the webshop description and bottle label: Belgian white chocolate, Belgian whisky, 23% alcohol, 500 ml. The page displays the regular €30 price; current promotions and shipping are handled by the webshop.
+
+### IVOIR analytics
+
+Uses the existing GA4 measurement ID `G-T758CLG2LQ`. The config sets
+`page_path: /ivoir-chocolade-whiskey` and `content_group: IVOIR`, so the landing page
+can be distinguished from the homepage and the Wix `/product-page/...` URL.
+The `.html` URL also reports the same page path.
+
+Product links emit the existing `shop_click` event with `landing_page: ivoir`,
+`product_id: ivoir`, and `cta_placement: hero | offer | faq | final | sticky`.
+Use the page path to filter page reporting. Register the event parameters as
+custom dimensions in GA4 if you want them in custom reports. This tracks visits
+and outbound shop clicks, not completed Wix purchases.
+
+Deploy the new HTML and `ivoir-assets/` with the existing Express site. Its current
+HTML-extension routing already serves the slug; no new backend route is needed.
+Verify production event receipt in GA4 after deployment. Automated local checks:
+`node --test tests/*.cjs`.
