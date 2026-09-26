@@ -48,3 +48,17 @@ Deploy the new HTML and `ivoir-assets/` with the existing Express site. Its curr
 HTML-extension routing already serves the slug; no new backend route is needed.
 Verify production event receipt in GA4 after deployment. Automated local checks:
 `node --test tests/*.cjs`.
+
+## Flavour landing pages
+
+The IVOIR layout is also available at these independent URLs:
+
+- `/pinacello-ananas-citroen`
+- `/cococello`
+- `/frambolade`
+- `/calibana`
+- `/vaquero-rum-likeur`
+- `/limoncello`
+- `/gin-o-pomelo`
+
+The new pages share `flavour-assets/landing.css`, with individual colours, copy, product photos and webshop destinations. Express serves each slug through its existing HTML-extension routing. GA4 uses each page's slug for `page_path`, `landing_page` and `product_id`; Clarity and Meta Pixel are included. Prices are labelled as regular prices; offers remain in the Wix shop. Photos and product details were checked against the Pinacello webshop on 26 September 2026. Product images are served from its Wix CDN. Unknown ABV/volume values are omitted rather than inferred.

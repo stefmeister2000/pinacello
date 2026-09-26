@@ -1,0 +1,20 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const vm=require('node:vm');
+const slugs=['pinacello-ananas-citroen','cococello','frambolade','calibana','vaquero-rum-likeur','limoncello','gin-o-pomelo'];
+for(const slug of slugs)test(`${slug}: page identity and checkout tracking match the product`,()=>{
+ const html=fs.readFileSync(`${slug}.html`,'utf8');
+ const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].map(m=>m[1]);
+ const calls=[];vm.runInNewContext(scripts.find(s=>s.includes("gtag('config'")),{window:{},dataLayer:calls,Date});
+ assert.equal(calls.find(c=>c[0]==='config')[2].page_path,'/'+slug);
+ const url=html.match(/data-placement="hero" href="([^"]+)"/)[1];
+ const clicks=[],timers=[],nav=[];let listener;
+ const tracking=scripts.at(-1).slice(scripts.at(-1).indexOf('  // The dedicated path'));
+ vm.runInNewContext(tracking,{document:{addEventListener:(type,fn)=>listener=fn},URL,window:{location:{href:'https://landing.example/'+slug,assign:u=>nav.push(u)}},gtag:(...args)=>clicks.push(args),setTimeout:fn=>timers.push(fn)});
+ const a={href:url,id:slug+'-hero-buy',textContent:'Ontdek',dataset:{placement:'hero'},hasAttribute:()=>false};
+ const e={button:0,target:{closest:()=>a},preventDefault(){this.defaultPrevented=true;}};listener(e);
+ assert.equal(e.defaultPrevented,true);assert.equal(clicks[0][1],'shop_click');assert.equal(clicks[0][2].product_id,slug);
+ assert.equal(clicks[0][2].link_url,url);clicks[0][2].event_callback();timers[0]();assert.deepEqual(nav,[url]);
+ assert.equal((html.match(/yo92xb86rr/g)||[]).length,1);
+});
