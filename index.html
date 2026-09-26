@@ -226,27 +226,23 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
   .duo-push .bottles{font-size:4.6rem;filter:drop-shadow(0 14px 18px rgba(71,43,14,.2))}
 
   /* Other flavours */
-  .other-products{background:rgba(255,253,244,.55)}
-  .other-products-header{text-align:center;max-width:650px;margin:0 auto 32px}
-  .other-products .eyebrow{font-family:'Caveat',cursive;font-size:1.6rem;color:var(--orange)}
-  .other-products h2{font-size:clamp(2rem,4vw,3rem);margin:6px 0 12px}
-  .other-products-header p{color:var(--ink-soft)}
-  .other-products-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
-  .other-product{display:flex;flex-direction:column;overflow:hidden;border-radius:22px;background:var(--white);color:var(--ink);text-decoration:none;box-shadow:0 8px 24px rgba(71,43,14,.08);transition:transform .2s,box-shadow .2s}
-  .other-product:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(71,43,14,.15)}
-  .other-product:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
-  .other-product img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:#fff;padding:16px}
-  .other-product-copy{display:flex;flex:1;flex-direction:column;padding:20px;gap:8px}
-  .other-product h3{font-size:1.35rem}
-  .other-product p{font-size:.9rem;color:var(--ink-soft)}
-  .other-product-cta{display:block;margin-top:auto;padding-top:12px;color:var(--orange-deep);font-size:.85rem;font-weight:800}
-  .other-product--shop{justify-content:center;background:var(--ink);color:var(--cream);padding:26px}
-  .other-product--shop h3{font-size:1.8rem;margin-bottom:14px}
-  .other-product--shop p{color:var(--cream)}
-  .other-product--shop .other-product-cta{color:var(--yellow);margin-top:20px}
-  @media(max-width:900px){.other-products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media(max-width:480px){.other-products-grid{gap:12px}.other-product-copy{padding:14px}.other-product h3{font-size:1.15rem}.other-product p{font-size:.82rem}.other-product--shop{padding:18px}.other-product--shop h3{font-size:1.5rem}}
-  @media(prefers-reduced-motion:reduce){.other-product{transition:none}.other-product:hover{transform:none}}
+  .other-products{padding:32px 0 48px}
+  .other-products .wrap{max-width:900px}
+  .other-products-header{text-align:center;margin:0 auto 24px}
+  .other-products h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:8px}
+  .other-products-header p{color:var(--ink-soft);font-size:.92rem}
+  .other-products-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  .other-product{display:block;color:var(--ink);text-decoration:none}
+  .other-product:focus-visible,.other-products-all:focus-visible{outline:2px solid var(--orange);outline-offset:5px}
+  .other-product img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
+  .other-product-copy{padding:12px 0 0}
+  .other-product h3{font-size:1.15rem;margin-bottom:4px}
+  .other-product p{font-size:.85rem;color:var(--ink-soft)}
+  .other-product-cta{display:block;margin-top:8px;font-size:.8rem;color:var(--orange-deep)}
+  .other-product:hover .other-product-cta{text-decoration:underline}
+  .other-products-footer{text-align:center;margin-top:24px}
+  .other-products-all{color:var(--ink-soft);font-size:.88rem;text-underline-offset:4px}
+  @media(max-width:600px){.other-products-grid{gap:12px}.other-product img{aspect-ratio:3/4;border-radius:8px}.other-product h3{font-size:1rem}.other-product p{font-size:.75rem}.other-product-cta{font-size:.75rem}.other-products{padding:24px 0 36px}}
 
   /* ── bundles ── */
   .offer{text-align:center}
@@ -620,80 +616,6 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- ═══ OTHER FLAVOURS ═══ -->
-<section class="other-products" id="andere-smaken" aria-labelledby="other-products-title">
-  <div class="wrap">
-    <div class="other-products-header">
-      <span class="eyebrow">Nog meer om te ontdekken</span>
-      <h2 id="other-products-title">Liever een andere smaak?</h2>
-      <p>Van romige framboos tot frisse citrus: ontdek de rest van de familie en kies jouw favoriet in onze webshop.</p>
-    </div>
-    <div class="other-products-grid">
-      <a class="other-product" id="other-frambolade" href="https://www.pinacello.com/product-page/frambolade">
-        <img src="https://static.wixstatic.com/media/43bd99_f9bd5f1a586d4079a1e9ced6d6586924~mv2.jpg/v1/fit/w_480,h_480,q_85/43bd99_f9bd5f1a586d4079a1e9ced6d6586924~mv2.jpg" alt="Fles Frambolade" width="480" height="480" loading="lazy" decoding="async">
-        <div class="other-product-copy">
-          <h3>Frambolade</h3>
-          <p>Romige frambozenlikeur</p>
-          <span class="other-product-cta">Ontdek Frambolade →</span>
-        </div>
-      </a>
-      <a class="other-product" id="other-cococello" href="https://www.pinacello.com/product-page/cococello">
-        <img src="https://static.wixstatic.com/media/43bd99_a8851abb7856472bb6ff82a271b7f904~mv2.png/v1/fit/w_480,h_480,q_85/43bd99_a8851abb7856472bb6ff82a271b7f904~mv2.png" alt="Fles Cococello" width="480" height="480" loading="lazy" decoding="async">
-        <div class="other-product-copy">
-          <h3>Cococello</h3>
-          <p>Zachte kokosnoot crème likeur</p>
-          <span class="other-product-cta">Ontdek Cococello →</span>
-        </div>
-      </a>
-      <a class="other-product" id="other-calibana" href="https://www.pinacello.com/product-page/calibana">
-        <img src="https://static.wixstatic.com/media/43bd99_1a4ee36133764dba9528abe4f12f29b6~mv2.jpg/v1/fit/w_480,h_480,q_85/43bd99_1a4ee36133764dba9528abe4f12f29b6~mv2.jpg" alt="Fles Calibana" width="480" height="480" loading="lazy" decoding="async">
-        <div class="other-product-copy">
-          <h3>Calibana</h3>
-          <p>Banaan &amp; vanille likeur</p>
-          <span class="other-product-cta">Ontdek Calibana →</span>
-        </div>
-      </a>
-      <a class="other-product" id="other-ivoir-chocolade-whiskey" href="https://www.pinacello.com/product-page/ivoir-chocolade-whiskey">
-        <img src="https://static.wixstatic.com/media/43bd99_0b12798fd24c4d3d93a27f3b0b83fdf4~mv2.jpg/v1/fit/w_480,h_480,q_85/43bd99_0b12798fd24c4d3d93a27f3b0b83fdf4~mv2.jpg" alt="Fles Ivoir" width="480" height="480" loading="lazy" decoding="async">
-        <div class="other-product-copy">
-          <h3>Ivoir</h3>
-          <p>Witte chocolade &amp; whiskey</p>
-          <span class="other-product-cta">Ontdek Ivoir →</span>
-        </div>
-      </a>
-      <a class="other-product" id="other-vaquero-rum-likeur" href="https://www.pinacello.com/product-page/vaquero-rum-likeur">
-        <img src="https://static.wixstatic.com/media/43bd99_3ac9a48211fc45c39fa466e3af84d302~mv2.jpg/v1/fit/w_480,h_480,q_85/43bd99_3ac9a48211fc45c39fa466e3af84d302~mv2.jpg" alt="Fles Vaquero" width="480" height="480" loading="lazy" decoding="async">
-        <div class="other-product-copy">
-          <h3>Vaquero</h3>
-          <p>Caraïbische rum likeur</p>
-          <span class="other-product-cta">Ontdek Vaquero →</span>
-        </div>
-      </a>
-      <a class="other-product" id="other-limoncello" href="https://www.pinacello.com/product-page/limoncello">
-        <img src="https://static.wixstatic.com/media/43bd99_fa3616be2bfe4775ac5afbee2dc599a7~mv2.png/v1/fit/w_480,h_480,q_85/43bd99_fa3616be2bfe4775ac5afbee2dc599a7~mv2.png" alt="Fles Limoncello" width="480" height="480" loading="lazy" decoding="async">
-        <div class="other-product-copy">
-          <h3>Limoncello</h3>
-          <p>Citroenlikeur</p>
-          <span class="other-product-cta">Ontdek Limoncello →</span>
-        </div>
-      </a>
-      <a class="other-product" id="other-gin-o-pomelo" href="https://www.pinacello.com/product-page/gin-o-pomelo">
-        <img src="https://static.wixstatic.com/media/43bd99_16447528dec14713921ef7320eefd43b~mv2.png/v1/fit/w_480,h_480,q_85/43bd99_16447528dec14713921ef7320eefd43b~mv2.png" alt="Fles Gin O’ Pomelo" width="480" height="480" loading="lazy" decoding="async">
-        <div class="other-product-copy">
-          <h3>Gin O’ Pomelo</h3>
-          <p>Gin met zachte citrusnoten</p>
-          <span class="other-product-cta">Ontdek Gin O’ Pomelo →</span>
-        </div>
-      </a>
-      <a class="other-product other-product--shop" id="other-webshop" href="https://www.pinacello.com/shop">
-        <h3>Welke wordt jouw favoriet?</h3>
-        <p>Bekijk alle smaken en pakketten in onze webshop.</p>
-        <span class="other-product-cta">Naar de webshop →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- ═══ MARKETS / PROOF ═══ -->
 <section class="markets">
   <div class="wrap">
@@ -737,6 +659,43 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     </div>
     <p style="text-align:center;margin-top:26px;font-size:.88rem;font-weight:600;color:var(--ink-soft)">💡 Bewaar de fles in de koelkast en shake voor gebruik.</p>
     <div class="section-cta"><a class="btn" href="#bestel">Bestel nu</a></div>
+  </div>
+</section>
+
+<!-- ═══ OTHER FLAVOURS ═══ -->
+<section class="other-products" id="andere-smaken" aria-labelledby="other-products-title">
+  <div class="wrap">
+    <div class="other-products-header">
+      <h2 id="other-products-title">Ook eens iets anders proeven?</h2>
+      <p>Ontdek nog een paar favorieten uit onze familie.</p>
+    </div>
+    <div class="other-products-grid">
+      <a class="other-product" id="other-frambolade" href="https://www.pinacello.com/product-page/frambolade">
+        <img src="https://static.wixstatic.com/media/43bd99_f9bd5f1a586d4079a1e9ced6d6586924~mv2.jpg/v1/fit/w_480,h_480,q_85/43bd99_f9bd5f1a586d4079a1e9ced6d6586924~mv2.jpg" alt="Fles Frambolade" width="480" height="480" loading="lazy" decoding="async">
+        <div class="other-product-copy">
+          <h3>Frambolade</h3>
+          <p>Romige frambozenlikeur</p>
+          <span class="other-product-cta">Ontdek Frambolade →</span>
+        </div>
+      </a>
+      <a class="other-product" id="other-calibana" href="https://www.pinacello.com/product-page/calibana">
+        <img src="https://static.wixstatic.com/media/43bd99_1a4ee36133764dba9528abe4f12f29b6~mv2.jpg/v1/fit/w_480,h_480,q_85/43bd99_1a4ee36133764dba9528abe4f12f29b6~mv2.jpg" alt="Fles Calibana" width="480" height="480" loading="lazy" decoding="async">
+        <div class="other-product-copy">
+          <h3>Calibana</h3>
+          <p>Banaan &amp; vanille likeur</p>
+          <span class="other-product-cta">Ontdek Calibana →</span>
+        </div>
+      </a>
+      <a class="other-product" id="other-ivoir-chocolade-whiskey" href="https://www.pinacello.com/product-page/ivoir-chocolade-whiskey">
+        <img src="https://static.wixstatic.com/media/43bd99_0b12798fd24c4d3d93a27f3b0b83fdf4~mv2.jpg/v1/fit/w_480,h_480,q_85/43bd99_0b12798fd24c4d3d93a27f3b0b83fdf4~mv2.jpg" alt="Fles Ivoir" width="480" height="480" loading="lazy" decoding="async">
+        <div class="other-product-copy">
+          <h3>Ivoir</h3>
+          <p>Witte chocolade &amp; whiskey</p>
+          <span class="other-product-cta">Ontdek Ivoir →</span>
+        </div>
+      </a>
+    </div>
+    <p class="other-products-footer"><a class="other-products-all" id="other-webshop" href="https://www.pinacello.com/shop">Bekijk alle smaken →</a></p>
   </div>
 </section>
 
