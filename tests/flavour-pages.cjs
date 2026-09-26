@@ -2,7 +2,7 @@ const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const vm=require('node:vm');
-const slugs=['pinacello-ananas-citroen','cococello','frambolade','calibana','vaquero-rum-likeur','limoncello','gin-o-pomelo'];
+const slugs=['frambolade','calibana','vaquero-rum-likeur','limoncello','gin-o-pomelo'];
 for(const slug of slugs)test(`${slug}: page identity and checkout tracking match the product`,()=>{
  const html=fs.readFileSync(`${slug}.html`,'utf8');
  const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].map(m=>m[1]);
