@@ -8,7 +8,14 @@ const crypto = require('crypto');
 const app = express();
 app.use(express.json());
 // extensions:['html'] → /verhaal serveert verhaal.html, /terms → terms.html, enz.
-app.use(express.static(__dirname, { extensions: ['html'] }));
+app.use(express.static(__dirname, {
+  extensions: ['html'],
+  setHeaders(res, filePath) {
+    // Revalidate pages; cache images/fonts/styles for a day, then use ETags.
+    const asset = /\.(?:webp|jpg|jpeg|png|svg|woff2?|css)$/i.test(filePath);
+    res.setHeader('Cache-Control', asset ? 'public, max-age=86400' : 'no-cache');
+  },
+}));
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 

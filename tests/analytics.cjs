@@ -29,7 +29,7 @@ function click(s,path,extra={}){
 }
 test('product links send shop_click and wait for callback with a bounded fallback',()=>{
  const s=setup();assert.equal(click(s,'/product-page/cococello?email=private').defaultPrevented,true);
- assert.equal(s.events[0][1],'shop_click');assert.ok(!s.events[0][2].link_url.includes('?'));
+ assert.equal(s.events[0][1],'shop_click');assert.equal(s.events[0][2].event_timeout,200);assert.ok(!s.events[0][2].link_url.includes('?'));
  assert.equal(s.navigation.length,0);s.events[0][2].event_callback();s.timers[0]();assert.equal(s.navigation.length,1);
 });
 test('checkout sends begin_checkout; blocked analytics falls back to navigation',()=>{

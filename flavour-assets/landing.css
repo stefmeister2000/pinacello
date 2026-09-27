@@ -164,7 +164,7 @@
   .serve h2{text-align:center;font-size:clamp(2.1rem,4.8vw,3.2rem);margin-bottom:8px}
   .serve .sub{text-align:center;color:var(--ink-soft);margin-bottom:50px}
   .serve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-  .serve-card{background:rgba(255,253,244,.72);backdrop-filter:blur(6px);border-radius:var(--radius);padding:34px 28px;text-align:center;box-shadow:0 18px 38px rgba(57,37,29,.12)}
+  .serve-card{background:rgba(255,253,244,.72);border-radius:var(--radius);padding:34px 28px;text-align:center;box-shadow:0 18px 38px rgba(57,37,29,.12)}
   .serve-card .glass{font-size:3.6rem;display:block;margin-bottom:12px;animation:drift 7s ease-in-out infinite}
   .serve-card:nth-child(2) .glass{animation-delay:.8s}
   .serve-card:nth-child(3) .glass{animation-delay:1.6s}
@@ -400,7 +400,7 @@
 
   /* ── nieuwsbrief pop-up ── */
   .promo{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:20px;
-    background:rgba(36,27,16,.55);backdrop-filter:blur(3px);animation:promo-fade .25s ease}
+    background:rgba(36,27,16,.55);animation:promo-fade .25s ease}
   .promo[hidden]{display:none}
   @keyframes promo-fade{from{opacity:0}to{opacity:1}}
   .promo-card{position:relative;background:var(--white);border-radius:24px;max-width:400px;width:100%;

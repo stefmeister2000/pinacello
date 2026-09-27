@@ -15,6 +15,6 @@ for(const slug of slugs)test(`${slug}: page identity and checkout tracking match
  const a={href:url,id:slug+'-hero-buy',textContent:'Ontdek',dataset:{placement:'hero'},hasAttribute:()=>false};
  const e={button:0,target:{closest:()=>a},preventDefault(){this.defaultPrevented=true;}};listener(e);
  assert.equal(e.defaultPrevented,true);assert.equal(clicks[0][1],'shop_click');assert.equal(clicks[0][2].product_id,slug);
- assert.equal(clicks[0][2].link_url,url);clicks[0][2].event_callback();timers[0]();assert.deepEqual(nav,[url]);
+ assert.equal(clicks[0][2].event_timeout,200);assert.equal(clicks[0][2].link_url,url);clicks[0][2].event_callback();timers[0]();assert.deepEqual(nav,[url]);
  assert.equal((html.match(/yo92xb86rr/g)||[]).length,1);
 });

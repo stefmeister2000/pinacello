@@ -2,6 +2,8 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
+<link rel="preload" as="image" href="/hero/hero.webp" fetchpriority="high">
+<link rel="preconnect" href="https://static.wixstatic.com">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T758CLG2LQ"></script>
 <script>
@@ -112,7 +114,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
 
   /* ── hero ── */
   .hero{position:relative;display:flex;align-items:center;min-height:90vh;padding:48px 0 64px;overflow:hidden;
-    background:#BFE6EE url('hero/hero.jpg') no-repeat;background-size:cover;background-position:72% center}
+    background:#BFE6EE url('hero/hero.webp') no-repeat;background-size:cover;background-position:72% center}
   .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
     background:linear-gradient(90deg,rgba(255,246,216,.97) 0%,rgba(255,246,216,.93) 24%,rgba(255,246,216,.6) 44%,rgba(255,246,216,.12) 60%,rgba(255,246,216,0) 72%)}
   .hero .wrap{position:relative;z-index:2;width:100%}
@@ -208,7 +210,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
   .serve h2{text-align:center;font-size:clamp(2.1rem,4.8vw,3.2rem);margin-bottom:8px}
   .serve .sub{text-align:center;color:var(--ink-soft);margin-bottom:50px}
   .serve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-  .serve-card{background:rgba(255,253,244,.72);backdrop-filter:blur(6px);border-radius:var(--radius);padding:34px 28px;text-align:center;box-shadow:0 18px 38px rgba(71,43,14,.12)}
+  .serve-card{background:rgba(255,253,244,.72);border-radius:var(--radius);padding:34px 28px;text-align:center;box-shadow:0 18px 38px rgba(71,43,14,.12)}
   .serve-card .glass{font-size:3.6rem;display:block;margin-bottom:12px;animation:drift 7s ease-in-out infinite}
   .serve-card:nth-child(2) .glass{animation-delay:.8s}
   .serve-card:nth-child(3) .glass{animation-delay:1.6s}
@@ -373,7 +375,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     nav .logo{font-size:1.85rem}
 
     .hero{min-height:auto;padding:calc(66vw + 20px) 0 36px;align-items:stretch;background:var(--g-soft)}
-    .hero::before{top:0;left:0;right:0;bottom:auto;height:66vw;background:url('hero/hero.jpg') no-repeat 72% 32%;background-size:cover;
+    .hero::before{top:0;left:0;right:0;bottom:auto;height:66vw;background:url('hero/hero.webp') no-repeat 72% 32%;background-size:cover;
       -webkit-mask-image:linear-gradient(180deg,#000 80%,transparent 100%);mask-image:linear-gradient(180deg,#000 80%,transparent 100%)}
     .hero-content{max-width:none}
     .hero-eyebrow{font-size:1.45rem}
@@ -463,7 +465,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
 
   /* ── nieuwsbrief pop-up ── */
   .promo{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;padding:20px;
-    background:rgba(36,27,16,.55);backdrop-filter:blur(3px);animation:promo-fade .25s ease}
+    background:rgba(36,27,16,.55);animation:promo-fade .25s ease}
   .promo[hidden]{display:none}
   @keyframes promo-fade{from{opacity:0}to{opacity:1}}
   .promo-card{position:relative;background:var(--white);border-radius:24px;max-width:400px;width:100%;
@@ -623,10 +625,10 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     <p class="sub">Honderden klanten proefden Pinacello al live.</p>
     <!-- FOTO'S: vervang elke .photo achtergrond door <img src="..."> van markten/UGC -->
     <div class="photos">
-      <div class="photo"><img src="markets/markt-1.jpg" alt="Klanten proeven Pinacello op de strandmarkt" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
-      <div class="photo"><img src="markets/markt-2.jpg" alt="Blije klanten met een Pinacello in de zon" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
-      <div class="photo"><img src="markets/markt-3.jpg" alt="Pinacello-stand op een drukke zomermarkt" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
-      <div class="photo"><img src="markets/markt-4.jpg" alt="De twee broers aan hun Pinacello-stand" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+      <div class="photo"><img src="markets/markt-1.webp" alt="Klanten proeven Pinacello op de strandmarkt" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+      <div class="photo"><img src="markets/markt-2.webp" alt="Blije klanten met een Pinacello in de zon" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+      <div class="photo"><img src="markets/markt-3.webp" alt="Pinacello-stand op een drukke zomermarkt" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+      <div class="photo"><img src="markets/markt-4.webp" alt="De twee broers aan hun Pinacello-stand" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
     </div>
     <div class="section-cta"><a class="btn" href="#bestel">Bestel nu</a></div>
   </div>
@@ -708,15 +710,15 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     <!-- FOTO'S: vervang elke .photo achtergrond door <img src="..."> van het maakproces -->
     <div class="craft-grid">
       <div class="craft-item">
-        <div class="photo"><img src="craft/craft-1.jpg" alt="De makers met hun flessen" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+        <div class="photo"><img src="craft/craft-1.webp" alt="De makers met hun flessen" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
         <div class="ci-body"><h3>Met de hand gemaakt</h3><p>Zelf gestookt en gebotteld, fles per fles.</p></div>
       </div>
       <div class="craft-item">
-        <div class="photo"><img src="craft/craft-2.jpg" alt="Zelfgemaakt door de twee broers" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+        <div class="photo"><img src="craft/craft-2.webp" alt="Zelfgemaakt door de twee broers" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
         <div class="ci-body"><h3>Zelfgemaakt</h3><p>Door twee broers zelf gemaakt, nooit in een fabriek.</p></div>
       </div>
       <div class="craft-item">
-        <div class="photo"><img src="craft/craft-3.jpg" alt="Natuurlijke smaak" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+        <div class="photo"><img src="craft/craft-3.webp" alt="Natuurlijke smaak" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
         <div class="ci-body"><h3>Natuurlijke smaak</h3><p>Echte vruchten, geen kunstmatige smaakstoffen.</p></div>
       </div>
     </div>
@@ -1032,8 +1034,8 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
         var navigated=false;
         function navigate(){if(!navigated){navigated=true;window.location.assign(a.href);}}
         params.event_callback=navigate;
-        params.event_timeout=800;
-        setTimeout(navigate,800);
+        params.event_timeout=200;
+        setTimeout(navigate,200);
       }
       gtag('event',checkout?'begin_checkout':'shop_click',params);
     });
