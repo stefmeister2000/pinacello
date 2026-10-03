@@ -539,22 +539,26 @@ fbq('track', 'PageView');
   }
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
+<link rel="stylesheet" href="/motion.css?v=1">
+<script src="/motion.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/playful.css?v=10">
 </head>
 
-<body>
+<body class="playful theme-ivoir">
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
 /></noscript>
 <div class="marquee"><div class="marquee-inner" id="marquee"><span>Belgische witte chocolade</span><span>Belgische whisky</span><span>23% · 500 ml</span><span>18+ · Geniet met mate</span></div></div>
 <div class="wrap"><nav id="nav" aria-label="Hoofdnavigatie">
-  <a class="logo" href="/">Pinacello</a>
+  <a class="logo" href="/"><img src="/brand-assets/pinacello-logo.png" alt="Pinacello" width="2026" height="739"></a>
   <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
-  <div class="links" id="navLinks"><a href="#smaak">De smaak</a><a href="#broers">De broers</a><a href="#geniet">Geniet</a><a href="#faq">Vragen</a><a class="shop-pill" href="#bestel">Bestel IVOIR</a></div>
+  <div class="links" id="navLinks"><a href="#smaak">De smaak</a><a href="#broers">De broers</a><a href="#geniet">Geniet</a><a href="#andere-smaken">Alle smaken</a><a href="#faq">Vragen</a><a class="shop-pill" href="#bestel">Bestel IVOIR</a></div>
 </nav></div>
-<header class="hero ivoir-hero"><div class="wrap">
-  <div class="hero-content">
+<header class="hero playful-hero"><div class="hero-heading"><span class="eyebrow-note">Belgische likeuren · 18+ · geniet met mate</span><h1 id="flavour-headline">Een zacht genietmoment.</h1><span class="heading-sticker origin-sticker"><span class="belgian-flag" aria-hidden="true"></span> Belgisch merk</span></div><div class="wrap">
+  <div class="product-art"><span class="art-sticker">Chocolade · whisky</span><img class="hero-photo" src="/ivoir-assets/ivoir-moment.webp" width="1402" height="1122" alt="IVOIR witte-chocoladelikeur met twee glazen, witte chocolade en kaarslicht" fetchpriority="high"></div><div class="hero-content">
     <span class="hero-eyebrow">Belgische chocolade. Een warme whiskytoets.</span>
-    <h1>Een zacht moment.<br>Met <em>karakter.</em></h1>
+    <h2 class="product-title">Ivoir</h2>
     <p class="what"><b>IVOIR</b> — witte chocolade &amp; whisky</p>
     <p class="desc">Romige Belgische witte chocolade en Belgische whisky, samen in één fles. Voor dat heerlijke moment na het eten.</p>
     <div class="hero-price">€30,00 <span style="font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500">/ 500 ml</span></div>
@@ -563,12 +567,13 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     <div class="trust-chips"><span>🇧🇪 Belgische ingrediënten</span><span>🍫 Witte chocolade</span><span>🥃 23% alcohol</span></div>
     <a class="hero-secondary" href="#geniet">Zo geniet je van IVOIR ↓</a>
   </div>
-  <img class="hero-photo" src="/ivoir-assets/ivoir-moment.webp" width="1402" height="1122" alt="IVOIR witte-chocoladelikeur met twee glazen, witte chocolade en kaarslicht" fetchpriority="high">
-</div></header>
+
+<a class="maker-card" href="/verhaal"><span class="art-sticker">Van twee broers</span><img src="/craft/craft-3.webp" alt="De broers achter Pinacello" width="1400" height="1744"><span class="maker-caption">Zelfgemaakt.<br>Samen genieten. <b>↗</b></span></a></div></header>
 <main>
 <div class="specbar"><div class="wrap"><div class="inner">
   <div class="spec"><b>Witte chocolade</b><span>uit België</span></div><div class="spec"><b>Belgische whisky</b><span>warm van karakter</span></div><div class="spec"><b>23%</b><span>alcohol</span></div><div class="spec"><b>500 ml</b><span>om van te genieten</span></div>
 </div></div>
+
 <section class="craft" id="smaak"><div class="wrap ivoir-story">
   <img src="/ivoir-assets/ivoir-bottle.webp" width="919" height="1061" alt="IVOIR Chocolat, een Belgische crème likeur van 23%, in een fles van 500 ml" loading="lazy">
   <div><span class="craft-kicker">Het zachte van chocolade. Het warme van whisky.</span><h2>Twee Belgische smaken.<br>Eén romige verleiding.</h2>
@@ -584,7 +589,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
   <div class="serve-card"><span class="glass" aria-hidden="true">☕</span><span class="tag">03 · Bij de koffie</span><h3>Een romige twist.</h3><p>Geef je koffie een zachte toets van witte chocolade en whisky met een klein scheutje IVOIR.</p></div>
 </div><p class="delivery" style="text-align:center;margin-top:28px">Bewaar in de koelkast en schud voor gebruik.</p>
 <div class="section-cta"><a class="btn" href="#bestel">Kies jouw genietmoment</a></div>
-</div></section>
+</div></section><section class="flavour-collection" id="andere-smaken" aria-labelledby="collection-title"><div class="wrap"><div class="collection-heading"><div><span class="collection-kicker">De Pinacello-familie</span><h2 id="collection-title">Nog meer om<br>van te genieten.</h2></div><p>Van fris en fruitig tot zacht en romig.<br>Welke smaak past bij jouw moment?</p></div><div class="collection-grid"><a class="collection-card" data-product="pina" href="/?smaak=pina" style="--card-color:#f5d543;--card-ink:#294526"><div class="collection-art"><img src="/hero/hero-aqua.webp" alt="Pinacello" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Ananas · citroen</span><h3>Pinacello</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a><a class="collection-card" data-product="coco" href="/?smaak=coco" style="--card-color:#e9dec5;--card-ink:#594936"><div class="collection-art"><img src="/hero/cococello-cream.webp" alt="Cococello" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Kokos · crème</span><h3>Cococello</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a><a class="collection-card" data-product="frambolade" href="/frambolade" style="--card-color:#e9a1af;--card-ink:#6d2034"><div class="collection-art"><img src="/hero/frambolade-campaign.webp" alt="Frambolade" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Framboos · romig</span><h3>Frambolade</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a><a class="collection-card" data-product="calibana" href="/calibana" style="--card-color:#f0d04c;--card-ink:#49532c"><div class="collection-art"><img src="/hero/calibana-campaign.webp" alt="Calibana" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Banaan · vanille</span><h3>Calibana</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a><a class="collection-card" data-product="vaquero-rum-likeur" href="/vaquero-rum-likeur" style="--card-color:#dba16d;--card-ink:#513726"><div class="collection-art"><img src="/hero/vaquero-rum-likeur-campaign.webp" alt="Vaquero" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Rum · warm karakter</span><h3>Vaquero</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a><a class="collection-card" data-product="limoncello" href="/limoncello" style="--card-color:#f3df4b;--card-ink:#3d5730"><div class="collection-art"><img src="/hero/limoncello-campaign.webp" alt="Limoncello" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Citroen · fris</span><h3>Limoncello</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a><a class="collection-card" data-product="gin-o-pomelo" href="/gin-o-pomelo" style="--card-color:#efa690;--card-ink:#654039"><div class="collection-art"><img src="/hero/gin-o-pomelo-campaign.webp" alt="Gin O Pomelo" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Pomelo · gin</span><h3>Gin O Pomelo</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a></div><a class="collection-shop" href="https://www.pinacello.com/shop">Naar de volledige webshop ↗</a></div></section>
 <section class="brothers" id="broers"><div class="wrap">
   <span class="craft-kicker">De gezichten achter Pinacello</span>
   <h2>Twee broers. Eén passie.</h2>
@@ -602,7 +607,8 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     <a class="btn" id="ivoir-offer-buy" data-placement="offer" href="https://www.pinacello.com/product-page/ivoir-chocolade-whiskey">Bestel IVOIR →</a>
     <p class="price-note">Actuele prijs, eventuele acties en verzendkosten vind je in de webshop.</p>
   </div></div>
-</div></section>
+</div></section><section class="quick-choice" id="snel-kiezen" aria-labelledby="quick-title"><div class="wrap"><span class="collection-kicker">In één oogopslag</span><h2 id="quick-title">Is Ivoir jouw smaak?</h2><p class="quick-intro">Zacht, romig en warm van karakter.</p><div class="quick-grid"><article class="quick-card"><span class="quick-number" aria-hidden="true">01</span><h3>De smaak</h3><p>Witte chocolade en Belgische whisky.</p></article><article class="quick-card"><span class="quick-number" aria-hidden="true">02</span><h3>Jouw moment</h3><p>Bij de koffie of na het eten.</p></article><article class="quick-card"><span class="quick-number" aria-hidden="true">03</span><h3>Zo serveer je hem</h3><p>Puur of on the rocks.</p></article></div></div></section>
+<section class="order-guide" aria-labelledby="order-title"><div class="wrap"><div class="order-intro"><span class="collection-kicker">Van hier naar jouw glas</span><h2 id="order-title">Kiezen. Bestellen.<br>Genieten.</h2><a class="btn" href="#bestel">Kies jouw fles →</a></div><ol class="order-steps"><li><span>01</span><div><h3>Kies je favoriet.</h3><p>Ontdek de smaken en kies jouw fles.</p></div></li><li><span>02</span><div><h3>Bestel in onze webshop.</h3><p>Bekijk daar de actuele prijs en verzendkosten.</p></div></li><li><span>03</span><div><h3>Maak er jouw moment van.</h3><p>Volg de serveertips en geniet met mate.</p></div></li></ol></div></section>
 <section class="faq" id="faq"><div class="wrap" style="max-width:740px"><h2>Nog een vraag?</h2><p class="sub">Dit wil je weten over IVOIR.</p>
   <details><summary>Wat is IVOIR?</summary><p>IVOIR is een romige likeur van Pinacello, gemaakt met Belgische whisky en Belgische witte chocolade.</p></details>
   <details><summary>Hoe smaakt IVOIR?</summary><p>Zacht en romig, met witte chocolade en een warme whiskytoets. Een volle smaak om rustig van te genieten.</p></details>

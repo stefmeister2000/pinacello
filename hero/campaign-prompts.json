@@ -1,0 +1,32 @@
+[
+  {
+    "product": "gin-o-pomelo",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: ads-marketing. Create a premium photorealistic portrait 4:5 website hero campaign photograph for Gin O\u2019 Pomelo. Image 1 is the exact product identity reference: preserve the bottle silhouette, cap, liquid colour, label design and lettering faithfully. Replace the beige plain scene entirely. A sophisticated fresh citrus scene: peach coral studio backdrop, cut pink pomelo wedges and citrus leaves around bottle base, a short gin cocktail glass with ice on right, strong warm sunlight and lively caustics. Palette pale coral and grapefruit blush with a little dark green. Composition: one bottle fully visible, perfectly centered horizontally, occupying about 70% of image height, base at 87%, cap at 17%, uncluttered upper 15% for a website badge. Fruit and drink arranged low around bottle without obscuring its label. Tactile, vibrant, polished real commercial product photography, same playful premium family as Pinacello. No people, no extra text or graphics outside the existing authentic bottle label, no watermark, no invented logos.",
+    "asset": "/hero/gin-o-pomelo-campaign.webp"
+  },
+  {
+    "product": "frambolade",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: ads-marketing. Create a premium photorealistic portrait 4:5 website hero campaign photograph for FRAMBOLADE. Image 1 is the exact product identity reference: preserve the bottle silhouette, cap, liquid colour, label design and lettering faithfully. Replace the beige plain scene entirely. Juicy berry campaign: raspberry red and blush pink backdrop, fresh raspberries in foreground around bottle base, chilled red berry drink in delicate coupe on left, vivid sunlight with elegant berry-red shadows. Composition: one bottle fully visible, perfectly centered horizontally, occupying about 70% of image height, base at 87%, cap at 17%, uncluttered upper 15% for a website badge. Fruit and drink arranged low around bottle without obscuring its label. Tactile, vibrant, polished real commercial product photography, same playful premium family as Pinacello. No people, no extra text or graphics outside the existing authentic bottle label, no watermark, no invented logos.",
+    "asset": "/hero/frambolade-campaign.webp"
+  },
+  {
+    "product": "calibana",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: ads-marketing. Create a premium photorealistic portrait 4:5 website hero campaign photograph for CALIBANA. Image 1 is the exact product identity reference: preserve the bottle silhouette, cap, liquid colour, label design and lettering faithfully. Replace the beige plain scene entirely. Sunny banana and vanilla campaign: warm butter-yellow backdrop and surface, ripe peeled banana and a few banana slices, two vanilla pods, small glass of pale gold liqueur with ice on right. Playful golden sunlight, soft leafy shadow. Composition: one bottle fully visible, perfectly centered horizontally, occupying about 70% of image height, base at 87%, cap at 17%, uncluttered upper 15% for a website badge. Fruit and drink arranged low around bottle without obscuring its label. Tactile, vibrant, polished real commercial product photography, same playful premium family as Pinacello. No people, no extra text or graphics outside the existing authentic bottle label, no watermark, no invented logos.",
+    "asset": "/hero/calibana-campaign.webp"
+  },
+  {
+    "product": "limoncello",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: ads-marketing. Create a premium photorealistic portrait 4:5 website hero campaign photograph for Limoncello. Image 1 is the exact product identity reference: preserve the bottle silhouette, cap, liquid colour, label design and lettering faithfully. Replace the beige plain scene entirely. Bright lemon campaign: saturated lemon-yellow backdrop, fresh whole and sliced lemons with dark green citrus leaves at base, small frosted glass of yellow liqueur on left. Sparkling sunlight and luminous reflections, premium fresh Mediterranean feeling. Composition: one bottle fully visible, perfectly centered horizontally, occupying about 70% of image height, base at 87%, cap at 17%, uncluttered upper 15% for a website badge. Fruit and drink arranged low around bottle without obscuring its label. Tactile, vibrant, polished real commercial product photography, same playful premium family as Pinacello. No people, no extra text or graphics outside the existing authentic bottle label, no watermark, no invented logos.",
+    "asset": "/hero/limoncello-campaign.webp"
+  },
+  {
+    "product": "vaquero-rum-likeur",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: ads-marketing. Create a premium photorealistic portrait 4:5 website hero campaign photograph for Vaquero. Image 1 is the exact product identity reference: preserve the bottle silhouette, cap, liquid colour, label design and lettering faithfully. Replace the beige plain scene entirely. Warm amber rum campaign: deep caramel and burnt orange studio backdrop with warm golden sunlight, a low rocks glass with amber drink and one large clear ice cube beside bottle, subtle polished walnut surface and orange peel curl by glass. Sophisticated golden hour, not beach props. Composition: one bottle fully visible, perfectly centered horizontally, occupying about 70% of image height, base at 87%, cap at 17%, uncluttered upper 15% for a website badge. Fruit and drink arranged low around bottle without obscuring its label. Tactile, vibrant, polished real commercial product photography, same playful premium family as Pinacello. No people, no extra text or graphics outside the existing authentic bottle label, no watermark, no invented logos.",
+    "asset": "/hero/vaquero-rum-likeur-campaign.webp"
+  }
+]

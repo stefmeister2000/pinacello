@@ -1,0 +1,18 @@
+/* Transform-only motion. Content remains visible without JavaScript. */
+@keyframes enter-soft{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes modal-in{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:no-preference){
+ .hero-content>*{animation:enter-soft .7s cubic-bezier(.22,1,.36,1) both}.hero-content>*:nth-child(2){animation-delay:.08s}.hero-content>*:nth-child(3){animation-delay:.14s}.hero-content>*:nth-child(n+4){animation-delay:.2s}
+ .motion-ready{opacity:0;transform:translateY(25px);transition:opacity .65s ease,transform .65s cubic-bezier(.22,1,.36,1);transition-delay:var(--reveal-delay,0ms)}.motion-ready.is-visible{opacity:1;transform:none}
+ .btn,.other-product,.flavors a{transition:transform .25s cubic-bezier(.22,1,.36,1),background .25s,box-shadow .25s}.btn:active{transform:translateY(1px) scale(.97)}
+ .photo img,.other-product img{transition:transform .6s cubic-bezier(.22,1,.36,1),opacity .3s}.photo:hover img,.other-product:hover img{transform:scale(1.035)}
+ .promo:not([hidden]){animation:fade-in .25s ease}.promo:not([hidden]) .promo-card{animation:modal-in .5s cubic-bezier(.22,1,.36,1)}
+ .hero.is-switching .what,.hero.is-switching .desc,.hero.is-switching .coco-hero-photo{animation:enter-soft .45s ease both}
+}
+.made-belgium{display:inline-flex;align-items:center;gap:9px;font-family:'DM Sans',sans-serif;font-size:.67rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:8px 14px;margin:0 0 18px;color:var(--ink)}
+.belgian-flag{width:19px;height:13px;border-radius:2px;background:linear-gradient(90deg,#222 33.33%,#f8d346 33.33% 66.66%,#e44843 66.66%);display:inline-block}
+.promo-card .made-belgium{margin:0 auto 20px;font-size:.6rem}.promo-card{max-width:440px;max-height:calc(100dvh - 40px);overflow-y:auto}.promo-card .promo-emoji{display:none}.promo-card h3{font-size:2.5rem;line-height:1.07}.promo-card .promo-close{min-width:44px;min-height:44px;right:8px;top:8px}.promo-card{padding-top:52px}
+.newsletter-trigger{background:none;border:0;color:inherit;font:inherit;text-decoration:underline;text-underline-offset:4px;cursor:pointer;padding:14px}
+body.promo-open{overflow:hidden}
+@media(prefers-reduced-motion:reduce){.motion-ready{opacity:1;transform:none}html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}

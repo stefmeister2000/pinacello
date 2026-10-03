@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<link rel="preload" as="image" href="/hero/hero.webp" fetchpriority="high">
+<link rel="preload" as="image" href="/hero/hero-aqua.webp" fetchpriority="high">
 <link rel="preconnect" href="https://static.wixstatic.com">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T758CLG2LQ"></script>
@@ -114,7 +114,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
 
   /* ── hero ── */
   .hero{position:relative;display:flex;align-items:center;min-height:90vh;padding:48px 0 64px;overflow:hidden;
-    background:#BFE6EE url('hero/hero.webp') no-repeat;background-size:cover;background-position:72% center}
+    background:#BFE6EE url('hero/hero-aqua.webp') no-repeat;background-size:cover;background-position:72% center}
   .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
     background:linear-gradient(90deg,rgba(255,246,216,.97) 0%,rgba(255,246,216,.93) 24%,rgba(255,246,216,.6) 44%,rgba(255,246,216,.12) 60%,rgba(255,246,216,0) 72%)}
   .hero .wrap{position:relative;z-index:2;width:100%}
@@ -375,7 +375,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     nav .logo{font-size:1.85rem}
 
     .hero{min-height:auto;padding:calc(66vw + 20px) 0 36px;align-items:stretch;background:var(--g-soft)}
-    .hero::before{top:0;left:0;right:0;bottom:auto;height:66vw;background:url('hero/hero.webp') no-repeat 72% 32%;background-size:cover;
+    .hero::before{top:0;left:0;right:0;bottom:auto;height:66vw;background:url('hero/hero-aqua.webp') no-repeat 72% 32%;background-size:cover;
       -webkit-mask-image:linear-gradient(180deg,#000 80%,transparent 100%);mask-image:linear-gradient(180deg,#000 80%,transparent 100%)}
     .hero-content{max-width:none}
     .hero-eyebrow{font-size:1.45rem}
@@ -489,8 +489,13 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     background:var(--cream);border:2px dashed var(--orange);border-radius:14px;padding:12px;margin-bottom:14px}
   .promo-success .btn{width:100%;margin-top:4px}
 </style>
+
+<link rel="stylesheet" href="/motion.css?v=1">
+<script src="/motion.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/playful.css?v=10">
 </head>
-<body>
+<body class="playful theme-pina">
 
 <!-- ═══ MARQUEE ═══ -->
 <div class="marquee" aria-hidden="true">
@@ -501,23 +506,24 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
 
 <div class="wrap">
   <nav id="nav">
-    <a class="logo" href="#">Pinacello</a>
+    <a class="logo" href="#"><img src="/brand-assets/pinacello-logo.png" alt="Pinacello" width="2026" height="739"></a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="links" id="navLinks">
       <a href="#geniet">Geniet</a>
       <a href="#reviews">Reviews</a>
-      <a href="#faq">Vragen</a>
+      <a href="#andere-smaken">Alle smaken</a><a href="#faq">Vragen</a>
       <a class="shop-pill" href="#bestel">Bestel</a>
     </div>
   </nav>
 </div>
 
 <!-- ═══ HERO ═══ -->
-<header class="hero">
+<header class="hero playful-hero"><div class="hero-heading"><span class="eyebrow-note">Belgische likeuren · 18+ · geniet met mate</span><h1 id="flavour-headline">Zomer in je glas.</h1><span class="heading-sticker origin-sticker"><span class="belgian-flag" aria-hidden="true"></span> Belgisch merk</span></div>
+
   <div class="wrap">
-    <div class="hero-content">
-      <span class="hero-eyebrow">☀️ Ambachtelijk &amp; zelfgemaakt in België</span>
-      <h1>Breng de <em>zomer</em> naar je tuinfeest.</h1>
+    <div class="product-art"><span class="art-sticker" id="taste-sticker">Ananas · citroen</span><img class="pina-photo" src="/hero/hero-aqua.webp" alt="Pinacello ananas-citroen met een spritz" width="1672" height="941"><img class="coco-hero-photo" src="/hero/cococello-cream.webp" alt="Cococello met verse kokos en een romig drankje met ijs" width="1122" height="1402" hidden></div><div class="hero-content">
+      <span class="made-belgium"><span class="belgian-flag" aria-hidden="true"></span>Made in Belgium</span>
+      <h2 class="product-title">Pinacello</h2>
       <p class="what"><b id="p-name">Pinacello</b> — <span id="p-pack">ananas-citroen likeur · 22% · 500 ml</span></p>
       <p class="desc" id="p-desc">Puur, on the rocks of als spritz.</p>
       <div class="rating-line"><span class="stars">★★★★★</span><span>4,9/5 (300+ reviews)</span></div>
@@ -549,24 +555,14 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
         <span>🚚 Levering in BE &amp; NL</span>
       </div>
     </div>
-  </div>
+  <a class="maker-card" href="/verhaal"><span class="art-sticker">Van twee broers</span><img src="/craft/craft-3.webp" alt="De broers achter Pinacello" width="1400" height="1744"><span class="maker-caption">Zelfgemaakt.<br>Samen genieten. <b>↗</b></span></a></div>
 </header>
 
 <!-- ═══ SPEC BAR ═══ -->
-<div class="specbar">
-  <div class="wrap">
-    <div class="inner">
-      <div class="spec"><b>500 ml</b><span>inhoud per fles</span></div>
-      <div class="spec"><b>22%</b><span>alcohol</span></div>
-      <div class="spec"><b>Zelfgemaakt</b><span>door twee broers</span></div>
-      <div class="spec"><b>100%</b><span>natuurlijke smaak</span></div>
-      <div class="spec"><b>Koel</b><span>bewaren &amp; serveren</span></div>
-      <div class="spec"><b>1-2 dagen</b><span>levering BE &amp; NL</span></div>
-    </div>
-  </div>
-</div>
+<div class="specbar usp-designed"><div class="wrap"><div class="usp-grid"><div class="usp-item"><span class="usp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10 12 4l8 6v10H4zM9 20v-7h6v7"/></svg></span><div><b>Belgisch merk</b><span>Uit Dilbeek</span></div></div><div class="usp-item"><span class="usp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m4 13 4-4 4 3 4-3 4 4-7 7h-2zM4 13l-2-3 5-5 3 2m10 6 2-3-5-5-3 2"/></svg></span><div><b>Zelfgemaakt</b><span>Door twee broers</span></div></div><div class="usp-item"><span class="usp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h12v12H3zM15 10h4l3 4v4h-7"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg></span><div><b>1–2 werkdagen</b><span>Levering in BE & NL</span></div></div><div class="usp-item"><span class="usp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v13H4zM2 5h20v4H2zM12 5v16M12 5C4 5 6-2 10 2l2 3c8 0 6-7 2-3z"/></svg></span><div><b>Vanaf 2 flessen</b><span>Gratis verzending</span></div></div></div><p class="bottle-details">500 ml per fles <span aria-hidden="true">·</span> <span id="detail-abv">22% alcohol</span> <span aria-hidden="true">·</span> Koel serveren</p></div></div>
 
 <!-- ═══ BUNDLES ═══ -->
+
 <section class="offer" id="bestel">
   <span class="bubble" style="width:80px;height:80px;top:4%;right:6%"></span>
   <span class="bubble" style="width:46px;height:46px;bottom:8%;left:5%;animation-delay:2s"></span>
@@ -616,7 +612,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
 
     <p class="delivery">📦 Gratis verzending vanaf 2 flessen · Levering in BE &amp; NL binnen 1-2 werkdagen</p>
   </div>
-</section>
+</section><section class="quick-choice visual-choice" id="snel-kiezen" aria-labelledby="quick-title"><div class="wrap"><span class="collection-kicker">Nog aan het twijfelen?</span><h2 id="quick-title">Fris of romig?</h2><div class="taste-comparison"><a class="taste-option" href="/?smaak=pina"><img src="/hero/hero-aqua.webp" width="1672" height="941" loading="lazy" alt="Pinacello met ananas en citroen"><div><span>Fris &amp; fruitig</span><h3>Team Pina.</h3><p>Ananas · citroen</p><b>Dit is mijn smaak ↗</b></div></a><a class="taste-option taste-coco" href="/?smaak=coco"><img src="/hero/cococello-cream.webp" width="1122" height="1402" loading="lazy" alt="Cococello met kokos"><div><span>Zacht &amp; romig</span><h3>Team Coco.</h3><p>Kokos · crème</p><b>Dit is mijn smaak ↗</b></div></a></div><a class="taste-duo" href="https://www.pinacello.com/product-page/pina-en-cococello-pakket"><span><b>Je hoeft niet te kiezen.</b> Pina + Coco samen voor €45.</span><strong>Ontdek het duo ↗</strong></a></div></section>
 
 <!-- ═══ MARKETS / PROOF ═══ -->
 <section class="markets">
@@ -625,9 +621,9 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     <p class="sub">Honderden klanten proefden Pinacello al live.</p>
     <!-- FOTO'S: vervang elke .photo achtergrond door <img src="..."> van markten/UGC -->
     <div class="photos">
-      <div class="photo"><img src="markets/markt-1.webp" alt="Klanten proeven Pinacello op de strandmarkt" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
-      <div class="photo"><img src="markets/markt-2.webp" alt="Blije klanten met een Pinacello in de zon" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
-      <div class="photo"><img src="markets/markt-3.webp" alt="Pinacello-stand op een drukke zomermarkt" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+      <div class="photo"><img src="markets/markt-1.jpg" alt="Klanten proeven Pinacello op de strandmarkt" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+      <div class="photo"><img src="markets/markt-2.jpg" alt="Blije klanten met een Pinacello in de zon" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+      <div class="photo"><img src="markets/markt-3.jpg" alt="Pinacello-stand op een drukke zomermarkt" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
       <div class="photo"><img src="markets/markt-4.webp" alt="De twee broers aan hun Pinacello-stand" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
     </div>
     <div class="section-cta"><a class="btn" href="#bestel">Bestel nu</a></div>
@@ -665,41 +661,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
 </section>
 
 <!-- ═══ OTHER FLAVOURS ═══ -->
-<section class="other-products" id="andere-smaken" aria-labelledby="other-products-title">
-  <div class="wrap">
-    <div class="other-products-header">
-      <h2 id="other-products-title">Ook eens iets anders proeven?</h2>
-      <p>Ontdek nog een paar favorieten uit onze familie.</p>
-    </div>
-    <div class="other-products-grid">
-      <a class="other-product" id="other-frambolade" href="/frambolade">
-        <img src="https://static.wixstatic.com/media/43bd99_f9bd5f1a586d4079a1e9ced6d6586924~mv2.jpg/v1/fit/w_480,h_480,q_85/43bd99_f9bd5f1a586d4079a1e9ced6d6586924~mv2.jpg" alt="Fles Frambolade" width="480" height="480" loading="lazy" decoding="async">
-        <div class="other-product-copy">
-          <h3>Frambolade</h3>
-          <p>Romige frambozenlikeur</p>
-          <span class="other-product-cta">Ontdek Frambolade →</span>
-        </div>
-      </a>
-      <a class="other-product" id="other-calibana" href="/calibana">
-        <img src="https://static.wixstatic.com/media/43bd99_1a4ee36133764dba9528abe4f12f29b6~mv2.jpg/v1/fit/w_480,h_480,q_85/43bd99_1a4ee36133764dba9528abe4f12f29b6~mv2.jpg" alt="Fles Calibana" width="480" height="480" loading="lazy" decoding="async">
-        <div class="other-product-copy">
-          <h3>Calibana</h3>
-          <p>Banaan &amp; vanille likeur</p>
-          <span class="other-product-cta">Ontdek Calibana →</span>
-        </div>
-      </a>
-      <a class="other-product" id="other-ivoir-chocolade-whiskey" href="/ivoir-chocolade-whiskey">
-        <img src="https://static.wixstatic.com/media/43bd99_0b12798fd24c4d3d93a27f3b0b83fdf4~mv2.jpg/v1/fit/w_480,h_480,q_85/43bd99_0b12798fd24c4d3d93a27f3b0b83fdf4~mv2.jpg" alt="Fles Ivoir" width="480" height="480" loading="lazy" decoding="async">
-        <div class="other-product-copy">
-          <h3>Ivoir</h3>
-          <p>Witte chocolade &amp; whiskey</p>
-          <span class="other-product-cta">Ontdek Ivoir →</span>
-        </div>
-      </a>
-    </div>
-    <p class="other-products-footer"><a class="other-products-all" id="other-webshop" href="https://www.pinacello.com/shop">Bekijk alle smaken →</a></p>
-  </div>
-</section>
+<section class="flavour-collection" id="andere-smaken" aria-labelledby="collection-title"><div class="wrap"><div class="collection-heading"><div><span class="collection-kicker">De Pinacello-familie</span><h2 id="collection-title">Nog meer om<br>van te genieten.</h2></div><p>Van fris en fruitig tot zacht en romig.<br>Welke smaak past bij jouw moment?</p></div><div class="collection-grid"><a class="collection-card" data-product="pina" href="/?smaak=pina" style="--card-color:#f5d543;--card-ink:#294526"><div class="collection-art"><img src="/hero/hero-aqua.webp" alt="Pinacello" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Ananas · citroen</span><h3>Pinacello</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a><a class="collection-card" data-product="coco" href="/?smaak=coco" style="--card-color:#e9dec5;--card-ink:#594936"><div class="collection-art"><img src="/hero/cococello-cream.webp" alt="Cococello" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Kokos · crème</span><h3>Cococello</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a><a class="collection-card" data-product="frambolade" href="/frambolade" style="--card-color:#e9a1af;--card-ink:#6d2034"><div class="collection-art"><img src="/hero/frambolade-campaign.webp" alt="Frambolade" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Framboos · romig</span><h3>Frambolade</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a><a class="collection-card" data-product="calibana" href="/calibana" style="--card-color:#f0d04c;--card-ink:#49532c"><div class="collection-art"><img src="/hero/calibana-campaign.webp" alt="Calibana" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Banaan · vanille</span><h3>Calibana</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a><a class="collection-card" data-product="vaquero-rum-likeur" href="/vaquero-rum-likeur" style="--card-color:#dba16d;--card-ink:#513726"><div class="collection-art"><img src="/hero/vaquero-rum-likeur-campaign.webp" alt="Vaquero" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Rum · warm karakter</span><h3>Vaquero</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a><a class="collection-card" data-product="limoncello" href="/limoncello" style="--card-color:#f3df4b;--card-ink:#3d5730"><div class="collection-art"><img src="/hero/limoncello-campaign.webp" alt="Limoncello" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Citroen · fris</span><h3>Limoncello</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a><a class="collection-card" data-product="gin-o-pomelo" href="/gin-o-pomelo" style="--card-color:#efa690;--card-ink:#654039"><div class="collection-art"><img src="/hero/gin-o-pomelo-campaign.webp" alt="Gin O Pomelo" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Pomelo · gin</span><h3>Gin O Pomelo</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a><a class="collection-card" data-product="ivoir-chocolade-whiskey" href="/ivoir-chocolade-whiskey" style="--card-color:#e9d5b1;--card-ink:#5a3d2d"><div class="collection-art"><img src="/ivoir-assets/ivoir-moment.webp" alt="Ivoir" width="600" height="750" loading="lazy" decoding="async"><span class="collection-arrow" aria-hidden="true">↗</span></div><div class="collection-copy"><span>Witte chocolade · whisky</span><h3>Ivoir</h3><p>Ontdek deze smaak <span aria-hidden="true">→</span></p></div></a></div><a class="collection-shop" href="https://www.pinacello.com/shop">Naar de volledige webshop ↗</a></div></section>
 
 <!-- ═══ ZELFGEMAAKT / CRAFT ═══ -->
 <section class="craft">
@@ -769,6 +731,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
 </section>
 
 <!-- ═══ FAQ / OBJECTIONS ═══ -->
+<section class="order-guide" aria-labelledby="order-title"><div class="wrap"><div class="order-intro"><span class="collection-kicker">Van hier naar jouw glas</span><h2 id="order-title">Kiezen. Bestellen.<br>Genieten.</h2><a class="btn" href="#bestel">Kies jouw fles →</a></div><ol class="order-steps"><li><span>01</span><div><h3>Kies je favoriet.</h3><p>Ontdek de smaken en kies jouw fles.</p></div></li><li><span>02</span><div><h3>Bestel in onze webshop.</h3><p>Bekijk daar de actuele prijs en verzendkosten.</p></div></li><li><span>03</span><div><h3>Maak er jouw moment van.</h3><p>Volg de serveertips en geniet met mate.</p></div></li></ol></div></section>
 <section class="faq" id="faq">
   <div class="wrap" style="max-width:740px">
     <h2>Nog twijfels? Fair.</h2>
@@ -829,7 +792,8 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
       <a href="terms.html">Algemene Voorwaarden</a>
       <a href="privacy.html">Privacybeleid</a>
     </nav>
-    <div class="f-pay"><span>Bancontact</span><span>Visa</span><span>Mastercard</span><span>Apple Pay</span><span>PayPal</span></div>
+    <button class="newsletter-trigger" id="newsletter-open" type="button">Ontvang 5% korting — schrijf je in</button>
+<div class="f-pay"><span>Bancontact</span><span>Visa</span><span>Mastercard</span><span>Apple Pay</span><span>PayPal</span></div>
     <p class="f-legal"><span class="age">18+</span> Alcohol enkel voor personen van 18 jaar of ouder. Geniet, maar drink met mate — <a href="https://www.drinkbewust.be" target="_blank" rel="noopener">drinkbewust.be</a></p>
     <p class="f-fine">Pinacello · Kerselaarstraat 40, 1700 Dilbeek · Ondernemingsnr. 1006.157.937 · © 2026</p>
   </div>
@@ -843,13 +807,14 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
 
 <!-- ═══ NIEUWSBRIEF POP-UP ═══ -->
 <div class="promo" id="promo" role="dialog" aria-modal="true" aria-labelledby="promo-title" hidden>
-  <div class="promo-card">
+  <div class="promo-card promo-designed">
+    <div class="promo-art" aria-hidden="true"><img class="promo-pina" src="/hero/hero-aqua.webp" alt="" width="1672" height="941"><img class="promo-coco" src="/hero/cococello-cream.webp" alt="" width="1122" height="1402"><span class="promo-art-note">Een fles vol<br>goesting.</span><span class="promo-discount">5%<small>welkomstkorting</small></span></div>
     <button class="promo-close" id="promo-close" aria-label="Sluiten">×</button>
     <div class="promo-body" id="promo-body">
-      <div class="promo-emoji">🍍</div>
-      <h3 id="promo-title">Krijg <em>5% korting</em></h3>
+      <span class="made-belgium"><span class="belgian-flag" aria-hidden="true"></span>Made in Belgium</span>
+      <span class="promo-kicker">Jouw eerste rondje voordeel</span><h3 id="promo-title">Meer smaak.<br><em>5% minder.</em></h3>
       <p>Schrijf je in en ontvang meteen 5% korting op je eerste bestelling.</p>
-      <form id="promo-form" novalidate>
+      <form id="promo-form" novalidate><label for="promo-email">Je e-mailadres</label>
         <input type="email" id="promo-email" inputmode="email" autocomplete="email" placeholder="jouw@email.be" aria-label="E-mailadres" required>
         <button type="submit" class="btn">Stuur mijn code</button>
       </form>
@@ -930,6 +895,13 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     }
     function theme(key){
       var f=FLAVORS[key],r=document.documentElement.style;
+      document.getElementById('detail-abv').textContent=key==='coco'?'17% alcohol':'22% alcohol';
+      document.querySelector('.hero').classList.toggle('is-coco',key==='coco');
+      document.body.classList.toggle('theme-coco',key==='coco');
+      document.getElementById('taste-sticker').textContent=key==='coco'?'Kokos · crème':'Ananas · citroen';
+      document.getElementById('flavour-headline').textContent=key==='coco'?'Een romige ontsnapping.':'Zomer in je glas.';
+      document.querySelector('.product-title').textContent=f.name;
+      document.querySelector('.coco-hero-photo').hidden=key!=='coco';
       r.setProperty('--orange',f.accent);r.setProperty('--orange-deep',f.deep);r.setProperty('--glow',f.glow);
       r.setProperty('--g-deep',f.g[0]);r.setProperty('--g-mid',f.g[1]);r.setProperty('--g-soft',f.g[2]);r.setProperty('--g-cream',f.g[3]);
       document.getElementById('p-name').textContent=f.name;
@@ -949,6 +921,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
       document.querySelectorAll('.bundle[data-single]').forEach(function(el){
         el.style.display=(el.dataset.single===single)?'':'none';
       });
+      document.querySelectorAll('.collection-card').forEach(function(card){card.hidden=card.dataset.product===key;});
       PRICE=f.price;NAME=f.name;SHOP_URL=f.url;
       upd();
     }
@@ -957,23 +930,25 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     });
     document.getElementById('q-min').onclick=function(){if(qty>1)qty--;upd();};
     document.getElementById('q-plus').onclick=function(){if(qty<12)qty++;upd();};
-    upd();
+    theme(new URLSearchParams(window.location.search).get('smaak')==='coco'?'coco':'pina');
   })();
 
   // ── Nieuwsbrief pop-up → Mailchimp (via /api/subscribe) ──
   (function(){
     var KEY='pinacello-newsletter-seen';
     var promo=document.getElementById('promo');
-    if(!promo || localStorage.getItem(KEY)) return;
+    if(!promo) return;
     var body=document.getElementById('promo-body'),success=document.getElementById('promo-success');
-    var shown=false,timer;
-    function open(){
-      if(shown||localStorage.getItem(KEY))return;
+    var shown=false,timer,previousFocus;
+    function open(force){
+      if(force!==true && (shown||localStorage.getItem(KEY)))return;
+      previousFocus=document.activeElement;
       shown=true;clearTimeout(timer);window.removeEventListener('scroll',onScroll);
-      promo.hidden=false;
+      promo.hidden=false;document.body.classList.add("promo-open");
       setTimeout(function(){var i=document.getElementById('promo-email');if(i)i.focus();},260);
     }
-    function close(){promo.hidden=true;localStorage.setItem(KEY,'1');}
+    function close(){promo.hidden=true;document.body.classList.remove('promo-open');localStorage.setItem(KEY,'1');if(previousFocus)previousFocus.focus();}
+    document.getElementById('newsletter-open').onclick=function(){open(true);};
     function onScroll(){var d=(window.scrollY+window.innerHeight)/document.documentElement.scrollHeight;if(d>0.45)open();}
     timer=setTimeout(open,7000);
     window.addEventListener('scroll',onScroll,{passive:true});
