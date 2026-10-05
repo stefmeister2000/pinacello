@@ -6,7 +6,7 @@ const lead=html.slice(html.indexOf('    var submitting=false'),html.indexOf('\n 
 const clicks=html.slice(html.indexOf("    function fb(ev)"),html.indexOf('\n  })();',html.indexOf('    function fb(ev)')));
 function setup(response={ok:true,json:async()=>({ok:true})}){
  const handlers={},events=[],navigation=[],timers=[];
- const elements={'promo-email':{value:'test@example.com',classList:{add(){},remove(){}},focus(){}},'promo-error':{},'promo-form':{addEventListener:(name,fn)=>handlers[name]=fn}};
+ const elements={'promo-email':{value:'test@example.com',classList:{add(){},remove(){}},focus(){}},'promo-copy':{focus(){}},'promo-error':{},'promo-form':{addEventListener:(name,fn)=>handlers[name]=fn}};
  const button={};
  const context={document:{getElementById:id=>elements[id],addEventListener:(name,fn)=>handlers[name]=fn},fetch:async()=>response,localStorage:{setItem(){}},KEY:'test',body:{},success:{},gtag:(...args)=>events.push(args),fbq(){},URL,window:{location:{href:'https://landing.example/',assign:url=>navigation.push(url)}},setTimeout:fn=>timers.push(fn)};
  vm.createContext(context);vm.runInContext(lead,context);vm.runInContext(clicks,context);

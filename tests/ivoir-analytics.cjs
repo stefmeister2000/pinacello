@@ -14,8 +14,8 @@ function setup(){
   return {events,timers,navigation,click};
 }
 test('IVOIR has its own GA4 page path without a duplicate manual page_view',()=>{
-  const window={};const calls=[];
-  vm.runInNewContext(scripts[1],{window, dataLayer:calls,Date});
+  const calls=[];const window={location:{protocol:'https:',hostname:'promo.pinacello.com'},dataLayer:calls};
+  vm.runInNewContext(scripts.find(s=>s.includes("gtag('config'")),{window,document:{createElement:()=>({}),head:{appendChild(){}}},Date});
   const configs=calls.filter(args=>args[0]==='config');
   assert.equal(configs.length,1);
   assert.equal(configs[0][1],'G-T758CLG2LQ');

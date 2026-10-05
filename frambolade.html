@@ -3,17 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <link rel="preconnect" href="https://static.wixstatic.com">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T758CLG2LQ"></script>
+<!-- Production tracking only: never load GA or Clarity on localhost/preview hosts. -->
 <script>
+  window.pinacelloProduction = window.location.protocol === 'https:' &&
+    ['promo.pinacello.com','www.pinacello.com','pinacello.com'].indexOf(window.location.hostname) !== -1;
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-T758CLG2LQ', {page_path:'/frambolade', content_group:"Frambolade"});
+  function gtag(){if(window.pinacelloProduction)window.dataLayer.push(arguments);}
+  if(window.pinacelloProduction){
+    gtag('js', new Date());
+    gtag('set', 'linker', {domains:['promo.pinacello.com','www.pinacello.com','pinacello.com']});
+    gtag('config', 'G-T758CLG2LQ', {page_path:'/frambolade', content_group:"Frambolade", cookie_domain:'pinacello.com', site_area:'landing'});
+    var googleTag=document.createElement('script');
+    googleTag.async=true;googleTag.src='https://www.googletagmanager.com/gtag/js?id=G-T758CLG2LQ';
+    document.head.appendChild(googleTag);
+  }
 </script>
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
+        if(!c.pinacelloProduction)return;
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
@@ -23,7 +31,7 @@
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+{if(!f.pinacelloProduction){f.fbq=function(){};return;}if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;

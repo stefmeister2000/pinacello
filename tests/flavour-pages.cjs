@@ -6,7 +6,7 @@ const slugs=['frambolade','calibana','vaquero-rum-likeur','limoncello','gin-o-po
 for(const slug of slugs)test(`${slug}: page identity and checkout tracking match the product`,()=>{
  const html=fs.readFileSync(`${slug}.html`,'utf8');
  const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].map(m=>m[1]);
- const calls=[];vm.runInNewContext(scripts.find(s=>s.includes("gtag('config'")),{window:{},dataLayer:calls,Date});
+ const calls=[];vm.runInNewContext(scripts.find(s=>s.includes("gtag('config'")),{window:{location:{protocol:'https:',hostname:'promo.pinacello.com'},dataLayer:calls},document:{createElement:()=>({}),head:{appendChild(){}}},Date});
  assert.equal(calls.find(c=>c[0]==='config')[2].page_path,'/'+slug);
  const url=html.match(/data-placement="hero" href="([^"]+)"/)[1];
  const clicks=[],timers=[],nav=[];let listener;

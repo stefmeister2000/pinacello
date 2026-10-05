@@ -4,17 +4,25 @@
 <meta charset="UTF-8">
 <link rel="preload" as="image" href="/hero/hero-aqua.webp" fetchpriority="high">
 <link rel="preconnect" href="https://static.wixstatic.com">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T758CLG2LQ"></script>
+<!-- Production tracking only: never load GA or Clarity on localhost/preview hosts. -->
 <script>
+  window.pinacelloProduction = window.location.protocol === 'https:' &&
+    ['promo.pinacello.com','www.pinacello.com','pinacello.com'].indexOf(window.location.hostname) !== -1;
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-T758CLG2LQ');
+  function gtag(){if(window.pinacelloProduction)window.dataLayer.push(arguments);}
+  if(window.pinacelloProduction){
+    gtag('js', new Date());
+    gtag('set', 'linker', {domains:['promo.pinacello.com','www.pinacello.com','pinacello.com']});
+    gtag('config', 'G-T758CLG2LQ', {cookie_domain:'pinacello.com', site_area:'landing'});
+    var googleTag=document.createElement('script');
+    googleTag.async=true;googleTag.src='https://www.googletagmanager.com/gtag/js?id=G-T758CLG2LQ';
+    document.head.appendChild(googleTag);
+  }
 </script>
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
+        if(!c.pinacelloProduction)return;
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
@@ -24,7 +32,7 @@
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+{if(!f.pinacelloProduction){f.fbq=function(){};return;}if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
@@ -34,9 +42,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '988479144234543');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
-/></noscript>
+
 <!-- End Meta Pixel Code -->
 <title>Pinacello — Ananas Citroen Likeur | Breng de zomer naar je tuinfeest</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍍</text></svg>">
@@ -486,7 +492,10 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
   .promo-card form .btn{width:100%;padding:15px 20px}
   .promo-fine{font-size:.74rem;opacity:.7;margin:14px 0 0}
   .promo-code{font-family:'Fraunces',serif;font-weight:900;font-size:2rem;letter-spacing:.08em;color:var(--orange);
-    background:var(--cream);border:2px dashed var(--orange);border-radius:14px;padding:12px;margin-bottom:14px}
+    background:var(--cream);border:2px dashed var(--orange);border-radius:14px;padding:12px;margin-bottom:8px;width:100%;cursor:pointer}
+  .promo-code small{display:block;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:0}
+  .promo-code:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+  .promo-card .promo-copy-status{font-size:.82rem;min-height:1.5em;margin-bottom:12px}
   .promo-success .btn{width:100%;margin-top:4px}
 </style>
 
@@ -813,10 +822,10 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     <div class="promo-body" id="promo-body">
       <span class="made-belgium"><span class="belgian-flag" aria-hidden="true"></span>Made in Belgium</span>
       <span class="promo-kicker">Jouw eerste rondje voordeel</span><h3 id="promo-title">Meer smaak.<br><em>5% minder.</em></h3>
-      <p>Schrijf je in en ontvang meteen 5% korting op je eerste bestelling.</p>
+      <p>Schrijf je in voor 5% korting op je eerste bestelling. Je code verschijnt meteen op dit scherm, klaar om te kopiëren. Je hoeft niet op een e-mail te wachten.</p>
       <form id="promo-form" novalidate><label for="promo-email">Je e-mailadres</label>
         <input type="email" id="promo-email" inputmode="email" autocomplete="email" placeholder="jouw@email.be" aria-label="E-mailadres" required>
-        <button type="submit" class="btn">Stuur mijn code</button>
+        <button type="submit" class="btn">Toon mijn kortingscode</button>
       </form>
       <p id="promo-error" role="alert" hidden></p>
       <p class="promo-fine">Geen spam. Uitschrijven kan altijd. 18+</p>
@@ -824,7 +833,8 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     <div class="promo-success" id="promo-success" hidden>
       <div class="promo-emoji">🎉</div>
       <h3>Yes! Hier is je code</h3>
-      <div class="promo-code">ZOMER5</div>
+      <button type="button" class="promo-code" id="promo-copy" aria-label="Kopieer kortingscode ZOMER5"><span id="promo-code">ZOMER5</span><small>Kopieer code</small></button>
+      <p class="promo-copy-status" id="promo-copy-status" role="status" aria-live="polite"></p>
       <p>Gebruik <b>ZOMER5</b> aan de kassa voor 5% korting.</p>
       <a class="btn" id="promo-shop" href="https://www.pinacello.com/product-page/kopie-van-pinacello-ananas-citroen-likeur-500ml">Bestel nu</a>
     </div>
@@ -892,6 +902,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
       document.getElementById('sticky-p').innerHTML=NAME+' 500ml<br><b>'+fmt(PRICE)+'</b>';
       atc.setAttribute('href',SHOP_URL);
       if(stickyBtn)stickyBtn.setAttribute('href',SHOP_URL);
+      document.getElementById('promo-shop').setAttribute('href',SHOP_URL);
     }
     function theme(key){
       var f=FLAVORS[key],r=document.documentElement.style;
@@ -941,13 +952,19 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     var body=document.getElementById('promo-body'),success=document.getElementById('promo-success');
     var shown=false,timer,previousFocus;
     function open(force){
-      if(force!==true && (shown||localStorage.getItem(KEY)))return;
+      var seen=false;
+      try {seen=!!localStorage.getItem(KEY);} catch(err) {}
+      if(force!==true && (shown||seen))return;
       previousFocus=document.activeElement;
       shown=true;clearTimeout(timer);window.removeEventListener('scroll',onScroll);
       promo.hidden=false;document.body.classList.add("promo-open");
       setTimeout(function(){var i=document.getElementById('promo-email');if(i)i.focus();},260);
     }
-    function close(){promo.hidden=true;document.body.classList.remove('promo-open');localStorage.setItem(KEY,'1');if(previousFocus)previousFocus.focus();}
+    function close(){
+      promo.hidden=true;document.body.classList.remove('promo-open');
+      try {localStorage.setItem(KEY,'1');} catch(err) {}
+      if(previousFocus)previousFocus.focus();
+    }
     document.getElementById('newsletter-open').onclick=function(){open(true);};
     function onScroll(){var d=(window.scrollY+window.innerHeight)/document.documentElement.scrollHeight;if(d>0.45)open();}
     timer=setTimeout(open,7000);
@@ -956,6 +973,23 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
     promo.addEventListener('click',function(e){if(e.target===promo)close();});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!promo.hidden)close();});
     document.getElementById('promo-shop').onclick=close;
+    // Clipboard access may be unavailable in in-app browsers. Keep the code selectable.
+    var copyButton=document.getElementById('promo-copy');
+    copyButton.addEventListener('click',async function(){
+      var code=document.getElementById('promo-code');
+      var status=document.getElementById('promo-copy-status');
+      try {
+        if(!navigator.clipboard || !window.isSecureContext)throw new Error('clipboard_unavailable');
+        await navigator.clipboard.writeText(code.textContent.trim());
+        status.textContent='Gekopieerd! Plak de code aan de kassa.';
+      } catch(err) {
+        try {
+          var selection=window.getSelection(),range=document.createRange();
+          range.selectNodeContents(code);selection.removeAllRanges();selection.addRange(range);
+        } catch(selectionError) {}
+        status.textContent='Kopiëren kan niet automatisch in deze browser. Houd de code ingedrukt om te kopiëren, of vul ZOMER5 in aan de kassa.';
+      }
+    });
     var submitting=false,completed=false;
     document.getElementById('promo-form').addEventListener('submit',async function(e){
       e.preventDefault();
@@ -981,6 +1015,7 @@ src="https://www.facebook.com/tr?id=988479144234543&ev=PageView&noscript=1"
       }
       completed=true;submitting=false;
       body.hidden=true;success.hidden=false;
+      document.getElementById('promo-copy').focus();
       try {localStorage.setItem(KEY,'1');} catch(err) {}
       if(typeof gtag==='function')gtag('event','generate_lead',{
         send_to:'G-T758CLG2LQ',form_id:'promo-form',lead_source:'newsletter_popup'
