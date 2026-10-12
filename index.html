@@ -505,6 +505,7 @@ fbq('track', 'PageView');
 <script src="/motion.js" defer></script>
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/playful.css?v=10">
+<link rel="stylesheet" href="/bundle-assets/bundles.css?v=1">
 </head>
 <body class="playful theme-pina">
 
@@ -579,10 +580,10 @@ fbq('track', 'PageView');
   <span class="bubble" style="width:46px;height:46px;bottom:8%;left:5%;animation-delay:2s"></span>
   <div class="wrap">
     <h2>Bestel jouw favoriet.</h2>
-    <p class="sub">Los verkrijgbaar, of samen in het voordelige duo-pakket.</p>
+    <p class="sub">Eén favoriet, of twee samen. Kies jouw duo en bespaar €5.</p>
     <div class="bundle-grid">
       <div class="bundle" data-single="pina">
-        <div class="emoji">🍍</div>
+        <img class="bundle-photo bundle-photo--single" src="/hero/hero-aqua.webp" width="1672" height="941" alt="Pinacello met ananas en citroen" loading="lazy">
         <h3>Pinacello</h3>
         <div class="was">&nbsp;</div>
         <div class="now">€25</div>
@@ -594,7 +595,7 @@ fbq('track', 'PageView');
         <a class="btn btn--ghost" href="https://www.pinacello.com/product-page/kopie-van-pinacello-ananas-citroen-likeur-500ml">Kies deze</a>
       </div>
       <div class="bundle" data-single="coco" style="display:none">
-        <div class="emoji">🥥</div>
+        <img class="bundle-photo bundle-photo--single" src="/hero/cococello-cream.webp" width="1122" height="1402" alt="Cococello kokosnoot-crèmelikeur" loading="lazy">
         <h3>Cococello</h3>
         <div class="was">&nbsp;</div>
         <div class="now">€25</div>
@@ -607,11 +608,11 @@ fbq('track', 'PageView');
       </div>
       <div class="bundle best">
         <div class="flag">⭐ Meest gekozen</div>
-        <div class="emoji">🍍 + 🥥</div>
+        <img class="bundle-photo" src="https://static.wixstatic.com/media/6c9181_1a72e4a9a152413d8e43ca8f8a458016~mv2.png/v1/fill/w_1090,h_1142,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/6c9181_1a72e4a9a152413d8e43ca8f8a458016~mv2.png" width="1090" height="1142" alt="Pina en Cococello pakket met twee flessen" loading="lazy">
         <h3>Pina + Coco pakket</h3>
         <div class="was">€50 apart</div>
         <div class="now">€45</div>
-        <div class="per"><b>2 flessen · 500ml</b></div>
+        <div class="per"><b>2 × 500 ml</b></div>
         <span class="save">Je bespaart €5</span>
         <ul>
           <li>1× Pinacello + 1× Cococello</li>
@@ -619,7 +620,29 @@ fbq('track', 'PageView');
         </ul>
         <a class="btn" href="https://www.pinacello.com/product-page/pina-en-cococello-pakket">Bestel het pakket →</a>
       </div>
+      <div class="bundle" data-bundle="pina-limo">
+        <img class="bundle-photo" src="/bundle-assets/pina-limoncello.png" width="1254" height="1254" alt="Pina en Limoncello pakket met twee flessen" loading="lazy">
+        <h3>Pina + Limo pakket</h3>
+        <div class="was">€55 apart</div>
+        <div class="now">€50</div>
+        <div class="per"><b>2 × 500 ml</b></div>
+        <span class="save">Je bespaart €5</span>
+        <ul><li>1× Pinacello + 1× Limoncello</li><li>Fris, fruitig &amp; vol citroen</li></ul>
+        <a class="btn" id="pina-limo-bundle-buy" href="https://www.pinacello.com/product-page/pina-en-limoncello-pakket-2-x-500-ml">Bestel het pakket →</a>
+      </div>
+      <div class="bundle" data-bundle="coco-ivoir">
+        <img class="bundle-photo" src="/bundle-assets/coco-ivoir.png" width="1254" height="1254" alt="Cococello en Ivoir pakket met twee flessen" loading="lazy">
+        <h3>Coco + Ivoir pakket</h3>
+        <div class="was">€55 apart</div>
+        <div class="now">€50</div>
+        <div class="per"><b>2 × 500 ml</b></div>
+        <span class="save">Je bespaart €5</span>
+        <ul><li>1× Cococello + 1× Ivoir</li><li>Kokos &amp; witte chocolade</li></ul>
+        <p class="bundle-stock">Tijdelijk niet op voorraad</p>
+        <a class="btn btn--ghost" id="coco-ivoir-bundle-view" href="https://www.pinacello.com/product-page/cococello-en-ivoir-pakket-2-x-500-ml">Bekijk het pakket →</a>
+      </div>
     </div>
+    <p class="bundle-note">Je bespaart €5 ten opzichte van de normale losse flesprijzen. Actuele acties, beschikbaarheid en verzendkosten vind je in de webshop.</p>
 
     <p class="delivery">📦 Gratis verzending vanaf 2 flessen · Levering in BE &amp; NL binnen 1-2 werkdagen</p>
   </div>

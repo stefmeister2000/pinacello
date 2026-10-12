@@ -551,6 +551,7 @@ fbq('track', 'PageView');
 <script src="/motion.js" defer></script>
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/playful.css?v=10">
+<link rel="stylesheet" href="/bundle-assets/bundles.css?v=1">
 </head>
 
 <body class="playful theme-ivoir">
@@ -613,7 +614,16 @@ fbq('track', 'PageView');
     <a class="btn" id="ivoir-offer-buy" data-placement="offer" href="https://www.pinacello.com/product-page/ivoir-chocolade-whiskey">Bestel IVOIR →</a>
     <p class="price-note">Actuele prijs, eventuele acties en verzendkosten vind je in de webshop.</p>
   </div></div>
-</div></section><section class="quick-choice" id="snel-kiezen" aria-labelledby="quick-title"><div class="wrap"><span class="collection-kicker">In één oogopslag</span><h2 id="quick-title">Is Ivoir jouw smaak?</h2><p class="quick-intro">Zacht, romig en warm van karakter.</p><div class="quick-grid"><article class="quick-card"><span class="quick-number" aria-hidden="true">01</span><h3>De smaak</h3><p>Witte chocolade en Belgische whisky.</p></article><article class="quick-card"><span class="quick-number" aria-hidden="true">02</span><h3>Jouw moment</h3><p>Bij de koffie of na het eten.</p></article><article class="quick-card"><span class="quick-number" aria-hidden="true">03</span><h3>Zo serveer je hem</h3><p>Puur of on the rocks.</p></article></div></div></section>
+<article class="combo-feature" aria-labelledby="coco-ivoir-title">
+  <img src="/bundle-assets/coco-ivoir.png" width="1254" height="1254" alt="Coco + Ivoir pakket met twee flessen" loading="lazy">
+  <div class="combo-copy"><span class="combo-kicker">Samen voordeliger</span><h3 id="coco-ivoir-title">Coco + Ivoir pakket</h3>
+    <p>Zachte kokos en Belgische witte chocolade. Eén fles Cococello en één fles Ivoir, samen in een romig duo.</p><div class="combo-prices"><span class="combo-was">€55 apart</span><strong class="combo-now">€50</strong></div>
+    <p>2 × 500 ml</p><span class="combo-save">Je bespaart €5</span>
+    <p class="bundle-stock">Tijdelijk niet op voorraad</p>
+    <a class="btn btn--ghost" id="coco-ivoir-bundle-view" data-placement="bundle" href="https://www.pinacello.com/product-page/cococello-en-ivoir-pakket-2-x-500-ml">Bekijk het pakket →</a>
+    <p class="combo-note">Vergeleken met de normale losse flesprijzen. Actuele acties, beschikbaarheid en verzendkosten vind je in de webshop.</p>
+  </div>
+</article></div></section><section class="quick-choice" id="snel-kiezen" aria-labelledby="quick-title"><div class="wrap"><span class="collection-kicker">In één oogopslag</span><h2 id="quick-title">Is Ivoir jouw smaak?</h2><p class="quick-intro">Zacht, romig en warm van karakter.</p><div class="quick-grid"><article class="quick-card"><span class="quick-number" aria-hidden="true">01</span><h3>De smaak</h3><p>Witte chocolade en Belgische whisky.</p></article><article class="quick-card"><span class="quick-number" aria-hidden="true">02</span><h3>Jouw moment</h3><p>Bij de koffie of na het eten.</p></article><article class="quick-card"><span class="quick-number" aria-hidden="true">03</span><h3>Zo serveer je hem</h3><p>Puur of on the rocks.</p></article></div></div></section>
 <section class="order-guide" aria-labelledby="order-title"><div class="wrap"><div class="order-intro"><span class="collection-kicker">Van hier naar jouw glas</span><h2 id="order-title">Kiezen. Bestellen.<br>Genieten.</h2><a class="btn" href="#bestel">Kies jouw fles →</a></div><ol class="order-steps"><li><span>01</span><div><h3>Kies je favoriet.</h3><p>Ontdek de smaken en kies jouw fles.</p></div></li><li><span>02</span><div><h3>Bestel in onze webshop.</h3><p>Bekijk daar de actuele prijs en verzendkosten.</p></div></li><li><span>03</span><div><h3>Maak er jouw moment van.</h3><p>Volg de serveertips en geniet met mate.</p></div></li></ol></div></section>
 <section class="faq" id="faq"><div class="wrap" style="max-width:740px"><h2>Nog een vraag?</h2><p class="sub">Dit wil je weten over IVOIR.</p>
   <details><summary>Wat is IVOIR?</summary><p>IVOIR is een romige likeur van Pinacello, gemaakt met Belgische whisky en Belgische witte chocolade.</p></details>
@@ -663,10 +673,13 @@ fbq('track', 'PageView');
       var a=e.target.closest('a[data-placement]');
       if(!a||e.defaultPrevented)return;
       var url=new URL(a.href,window.location.href);
-      if(url.hostname!=='www.pinacello.com'||url.pathname!=='/product-page/ivoir-chocolade-whiskey')return;
-      if(typeof fbq==='function')fbq('track','InitiateCheckout',{content_name:'IVOIR',content_ids:['ivoir'],content_type:'product'});
+      var products={'/product-page/ivoir-chocolade-whiskey':{id:'ivoir',name:'IVOIR'},
+        '/product-page/cococello-en-ivoir-pakket-2-x-500-ml':{id:'coco-ivoir',name:'Coco + Ivoir pakket'}};
+      var product=products[url.pathname];
+      if(url.hostname!=='www.pinacello.com'||!product)return;
+      if(typeof fbq==='function')fbq('track','InitiateCheckout',{content_name:product.name,content_ids:[product.id],content_type:'product'});
       if(typeof gtag!=='function')return;
-      var params={send_to:'G-T758CLG2LQ',landing_page:'ivoir',product_id:'ivoir',
+      var params={send_to:'G-T758CLG2LQ',landing_page:'ivoir',product_id:product.id,
         link_url:url.origin+url.pathname,link_id:a.id||'',link_text:a.textContent.trim(),
         cta_placement:a.dataset.placement};
       if(e.button===0&&!e.ctrlKey&&!e.metaKey&&!e.shiftKey&&!e.altKey&&
