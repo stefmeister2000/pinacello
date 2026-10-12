@@ -10,6 +10,15 @@ market photos, craft story, reviews, FAQ and a 5%-korting e-mailpopup.
 - `markets/` — photos of the brothers at markets & events
 - `craft/` — photos for the "100% zelfgemaakt" section
 
+## Image delivery
+
+Duo cards use the 400/800/1000 px WebP files in `bundle-assets/` via `srcset`;
+keep their full-width card styling in `bundle-assets/bundles.css`. Each variant
+is under 65 KB. The original bundle PNGs are retained as editing sources.
+The homepage preloads only the selected Pina/Coco hero, while hidden images and
+the newsletter popup load lazily. Navigation uses the 480 px WebP logo.
+When replacing photos, use a new asset filename to avoid the one-day asset cache.
+
 ## Run locally
 Open `index.html` directly in a browser, or serve the folder:
 

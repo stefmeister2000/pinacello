@@ -2,8 +2,16 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<link rel="preload" as="image" href="/hero/hero-aqua.webp" fetchpriority="high">
-<link rel="preconnect" href="https://static.wixstatic.com">
+<script>
+  // Preload the selected flavour before the page styles; defer its hidden alternative.
+  (function(){
+    var preload=document.createElement('link');
+    preload.rel='preload';preload.as='image';preload.fetchPriority='high';
+    preload.href=new URLSearchParams(window.location.search).get('smaak')==='coco'
+      ? '/hero/cococello-cream.webp' : '/hero/hero-aqua.webp';
+    document.head.appendChild(preload);
+  })();
+</script>
 <!-- Production tracking only: never load GA or Clarity on localhost/preview hosts. -->
 <script>
   window.pinacelloProduction = window.location.protocol === 'https:' &&
@@ -518,7 +526,7 @@ fbq('track', 'PageView');
 
 <div class="wrap">
   <nav id="nav">
-    <a class="logo" href="#"><img src="/brand-assets/pinacello-logo.png" alt="Pinacello" width="2026" height="739"></a>
+    <a class="logo" href="#"><img src="/brand-assets/pinacello-logo-480.webp" alt="Pinacello" width="2026" height="739" decoding="async"></a>
     <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <div class="links" id="navLinks">
       <a href="#geniet">Geniet</a>
@@ -533,7 +541,7 @@ fbq('track', 'PageView');
 <header class="hero playful-hero"><div class="hero-heading"><span class="eyebrow-note">Belgische likeuren · 18+ · geniet met mate</span><h1 id="flavour-headline">Zomer in je glas.</h1><span class="heading-sticker origin-sticker"><span class="belgian-flag" aria-hidden="true"></span> Belgisch merk</span></div>
 
   <div class="wrap">
-    <div class="product-art"><span class="art-sticker" id="taste-sticker">Ananas · citroen</span><img class="pina-photo" src="/hero/hero-aqua.webp" alt="Pinacello ananas-citroen met een spritz" width="1672" height="941"><img class="coco-hero-photo" src="/hero/cococello-cream.webp" alt="Cococello met verse kokos en een romig drankje met ijs" width="1122" height="1402" hidden></div><div class="hero-content">
+    <div class="product-art"><span class="art-sticker" id="taste-sticker">Ananas · citroen</span><img class="pina-photo" loading="lazy" src="/hero/hero-aqua.webp" alt="Pinacello ananas-citroen met een spritz" width="1672" height="941" decoding="async" fetchpriority="high"><img class="coco-hero-photo" src="/hero/cococello-cream.webp" alt="Cococello met verse kokos en een romig drankje met ijs" width="1122" height="1402" hidden decoding="async" loading="lazy"></div><div class="hero-content">
       <span class="made-belgium"><span class="belgian-flag" aria-hidden="true"></span>Made in Belgium</span>
       <h2 class="product-title">Pinacello</h2>
       <p class="what"><b id="p-name">Pinacello</b> — <span id="p-pack">ananas-citroen likeur · 22% · 500 ml</span></p>
@@ -567,7 +575,7 @@ fbq('track', 'PageView');
         <span>🚚 Levering in BE &amp; NL</span>
       </div>
     </div>
-  <a class="maker-card" href="/verhaal"><span class="art-sticker">Van twee broers</span><img src="/craft/craft-3.webp" alt="De broers achter Pinacello" width="1400" height="1744"><span class="maker-caption">Zelfgemaakt.<br>Samen genieten. <b>↗</b></span></a></div>
+  <a class="maker-card" href="/verhaal"><span class="art-sticker">Van twee broers</span><img src="/craft/craft-3.webp" alt="De broers achter Pinacello" width="1400" height="1744" decoding="async" loading="lazy"><span class="maker-caption">Zelfgemaakt.<br>Samen genieten. <b>↗</b></span></a></div>
 </header>
 
 <!-- ═══ SPEC BAR ═══ -->
@@ -583,7 +591,7 @@ fbq('track', 'PageView');
     <p class="sub">Jouw favoriete fles, of Pina + Coco samen met €5 voordeel.</p>
     <div class="bundle-grid">
       <div class="bundle" data-single="pina">
-        <img class="bundle-photo bundle-photo--single" src="/hero/hero-aqua.webp" width="1672" height="941" alt="Pinacello met ananas en citroen" loading="lazy">
+        <img class="bundle-photo bundle-photo--single" src="/hero/hero-aqua.webp" width="1672" height="941" alt="Pinacello met ananas en citroen" loading="lazy" decoding="async">
         <h3>Pinacello</h3>
         <div class="was">&nbsp;</div>
         <div class="now">€25</div>
@@ -595,7 +603,7 @@ fbq('track', 'PageView');
         <a class="btn btn--ghost" href="https://www.pinacello.com/product-page/kopie-van-pinacello-ananas-citroen-likeur-500ml">Kies deze</a>
       </div>
       <div class="bundle" data-single="coco" style="display:none">
-        <img class="bundle-photo bundle-photo--single" src="/hero/cococello-cream.webp" width="1122" height="1402" alt="Cococello kokosnoot-crèmelikeur" loading="lazy">
+        <img class="bundle-photo bundle-photo--single" src="/hero/cococello-cream.webp" width="1122" height="1402" alt="Cococello kokosnoot-crèmelikeur" loading="lazy" decoding="async">
         <h3>Cococello</h3>
         <div class="was">&nbsp;</div>
         <div class="now">€25</div>
@@ -608,7 +616,7 @@ fbq('track', 'PageView');
       </div>
       <div class="bundle best">
         <div class="flag">⭐ Meest gekozen</div>
-        <img class="bundle-photo" src="https://static.wixstatic.com/media/6c9181_1a72e4a9a152413d8e43ca8f8a458016~mv2.png/v1/fill/w_1090,h_1142,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/6c9181_1a72e4a9a152413d8e43ca8f8a458016~mv2.png" width="1090" height="1142" alt="Pina en Cococello pakket met twee flessen" loading="lazy">
+        <img class="bundle-photo" src="/bundle-assets/pina-coco-800.webp" srcset="/bundle-assets/pina-coco-400.webp 400w, /bundle-assets/pina-coco-800.webp 800w, /bundle-assets/pina-coco-1000.webp 1000w" sizes="(max-width: 600px) calc(100vw - 88px), 320px" width="1090" height="1142" alt="Pina en Cococello pakket met twee flessen" loading="lazy" decoding="async">
         <h3>Pina + Coco pakket</h3>
         <div class="was">€50 apart</div>
         <div class="now">€45</div>
@@ -625,7 +633,7 @@ fbq('track', 'PageView');
 
     <p class="delivery">📦 Gratis verzending vanaf 2 flessen · Levering in BE &amp; NL binnen 1-2 werkdagen</p>
   </div>
-</section><section class="quick-choice visual-choice" id="snel-kiezen" aria-labelledby="quick-title"><div class="wrap"><span class="collection-kicker">Nog aan het twijfelen?</span><h2 id="quick-title">Fris of romig?</h2><div class="taste-comparison"><a class="taste-option" href="/?smaak=pina"><img src="/hero/hero-aqua.webp" width="1672" height="941" loading="lazy" alt="Pinacello met ananas en citroen"><div><span>Fris &amp; fruitig</span><h3>Team Pina.</h3><p>Ananas · citroen</p><b>Dit is mijn smaak ↗</b></div></a><a class="taste-option taste-coco" href="/?smaak=coco"><img src="/hero/cococello-cream.webp" width="1122" height="1402" loading="lazy" alt="Cococello met kokos"><div><span>Zacht &amp; romig</span><h3>Team Coco.</h3><p>Kokos · crème</p><b>Dit is mijn smaak ↗</b></div></a></div><a class="taste-duo" href="https://www.pinacello.com/product-page/pina-en-cococello-pakket"><span><b>Je hoeft niet te kiezen.</b> Pina + Coco samen voor €45.</span><strong>Ontdek het duo ↗</strong></a></div></section>
+</section><section class="quick-choice visual-choice" id="snel-kiezen" aria-labelledby="quick-title"><div class="wrap"><span class="collection-kicker">Nog aan het twijfelen?</span><h2 id="quick-title">Fris of romig?</h2><div class="taste-comparison"><a class="taste-option" href="/?smaak=pina"><img src="/hero/hero-aqua.webp" width="1672" height="941" loading="lazy" alt="Pinacello met ananas en citroen" decoding="async"><div><span>Fris &amp; fruitig</span><h3>Team Pina.</h3><p>Ananas · citroen</p><b>Dit is mijn smaak ↗</b></div></a><a class="taste-option taste-coco" href="/?smaak=coco"><img src="/hero/cococello-cream.webp" width="1122" height="1402" loading="lazy" alt="Cococello met kokos" decoding="async"><div><span>Zacht &amp; romig</span><h3>Team Coco.</h3><p>Kokos · crème</p><b>Dit is mijn smaak ↗</b></div></a></div><a class="taste-duo" href="https://www.pinacello.com/product-page/pina-en-cococello-pakket"><span><b>Je hoeft niet te kiezen.</b> Pina + Coco samen voor €45.</span><strong>Ontdek het duo ↗</strong></a></div></section>
 
 <!-- ═══ MARKETS / PROOF ═══ -->
 <section class="markets">
@@ -634,10 +642,10 @@ fbq('track', 'PageView');
     <p class="sub">Honderden klanten proefden Pinacello al live.</p>
     <!-- FOTO'S: vervang elke .photo achtergrond door <img src="..."> van markten/UGC -->
     <div class="photos">
-      <div class="photo"><img src="markets/markt-1.jpg" alt="Klanten proeven Pinacello op de strandmarkt" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
-      <div class="photo"><img src="markets/markt-2.jpg" alt="Blije klanten met een Pinacello in de zon" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
-      <div class="photo"><img src="markets/markt-3.jpg" alt="Pinacello-stand op een drukke zomermarkt" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
-      <div class="photo"><img src="markets/markt-4.webp" alt="De twee broers aan hun Pinacello-stand" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+      <div class="photo"><img src="markets/markt-1.webp" alt="Klanten proeven Pinacello op de strandmarkt" loading="lazy" onload="this.parentNode.classList.add('loaded')" decoding="async"><span class="ph-hint">📷 Foto volgt</span></div>
+      <div class="photo"><img src="markets/markt-2.webp" alt="Blije klanten met een Pinacello in de zon" loading="lazy" onload="this.parentNode.classList.add('loaded')" decoding="async"><span class="ph-hint">📷 Foto volgt</span></div>
+      <div class="photo"><img src="markets/markt-3.webp" alt="Pinacello-stand op een drukke zomermarkt" loading="lazy" onload="this.parentNode.classList.add('loaded')" decoding="async"><span class="ph-hint">📷 Foto volgt</span></div>
+      <div class="photo"><img src="markets/markt-4.webp" alt="De twee broers aan hun Pinacello-stand" loading="lazy" onload="this.parentNode.classList.add('loaded')" decoding="async"><span class="ph-hint">📷 Foto volgt</span></div>
     </div>
     <div class="section-cta"><a class="btn" href="#bestel">Bestel nu</a></div>
   </div>
@@ -685,15 +693,15 @@ fbq('track', 'PageView');
     <!-- FOTO'S: vervang elke .photo achtergrond door <img src="..."> van het maakproces -->
     <div class="craft-grid">
       <div class="craft-item">
-        <div class="photo"><img src="craft/craft-1.webp" alt="De makers met hun flessen" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+        <div class="photo"><img src="craft/craft-1.webp" alt="De makers met hun flessen" loading="lazy" onload="this.parentNode.classList.add('loaded')" decoding="async"><span class="ph-hint">📷 Foto volgt</span></div>
         <div class="ci-body"><h3>Met de hand gemaakt</h3><p>Zelf gestookt en gebotteld, fles per fles.</p></div>
       </div>
       <div class="craft-item">
-        <div class="photo"><img src="craft/craft-2.webp" alt="Zelfgemaakt door de twee broers" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+        <div class="photo"><img src="craft/craft-2.webp" alt="Zelfgemaakt door de twee broers" loading="lazy" onload="this.parentNode.classList.add('loaded')" decoding="async"><span class="ph-hint">📷 Foto volgt</span></div>
         <div class="ci-body"><h3>Zelfgemaakt</h3><p>Door twee broers zelf gemaakt, nooit in een fabriek.</p></div>
       </div>
       <div class="craft-item">
-        <div class="photo"><img src="craft/craft-3.webp" alt="Natuurlijke smaak" loading="lazy" onload="this.parentNode.classList.add('loaded')"><span class="ph-hint">📷 Foto volgt</span></div>
+        <div class="photo"><img src="craft/craft-3.webp" alt="Natuurlijke smaak" loading="lazy" onload="this.parentNode.classList.add('loaded')" decoding="async"><span class="ph-hint">📷 Foto volgt</span></div>
         <div class="ci-body"><h3>Natuurlijke smaak</h3><p>Echte vruchten, geen kunstmatige smaakstoffen.</p></div>
       </div>
     </div>
@@ -822,7 +830,7 @@ fbq('track', 'PageView');
 <!-- ═══ NIEUWSBRIEF POP-UP ═══ -->
 <div class="promo" id="promo" role="dialog" aria-modal="true" aria-labelledby="promo-title" hidden>
   <div class="promo-card promo-designed">
-    <div class="promo-art" aria-hidden="true"><img class="promo-pina" src="/hero/hero-aqua.webp" alt="" width="1672" height="941"><img class="promo-coco" src="/hero/cococello-cream.webp" alt="" width="1122" height="1402"><span class="promo-art-note">Een fles vol<br>goesting.</span><span class="promo-discount">5%<small>welkomstkorting</small></span></div>
+    <div class="promo-art" aria-hidden="true"><img class="promo-pina" src="/hero/hero-aqua.webp" alt="" width="1672" height="941" decoding="async" loading="lazy"><img class="promo-coco" src="/hero/cococello-cream.webp" alt="" width="1122" height="1402" decoding="async" loading="lazy"><span class="promo-art-note">Een fles vol<br>goesting.</span><span class="promo-discount">5%<small>welkomstkorting</small></span></div>
     <button class="promo-close" id="promo-close" aria-label="Sluiten">×</button>
     <div class="promo-body" id="promo-body">
       <span class="made-belgium"><span class="belgian-flag" aria-hidden="true"></span>Made in Belgium</span>
@@ -917,7 +925,13 @@ fbq('track', 'PageView');
       document.getElementById('taste-sticker').textContent=key==='coco'?'Kokos · crème':'Ananas · citroen';
       document.getElementById('flavour-headline').textContent=key==='coco'?'Een romige ontsnapping.':'Zomer in je glas.';
       document.querySelector('.product-title').textContent=f.name;
-      document.querySelector('.coco-hero-photo').hidden=key!=='coco';
+      var cocoHero=document.querySelector('.coco-hero-photo');
+      cocoHero.hidden=key!=='coco';
+      cocoHero.fetchPriority=key==='coco'?'high':'low';
+      cocoHero.loading=key==='coco'?'eager':'lazy';
+      var pinaHero=document.querySelector('.pina-photo');
+      pinaHero.fetchPriority=key==='coco'?'low':'high';
+      pinaHero.loading=key==='coco'?'lazy':'eager';
       r.setProperty('--orange',f.accent);r.setProperty('--orange-deep',f.deep);r.setProperty('--glow',f.glow);
       r.setProperty('--g-deep',f.g[0]);r.setProperty('--g-mid',f.g[1]);r.setProperty('--g-soft',f.g[2]);r.setProperty('--g-cream',f.g[3]);
       document.getElementById('p-name').textContent=f.name;
