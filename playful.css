@@ -40,7 +40,6 @@
 /* Campaign details, shared by every flavour. */
 .playful .hero-heading{padding-top:28px;margin-bottom:44px}
 .playful .hero-content{position:relative;border-radius:48px 48px 16px 48px}
-.playful .hero-content:after{content:'✳';position:absolute;right:22px;top:18px;color:var(--drink);font-size:34px;line-height:1;opacity:.7}
 .playful .hero-eyebrow{max-width:85%;line-height:1.5}
 .playful .hero .product-art{background:radial-gradient(ellipse at 50% 40%,var(--paper),var(--light) 72%);border-radius:48px 16px 48px 48px}
 .playful .specbar{background:var(--light);border-block:1px solid color-mix(in srgb,var(--deep) 25%,transparent);border-radius:0}
