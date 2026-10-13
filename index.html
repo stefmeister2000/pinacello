@@ -283,6 +283,9 @@ fbq('track', 'PageView');
   .bundle ul li.x::before{content:"✗";color:rgba(71,43,14,.35)}
   .bundle ul li.x{color:rgba(71,43,14,.45)}
   .bundle .save{display:inline-block;background:#FBE3DC;color:var(--orange-deep);font-weight:800;font-size:.8rem;border-radius:999px;padding:5px 14px;margin:0 auto 12px}
+  .bundle ul li.bundle-recipes{display:flex;align-items:center;justify-content:center;gap:9px;margin:12px 0 14px;padding:11px 13px;background:var(--paper,#faf3ea);color:var(--deep,#294526);border:2px solid currentColor;border-radius:18px 13px 17px 12px;box-shadow:3px 3px 0 var(--deep,#294526);transform:rotate(-2deg);font-size:1.05rem;font-weight:800;line-height:1.25;text-align:center}
+  .bundle ul li.bundle-recipes::before{content:none}
+  .bundle-recipes svg{width:23px;height:23px;flex-shrink:0}
   .bundle .btn{margin-top:auto}
 
   /* ── add-ons ── */
@@ -624,7 +627,7 @@ fbq('track', 'PageView');
         <span class="save">Je bespaart €5</span>
         <ul>
           <li>1× Pinacello + 1× Cococello</li>
-          <li>Inclusief recepten</li>
+          <li class="bundle-recipes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5.5C9 3.5 5.5 3.5 2 4.5v15c3.5-1 7-1 10 1 3-2 6.5-2 10-1v-15c-3.5-1-7-1-10 1Z"/><path d="M12 5.5v15M5 8h4M5 11h4M15 8h4M15 11h4"/></svg><span>Inclusief recepten</span></li>
           <li><b>Gratis verzending in België</b></li>
         </ul>
         <a class="btn" href="https://www.pinacello.com/product-page/pina-en-cococello-pakket">Bestel het pakket →</a>
