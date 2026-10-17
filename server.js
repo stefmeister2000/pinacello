@@ -7,6 +7,75 @@ const express = require('express');
 const crypto = require('crypto');
 const app = express();
 app.use(express.json());
+
+// ── Current: first-party tracking domain ────────────────────────────────────
+// promo.pinacello.com serves the Current pixel and forwards its events, so tracking runs on our own domain:
+// the visitor cookie is set by this server (Safari keeps it, unlike JavaScript cookies) and blockers see our domain.
+const CURRENT_ORIGIN = process.env.CURRENT_ORIGIN || 'https://performance-marketing-dashboard-production-e17c.up.railway.app';
+const CURRENT_SITE_KEY = process.env.CURRENT_SITE_KEY || 'cur_rUSdLH_VK1C9hS3Z2RCK1r4lw6DaQ9sG'; // public site key
+const VISITOR_RE = /^[A-Za-z0-9_-]{8,64}$/;
+const VISITOR_MAX_AGE = 400 * 24 * 60 * 60;
+
+function readCookie(req, name) {
+  const m = (req.headers.cookie || '').match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+  return m ? decodeURIComponent(m[1]) : '';
+}
+function isProduction(req) {
+  const host = (req.hostname || '').toLowerCase();
+  return host === 'pinacello.com' || host.endsWith('.pinacello.com');
+}
+// Opaque per-visitor hash so Current's rate limits work per person, not per server.
+function proxyClient(req) {
+  const ip = String(req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').split(',')[0].trim();
+  return crypto.createHash('sha256').update(ip + '|pinacello-current').digest('hex').slice(0, 32);
+}
+async function sendToCurrent(req, body) {
+  return fetch(CURRENT_ORIGIN + '/api/collect', {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=UTF-8', 'User-Agent': req.get('user-agent') || '', 'x-proxy-client': proxyClient(req) },
+    body,
+    signal: AbortSignal.timeout(8000),
+  });
+}
+
+// Pages get (and refresh) the shared visitor cookie on .pinacello.com, also read by the Wix shop on www.
+app.use((req, res, next) => {
+  const page = req.method === 'GET' && !req.path.startsWith('/api/') && (!/\.[a-z0-9]+$/i.test(req.path) || req.path.endsWith('.html'));
+  if (page && isProduction(req)) {
+    let visitor = readCookie(req, '_cur_vid');
+    if (!VISITOR_RE.test(visitor)) visitor = crypto.randomBytes(16).toString('hex');
+    res.append('Set-Cookie', `_cur_vid=${visitor}; Domain=.pinacello.com; Path=/; Max-Age=${VISITOR_MAX_AGE}; SameSite=Lax; Secure`);
+  }
+  next();
+});
+
+let pixelCache = { body: '', at: 0 };
+app.get('/t.js', async (req, res) => {
+  try {
+    if (!pixelCache.body || Date.now() - pixelCache.at > 10 * 60 * 1000) {
+      const r = await fetch(CURRENT_ORIGIN + '/t.js', { signal: AbortSignal.timeout(8000) });
+      if (!r.ok) throw new Error('pixel ' + r.status);
+      pixelCache = { body: await r.text(), at: Date.now() };
+    }
+  } catch (e) {
+    console.error('Current pixel kon niet geladen worden', e.message);
+    if (!pixelCache.body) return res.status(502).end();
+  }
+  res.set({ 'Content-Type': 'application/javascript; charset=utf-8', 'Cache-Control': 'public, max-age=600' }).send(pixelCache.body);
+});
+
+const COLLECT_CORS = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type', 'Cache-Control': 'no-store' };
+app.options('/api/collect', (req, res) => res.set(COLLECT_CORS).status(204).end());
+app.post('/api/collect', express.text({ type: '*/*', limit: '40kb' }), async (req, res) => {
+  try {
+    const r = await sendToCurrent(req, typeof req.body === 'string' ? req.body : '');
+    res.status(r.status).set(COLLECT_CORS).send(await r.text());
+  } catch (e) {
+    console.error('Current collect', e.name);
+    res.status(502).set(COLLECT_CORS).end();
+  }
+});
+
 // extensions:['html'] → /verhaal serveert verhaal.html, /terms → terms.html, enz.
 app.use(express.static(__dirname, {
   extensions: ['html'],
@@ -101,6 +170,15 @@ app.post('/api/subscribe', async (req, res) => {
         body: JSON.stringify({ tags: [{ name: source, status: 'active' }] }),
       });
     } catch (e) { console.error('tag-fout', e); }
+
+    // Link this visitor to the subscriber in Current, server-side (works with ad blockers too).
+    const visitor = readCookie(req, '_cur_vid');
+    if (VISITOR_RE.test(visitor)) {
+      const id = () => crypto.randomBytes(12).toString('hex');
+      const session = VISITOR_RE.test(readCookie(req, '_cur_sid')) ? readCookie(req, '_cur_sid') : id();
+      sendToCurrent(req, JSON.stringify({ key: CURRENT_SITE_KEY, visitor, session, events: [{ id: id(), type: 'lead', email, url: req.get('referer') || 'https://promo.pinacello.com/' }] }))
+        .catch(e => console.error('Current lead', e.name));
+    }
 
     return res.json({ ok: true, tag: source });
   } catch (err) {

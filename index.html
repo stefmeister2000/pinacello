@@ -41,7 +41,7 @@
   (function(){
     if(!window.pinacelloProduction)return;
     var currentPixel=document.createElement('script');
-    currentPixel.async=true;currentPixel.src='https://performance-marketing-dashboard-production-e17c.up.railway.app/t.js';
+    currentPixel.async=true;currentPixel.src='/t.js'; // served by our own server (first-party tracking domain)
     currentPixel.setAttribute('data-site','cur_rUSdLH_VK1C9hS3Z2RCK1r4lw6DaQ9sG');
     document.head.appendChild(currentPixel);
   })();
