@@ -868,6 +868,8 @@ fbq('track', 'PageView');
   </div>
 </div>
 
+<script src="/button-experiment.js"></script>
+
 <script>
   // marquee: dupliceer inhoud zodat de loop naadloos is
   var mq=document.getElementById('marquee');
@@ -1050,9 +1052,9 @@ fbq('track', 'PageView');
       body.hidden=true;success.hidden=false;
       document.getElementById('promo-copy').focus();
       try {localStorage.setItem(KEY,'1');} catch(err) {}
-      if(typeof gtag==='function')gtag('event','generate_lead',{
-        send_to:'G-T758CLG2LQ',form_id:'promo-form',lead_source:'newsletter_popup'
-      });
+      var leadParams={send_to:'G-T758CLG2LQ',form_id:'promo-form',lead_source:'newsletter_popup'};
+      if(window.pinacelloExperiment)window.pinacelloExperiment.decorate(leadParams);
+      if(typeof gtag==='function')gtag('event','generate_lead',leadParams);
       if(typeof fbq==='function')fbq('track','Lead');
     });
   })();
@@ -1070,6 +1072,7 @@ fbq('track', 'PageView');
       var checkout=/^\/checkout(?:\/|$)/.test(url.pathname);
       var params={send_to:'G-T758CLG2LQ',link_url:url.origin+url.pathname,
         link_id:a.id||'',link_text:a.textContent.trim().slice(0,100)};
+      if(window.pinacelloExperiment)window.pinacelloExperiment.decorate(params,a);
       // Geef Analytics tijd om te verzenden voor navigatie, ook met een adblocker.
       if(e.button===0&&!e.ctrlKey&&!e.metaKey&&!e.shiftKey&&!e.altKey&&
           (!a.target||a.target==='_self')&&!a.hasAttribute('download')) {

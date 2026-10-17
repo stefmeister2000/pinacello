@@ -71,3 +71,46 @@ The IVOIR layout is also available at these independent URLs:
 Pinacello and Cococello remain on the main page at `/`.
 
 The new pages share `flavour-assets/landing.css`, with individual colours, copy, product photos and webshop destinations. Express serves each slug through its existing HTML-extension routing. GA4 uses each page's slug for `page_path`, `landing_page` and `product_id`; Clarity and Meta Pixel are included. Prices are labelled as regular prices; offers remain in the Wix shop. Photos and product details were checked against the Pinacello webshop on 26 September 2026. Product images are served from its Wix CDN. Unknown ABV/volume values are omitted rather than inferred.
+
+## Homepage button experiment
+
+`button-experiment.js` runs `hero_cta_copy_v1` on the homepage hero button only:
+A = **Bestel de zomerfles** (original), B = **Ontdek jouw favoriet**. The design,
+price, selected flavour and webshop destination stay unchanged. New browsers are
+randomly assigned 50/50; localStorage retains the assignment for 90 days. Visitors
+whose storage is unavailable keep the original button and are excluded from the test.
+Clearing browser storage or using another device creates a new assignment.
+
+`experiment_impression` fires once per page when at least half the button is in
+view in a visible tab (or when activated). Existing `shop_click`, `begin_checkout`
+and `generate_lead` events receive `experiment_id` and `variant_id` after exposure.
+Hero clicks additionally receive `cta_placement: hero`. No duplicate click or
+purchase events are generated. Existing production-only GA4 delivery still applies.
+
+In GA4 property for **G-T758CLG2LQ**, register event-scoped custom dimensions:
+- Experiment ID → `experiment_id`
+- Variant ID → `variant_id`
+- CTA placement → `cta_placement` (reuse it if already registered)
+
+Compare unique users firing `shop_click` with `cta_placement = hero` against
+unique users firing `experiment_impression`, filtered to `hero_cta_copy_v1` and
+broken down by variant. Do not compare raw click totals or all visitors. Allow
+24–48 hours for custom dimensions to become available in normal reporting.
+Use at least two complete weekly cycles and sufficient sample size; a small
+numerical lead does not establish a winner.
+
+Purchase attribution requires GA4 user segments that start with the corresponding
+experiment impression and then a Wix `purchase`, or audiences created before
+launch with the same exposure condition. Wix must send real purchases to the same
+property and preserve GA client identity across the landing page and checkout.
+The landing page already configures the domain linker, but this alone does not
+verify Wix checkout tracking. Event-scoped variant parameters do not automatically
+transfer to Wix purchase events. Do not label outbound shop clicks as purchases.
+GA reporting setup and cross-site purchase validation must be verified separately.
+
+For local visual QA use `/?cta_variant=A` or `/?cta_variant=B`; overrides are ignored
+on production and do not overwrite stored assignment locally. Stop the experiment
+by setting `config.enabled` to `false`; this restores the original label and stops
+experiment tagging. Increment the experiment ID before testing different copy.
+Run `node --test tests/*.cjs` before publishing through the existing GitHub →
+Railway deployment flow.
