@@ -114,3 +114,9 @@ by setting `config.enabled` to `false`; this restores the original label and sto
 experiment tagging. Increment the experiment ID before testing different copy.
 Run `node --test tests/*.cjs` before publishing through the existing GitHub →
 Railway deployment flow.
+
+## B2B landing page
+
+`/b2b-samenwerking` serves `b2b-samenwerking.html` through the existing HTML-extension routing. The homepage menu and footer link to this page. Every partnership CTA links to `https://www.pinacello.com/b2b-samenwerking`, where enquiries remain handled by Wix. Existing brand photos are reused.
+
+GA4 reports `page_path: /b2b-samenwerking` and `content_group: B2B`. Outbound partnership clicks emit `b2b_click` with `landing_page`, `cta_placement` and `link_url`; they are not recorded as completed leads. Production-only tracking also covers this page.
