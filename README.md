@@ -2,7 +2,7 @@
 
 High-conversion one-page landing site for Pinacello ambachtelijke likeuren (Dilbeek, België).
 
-Single, self-contained `index.html` (no build step) with a flavor switcher, bundle offers,
+Single, self-contained `index.html` (no build step) with flavour-specific URLs, bundle offers,
 market photos, craft story, reviews, FAQ and a 5%-korting e-mailpopup.
 
 ## Structure

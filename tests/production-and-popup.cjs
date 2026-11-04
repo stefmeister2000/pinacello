@@ -98,20 +98,23 @@ test('missing or rejected clipboard access offers selectable code without false 
   }
 });
 
-test('changing flavour keeps the popup shop destination aligned with the product',()=>{
+test('flavour URLs keep the popup and mobile order destinations aligned',()=>{
   const start=html.indexOf('  (function(){',html.indexOf('// hero:'));
   const script=html.slice(start,html.indexOf('  // ── Nieuwsbrief',start));
-  const elements={};
-  const element=id=>elements[id]??={style:{setProperty(){}},classList:{toggle(){}},
-    setAttribute(name,value){this[name]=value;},addEventListener(name,fn){this[name]=fn;}};
-  const flavours=['pina','coco'].map(key=>({...element(key),dataset:{flavor:key}}));
-  vm.runInNewContext(script,{URLSearchParams,window:{location:{search:''}},document:{
-    documentElement:element('root'),body:element('body'),getElementById:element,querySelector:element,
-    querySelectorAll:selector=>selector==='.flavors a'?flavours:[]}});
-  for(const flavour of flavours){
-    flavour.click({preventDefault(){}});
-    assert.equal(elements['promo-shop'].href,elements.atc.href);
+  for(const search of ['', '?smaak=coco', '?smaak=unknown']){
+    const elements={};
+    const element=id=>elements[id]??={style:{setProperty(){}},classList:{toggle(){}},
+      setAttribute(name,value){this[name]=value;}};
+    const offers=['pina','coco'].map(single=>({dataset:{single},style:{}}));
+    vm.runInNewContext(script,{URLSearchParams,window:{location:{search}},document:{
+      documentElement:element('root'),body:element('body'),getElementById:element,querySelector:element,
+      querySelectorAll:selector=>selector==='.bundle[data-single]'?offers:[]}});
+    const coco=search==='?smaak=coco';
     assert.equal(elements['promo-shop'].href,elements['sticky-btn'].href);
-    assert.match(elements['promo-shop'].href,flavour.dataset.flavor==='coco'?/\/cococello$/:/\/kopie-van-pinacello/);
+    assert.equal(elements.atc.href,elements['sticky-btn'].href);
+    assert.match(elements['promo-shop'].href,coco?/\/cococello$/:/\/kopie-van-pinacello/);
+    assert.equal(elements['.coco-hero-photo'].hidden,!coco);
+    assert.equal(offers[coco?1:0].style.display,'');
+    assert.equal(offers[coco?0:1].style.display,'none');
   }
 });
