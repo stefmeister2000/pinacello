@@ -3,7 +3,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const vm=require('node:vm');
 
-const pages=['b2b-samenwerking','index','calibana','frambolade','gin-o-pomelo','ivoir-chocolade-whiskey',
+const pages=['drink-with-your-friends','b2b-samenwerking','index','calibana','frambolade','gin-o-pomelo','ivoir-chocolade-whiskey',
   'limoncello','privacy','terms','vaquero-rum-likeur','verhaal'];
 const liveHosts=['promo.pinacello.com','www.pinacello.com','pinacello.com'];
 

@@ -123,15 +123,31 @@ GA4 reports `page_path: /b2b-samenwerking` and `content_group: B2B`. Outbound pa
 
 ## Drink with your friends
 
-`/drink-with-your-friends` is a campaign page for two friends who each order separately.
-It uses the shared Wix coupon `FRIENDS10`: 10% off every eligible product in a one-time
-purchase, one use per customer, no minimum quantity, no end date. Subscriptions are
-excluded. The code must be entered manually at checkout. This is a shareable coupon,
-not a referral system: no relationship between customers or completed friend order
-is verified. The Wix coupon was activated on 5 November 2026. A preliminary automatic
-2-bottle discount was disabled before publishing this page.
+`/drink-with-your-friends` offers 10% off to friends who order separately.
+The page first collects a required name and email; only a successful Mailchimp
+save returns the shared Wix coupon `FRIENDS`. The coupon applies to each eligible
+product in a one-time purchase, once per customer, without a minimum quantity or
+end date. It excludes subscriptions and must be entered at checkout. There is
+no verification of paired orders; a recipient can still share this common code.
 
-The page reuses existing brand assets; `friends.css` provides responsive styling and
-`friends.js` handles coupon copying, native sharing/clipboard fallback, and outbound
-`shop_click` events. The homepage navigation and footer link to the campaign.
-The existing Express HTML-extension routing and GitHub → Railway flow serve the page.
+`POST /api/friends-signup` stores the name in `FNAME`, normalizes the email, adds
+the tag `drink-with-your-friends`, and records the optional marketing consent
+choice, wording, form version and timestamp in a member note. With the optional
+checkbox selected, new contacts are subscribed; otherwise they are stored as
+non-subscribed (`transactional`). Existing subscription status is preserved,
+including previous opt-outs. The existing `MAILCHIMP_API_KEY` and optional
+`MAILCHIMP_AUDIENCE_ID` are reused. No keys or coupon values are shipped in the
+page/JavaScript; server files and tests are excluded from static serving.
+
+The endpoint validates input, applies a honeypot and process-local 10/hour
+client rate limit, and fails closed on member/tag/note write failure. The limit
+resets on deployment and is per server instance. Mailchimp calls time out after
+8 seconds each. The browser preserves input on errors and releases the coupon
+only after success. No name or email is included in GA4 events. The old homepage
+newsletter flow is unchanged.
+
+Run `node --test tests/*.cjs`. Backend failures, consent, validation, rate limits
+and browser gating are tested with Mailchimp stubs. A local browser preview
+can use a stub; test addresses must never be added to the production audience.
+The existing Express HTML-extension routing and GitHub → Railway deployment
+serve the page. Existing brand photos and homepage campaign links are reused.
