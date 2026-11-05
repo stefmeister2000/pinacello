@@ -120,3 +120,18 @@ Railway deployment flow.
 `/b2b-samenwerking` serves `b2b-samenwerking.html` through the existing HTML-extension routing. The homepage menu and footer link to this page. Every partnership CTA links to `https://www.pinacello.com/b2b-samenwerking`, where enquiries remain handled by Wix. Existing brand photos are reused.
 
 GA4 reports `page_path: /b2b-samenwerking` and `content_group: B2B`. Outbound partnership clicks emit `b2b_click` with `landing_page`, `cta_placement` and `link_url`; they are not recorded as completed leads. Production-only tracking also covers this page.
+
+## Drink with your friends
+
+`/drink-with-your-friends` is a campaign page for two friends who each order separately.
+It uses the shared Wix coupon `FRIENDS10`: 10% off every eligible product in a one-time
+purchase, one use per customer, no minimum quantity, no end date. Subscriptions are
+excluded. The code must be entered manually at checkout. This is a shareable coupon,
+not a referral system: no relationship between customers or completed friend order
+is verified. The Wix coupon was activated on 5 November 2026. A preliminary automatic
+2-bottle discount was disabled before publishing this page.
+
+The page reuses existing brand assets; `friends.css` provides responsive styling and
+`friends.js` handles coupon copying, native sharing/clipboard fallback, and outbound
+`shop_click` events. The homepage navigation and footer link to the campaign.
+The existing Express HTML-extension routing and GitHub → Railway flow serve the page.
