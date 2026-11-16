@@ -3,8 +3,8 @@
   'use strict';
   var config = {
     enabled: true,
-    id: 'hero_cta_copy_v1',
-    labels: { A: 'Bestel de zomerfles', B: 'Ontdek jouw favoriet' },
+    id: 'hero_cta_copy_v2',
+    labels: { A: 'Bestel je fles', B: 'Ontdek jouw favoriet' },
     storageDays: 90
   };
   var button = document.getElementById('atc');

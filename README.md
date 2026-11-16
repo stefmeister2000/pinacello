@@ -74,8 +74,8 @@ The new pages share `flavour-assets/landing.css`, with individual colours, copy,
 
 ## Homepage button experiment
 
-`button-experiment.js` runs `hero_cta_copy_v1` on the homepage hero button only:
-A = **Bestel de zomerfles** (original), B = **Ontdek jouw favoriet**. The design,
+`button-experiment.js` runs `hero_cta_copy_v2` on the homepage hero button only:
+A = **Bestel je fles** (original), B = **Ontdek jouw favoriet**. The design,
 price, selected flavour and webshop destination stay unchanged. New browsers are
 randomly assigned 50/50; localStorage retains the assignment for 90 days. Visitors
 whose storage is unavailable keep the original button and are excluded from the test.
@@ -93,7 +93,7 @@ In GA4 property for **G-T758CLG2LQ**, register event-scoped custom dimensions:
 - CTA placement → `cta_placement` (reuse it if already registered)
 
 Compare unique users firing `shop_click` with `cta_placement = hero` against
-unique users firing `experiment_impression`, filtered to `hero_cta_copy_v1` and
+unique users firing `experiment_impression`, filtered to `hero_cta_copy_v2` and
 broken down by variant. Do not compare raw click totals or all visitors. Allow
 24–48 hours for custom dimensions to become available in normal reporting.
 Use at least two complete weekly cycles and sufficient sample size; a small
