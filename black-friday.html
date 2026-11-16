@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<!-- Production tracking only: never load GA or Clarity on localhost/preview hosts. -->
+<script>
+  window.pinacelloProduction = window.location.protocol === 'https:' &&
+    ['promo.pinacello.com','www.pinacello.com','pinacello.com'].indexOf(window.location.hostname) !== -1;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){if(window.pinacelloProduction)window.dataLayer.push(arguments);}
+  if(window.pinacelloProduction){
+    gtag('js', new Date());
+    gtag('set', 'linker', {domains:['promo.pinacello.com','www.pinacello.com','pinacello.com']});
+    gtag('config', 'G-T758CLG2LQ', {cookie_domain:'pinacello.com', site_area:'landing', page_path:'/black-friday', content_group:'BlackFriday'});
+    var googleTag=document.createElement('script');
+    googleTag.async=true;googleTag.src='https://www.googletagmanager.com/gtag/js?id=G-T758CLG2LQ';
+    document.head.appendChild(googleTag);
+  }
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        if(!c.pinacelloProduction)return;
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yo92xb86rr");
+</script>
+<!-- Current pixel: first-party click, email and order tracking for the Current dashboard (production only). -->
+<script>
+  (function(){
+    if(!window.pinacelloProduction)return;
+    var currentPixel=document.createElement('script');
+    currentPixel.async=true;currentPixel.src='/t.js'; // served by our own server (first-party tracking domain)
+    currentPixel.setAttribute('data-site','cur_rUSdLH_VK1C9hS3Z2RCK1r4lw6DaQ9sG');
+    document.head.appendChild(currentPixel);
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(!f.pinacelloProduction){f.fbq=function(){};return;}if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '988479144234543');
+fbq('track', 'PageView');
+</script>
+
+<!-- End Meta Pixel Code -->
+<title>Black Friday — −25% op alles met code BLACKPINA | Pinacello</title>
+<meta name="description" content="Black Friday bij Pinacello: 72 uur lang −25% op alle likeuren en pakketten met code BLACKPINA. Met de hand gemaakt door twee broers in Dilbeek.">
+<link rel="canonical" href="https://promo.pinacello.com/black-friday">
+<meta property="og:title" content="Black Friday: −25% op alles bij Pinacello">
+<meta property="og:description" content="72 uur lang −25% op alle likeuren en pakketten met code BLACKPINA.">
+<meta property="og:type" content="website"><meta property="og:locale" content="nl_BE">
+<meta property="og:url" content="https://promo.pinacello.com/black-friday">
+<meta property="og:image" content="https://promo.pinacello.com/campaign-assets/og-broers-markt.jpg">
+<meta name="theme-color" content="#121212">
+<link rel="icon" href="/brand-assets/pinacello-logo-480.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/campaign-assets/markt-8006.webp">
+<link rel="stylesheet" href="/campaign.css?v=20261116-3">
+<script src="/campaign.js?v=20261116-1" defer></script>
+</head><body class="theme-bf" data-landing="black-friday">
+<a class="skip" href="#inhoud">Naar de inhoud</a>
+<div class="topline">BLACK FRIDAY · 72 uur lang <b>−25% op alles met code BLACKPINA</b></div>
+<header class="wrap"><nav aria-label="Hoofdnavigatie"><a href="/" aria-label="Pinacello home"><img class="logo" src="/brand-assets/pinacello-logo-480.webp" width="480" height="175" alt="Pinacello"></a><div class="nav-links"><a href="#smaken">Smaken</a><a href="#pakketten">Pakketten</a><a href="#hoe">Zo werkt het</a></div><a class="button small" href="https://www.pinacello.com/shop" data-placement="nav" data-product="shop">Shop met −25% <span aria-hidden="true">↗</span></a></nav></header>
+<main id="inhoud">
+<div class="hero-band"><section class="hero wrap">
+<div class="hero-copy"><p class="eyebrow">Black Friday · 72 uur lang</p><h1>−25% op<br><span>alles.</span></h1><p class="intro">Elke likeur en elk pakket, met de hand gemaakt door twee broers in Dilbeek. Nu 72 uur lang een kwart goedkoper.</p>
+<div class="hero-actions"><button class="coupon" type="button" data-copy="BLACKPINA" aria-describedby="copy-hero"><small>Jouw code</small><strong>BLACKPINA</strong></button><a class="button" id="bf-hero-shop" href="https://www.pinacello.com/shop" data-placement="hero" data-product="shop">Shop met −25% <span aria-hidden="true">↗</span></a></div>
+<p class="micro copy-status" id="copy-hero" role="status">Tik op de code om te kopiëren. Vul ze in bij het afrekenen.</p></div>
+<figure class="hero-photo"><img class="pos-low" src="/campaign-assets/markt-8006.webp" width="900" height="1607" alt="De twee Pinacello-broers lachen achter hun kraam op de markt" fetchpriority="high"><div class="sticker"><b>−25%</b><span>op alles</span></div></figure>
+</section></div>
+<div class="ribbon" aria-hidden="true"><span>Code BLACKPINA</span><span>✳</span><span>−25% op alles</span><span>✳</span><span>Slechts 72 uur</span></div>
+<section class="products section" id="smaken"><div class="wrap">
+<div class="section-heading"><div><p class="eyebrow">Alle smaken, −25%</p><h2>Wat wordt<br>jouw favoriet?</h2></div><p>Fruitig, fris, romig of warm. Kies je fles in de webshop en vul BLACKPINA in bij het afrekenen.</p></div>
+<div class="product-grid">
+<a class="product" data-placement="grid" data-product="pinacello" href="https://www.pinacello.com/product-page/kopie-van-pinacello-ananas-citroen-likeur-500ml"><div class="product-image"><img src="/hero/hero-aqua.webp" alt="Pinacello" width="600" height="750" loading="lazy" decoding="async"></div><div class="product-copy"><p>Ananas · citroen</p><h3>Pinacello</h3><span><span class="deal"><s>€25</s><b>€18,75</b></span><span aria-hidden="true">↗</span></span></div></a>
+<a class="product" data-placement="grid" data-product="cococello" href="https://www.pinacello.com/product-page/cococello"><div class="product-image"><img src="/hero/cococello-cream.webp" alt="Cococello" width="600" height="750" loading="lazy" decoding="async"></div><div class="product-copy"><p>Kokos · crème</p><h3>Cococello</h3><span><span class="deal"><s>€25</s><b>€18,75</b></span><span aria-hidden="true">↗</span></span></div></a>
+<a class="product" data-placement="grid" data-product="frambolade" href="https://www.pinacello.com/product-page/frambolade"><div class="product-image"><img src="/hero/frambolade-campaign.webp" alt="Frambolade" width="600" height="750" loading="lazy" decoding="async"></div><div class="product-copy"><p>Framboos · romig</p><h3>Frambolade</h3><span><span class="deal"><s>€30</s><b>€22,50</b></span><span aria-hidden="true">↗</span></span></div></a>
+<a class="product" data-placement="grid" data-product="calibana" href="https://www.pinacello.com/product-page/calibana"><div class="product-image"><img src="/hero/calibana-campaign.webp" alt="Calibana" width="600" height="750" loading="lazy" decoding="async"></div><div class="product-copy"><p>Banaan · vanille</p><h3>Calibana</h3><span><span class="deal"><s>€25</s><b>€18,75</b></span><span aria-hidden="true">↗</span></span></div></a>
+<a class="product" data-placement="grid" data-product="limoncello" href="https://www.pinacello.com/product-page/limoncello"><div class="product-image"><img src="/hero/limoncello-campaign.webp" alt="Limoncello" width="600" height="750" loading="lazy" decoding="async"></div><div class="product-copy"><p>Citroen · fris</p><h3>Limoncello</h3><span><span class="deal"><s>€30</s><b>€22,50</b></span><span aria-hidden="true">↗</span></span></div></a>
+<a class="product" data-placement="grid" data-product="gin-o-pomelo" href="https://www.pinacello.com/product-page/gin-o-pomelo"><div class="product-image"><img src="/hero/gin-o-pomelo-campaign.webp" alt="Gin O’ Pomelo" width="600" height="750" loading="lazy" decoding="async"></div><div class="product-copy"><p>Pomelo · gin</p><h3>Gin O’ Pomelo</h3><span><span class="deal"><s>€35</s><b>€26,25</b></span><span aria-hidden="true">↗</span></span></div></a>
+<a class="product" data-placement="grid" data-product="vaquero-rum-likeur" href="https://www.pinacello.com/product-page/vaquero-rum-likeur"><div class="product-image"><img src="/hero/vaquero-rum-likeur-campaign.webp" alt="Vaquero" width="600" height="750" loading="lazy" decoding="async"></div><div class="product-copy"><p>Rum · warm karakter</p><h3>Vaquero</h3><span><span class="deal"><s>€30</s><b>€22,50</b></span><span aria-hidden="true">↗</span></span></div></a>
+<a class="product" data-placement="grid" data-product="ivoir-chocolade-whiskey" href="https://www.pinacello.com/product-page/ivoir-chocolade-whiskey"><div class="product-image"><img src="/ivoir-assets/ivoir-bottle.webp" alt="Ivoir" width="600" height="750" loading="lazy" decoding="async"></div><div class="product-copy"><p>Witte chocolade · whisky</p><h3>Ivoir</h3><span><span class="deal"><s>€30</s><b>€22,50</b></span><span aria-hidden="true">↗</span></span></div></a>
+</div>
+<h2 class="subhead" id="pakketten">Of pak er <span>twee.</span></h2>
+<div class="product-grid three">
+<a class="product" data-placement="bundles" data-product="pina-coco" href="https://www.pinacello.com/product-page/pina-en-cococello-pakket"><div class="product-image"><img src="/bundle-assets/pina-coco-800.webp" alt="Pinacello en Cococello pakket" width="800" height="800" loading="lazy" decoding="async"></div><div class="product-copy"><p>2 x 500 ml</p><h3>Pinacello + Cococello</h3><span><span class="deal"><s>€45</s><b>€33,75</b></span><span aria-hidden="true">↗</span></span></div></a>
+<a class="product" data-placement="bundles" data-product="pina-limo" href="https://www.pinacello.com/product-page/pina-en-limoncello-pakket-2-x-500-ml"><div class="product-image"><img src="/bundle-assets/pina-limoncello-800.webp" alt="Pinacello en Limoncello pakket" width="800" height="800" loading="lazy" decoding="async"></div><div class="product-copy"><p>2 x 500 ml</p><h3>Pinacello + Limoncello</h3><span><span class="deal"><s>€50</s><b>€37,50</b></span><span aria-hidden="true">↗</span></span></div></a>
+<a class="product" data-placement="bundles" data-product="coco-ivoir" href="https://www.pinacello.com/product-page/cococello-en-ivoir-pakket-2-x-500-ml"><div class="product-image"><img src="/bundle-assets/coco-ivoir-800.webp" alt="Cococello en Ivoir pakket" width="800" height="800" loading="lazy" decoding="async"></div><div class="product-copy"><p>2 x 500 ml</p><h3>Cococello + Ivoir</h3><span><span class="deal"><s>€50</s><b>€37,50</b></span><span aria-hidden="true">↗</span></span></div></a>
+</div>
+<p class="conditions">Black Friday-prijzen gelden met code BLACKPINA: 25% korting op de producten in je bestelling, 72 uur lang. Vul de code zelf in bij het afrekenen en controleer je totaal vóór je betaalt. Doorgestreepte prijzen zijn de normale webshopprijzen.</p>
+</div></section>
+<section class="gallery section"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">Elke dag op de markt</p><h2>Van onze kraam<br>naar <span>jouw glas.</span></h2></div><p>Twee broers, één gele kraam en een tafel vol flessen. Wat je online bestelt, maakten we zelf en schenken we elke dag op de markt.</p></div><div class="gallery-grid"><figure class="wide"><img src="/campaign-assets/markt-7936.webp" width="1400" height="784" alt="De broers lachen achter de toog van hun kraam" loading="lazy" decoding="async"></figure><figure><img src="/campaign-assets/markt-7741.webp" width="900" height="1607" alt="Een broer in ananashemd met een fles Cococello en Pinacello" loading="lazy" decoding="async"></figure><figure><img src="/campaign-assets/markt-7948.webp" width="900" height="1607" alt="Flessen Limoncello op de toog van de kraam" loading="lazy" decoding="async"></figure><figure class="wide"><img src="/campaign-assets/markt-7930.webp" width="1400" height="784" alt="De gele Pinacello-kraam op de markt" loading="lazy" decoding="async"></figure><figure><img src="/campaign-assets/markt-7934.webp" width="900" height="1607" alt="De broers wijzen lachend naar de camera achter hun flessen" loading="lazy" decoding="async"></figure><figure><img src="/campaign-assets/markt-7909.webp" width="900" height="1607" alt="Een broer steekt zijn duimen op achter de kraam" loading="lazy" decoding="async"></figure></div></div></section>
+<section class="section wrap split" id="hoe"><div><p class="eyebrow">In drie stappen</p><h2>Zo pak je<br>jouw <span>−25%.</span></h2></div><ol class="steps"><li><span class="step-no">01</span><div><h3>Kies je flessen</h3><p>Losse likeuren of een pakket: de korting geldt op alles in de webshop.</p></div></li><li><span class="step-no">02</span><div><h3>Vul BLACKPINA in</h3><p>Plak de code bij het afrekenen. Je ziet de 25% korting meteen in je totaal.</p></div></li><li><span class="step-no">03</span><div><h3>Wees er snel bij</h3><p>De actie loopt maar 72 uur. Daarna gelden opnieuw de gewone prijzen.</p></div></li></ol></section>
+<section class="faq wrap section" style="padding-top:0"><div><p class="eyebrow">Nog even dit</p><h2>Goed om<br>te weten.</h2></div><div><details><summary>Op welke producten krijg ik −25%?</summary><p>Op alle likeuren en pakketten in de Pinacello-webshop, zolang de actie loopt.</p></details><details><summary>Hoe lang loopt Black Friday?</summary><p>De code BLACKPINA is 72 uur geldig. Daarna gelden opnieuw de gewone prijzen.</p></details><details><summary>Hoe gebruik ik de code?</summary><p>Kies je producten in de webshop en vul BLACKPINA in bij het afrekenen. Controleer je totaal voor je betaalt.</p></details><details><summary>Kan ik eerst proeven?</summary><p>Zeker. Kom langs op de markt: we laten je graag gratis proeven.</p></details></div></section>
+<section class="final"><div class="wrap"><p class="eyebrow">Black Friday · code BLACKPINA</p><h2>Nu −25%<br>op <span>alles.</span></h2><a class="button" id="bf-final-shop" href="https://www.pinacello.com/shop" data-placement="final" data-product="shop">Shop met −25% <span aria-hidden="true">↗</span></a><p class="micro">Slechts 72 uur geldig.</p></div></section>
+</main><footer><div class="wrap"><div class="footer-top"><a href="/">Pinacello</a><div><a href="https://www.pinacello.com/shop">Webshop</a><a href="/verhaal">Ons verhaal</a><a href="/terms">Voorwaarden</a><a href="/privacy">Privacy</a></div></div><p>18+ · Geniet met mate. <a href="https://www.drinkbewust.be" target="_blank" rel="noopener">drinkbewust.be</a></p><p>Pinacello · Kerselaarstraat 40, 1700 Dilbeek · Ondernemingsnr. 1006.157.937</p></div></footer>
+</body></html>

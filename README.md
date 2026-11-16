@@ -151,3 +151,10 @@ and browser gating are tested with Mailchimp stubs. A local browser preview
 can use a stub; test addresses must never be added to the production audience.
 The existing Express HTML-extension routing and GitHub → Railway deployment
 serve the page. Existing brand photos and homepage campaign links are reused.
+
+## Seasonal campaign pages
+
+- `/black-friday` (`black-friday.html`): −25% on everything with Wix coupon `BLACKPINA`, valid 72 hours. Shows regular webshop prices struck through and the price with the code for all single bottles and the three duo packs. The trio has its own page.
+- `/kerst-triopakket` (`kerst-triopakket.html`): Pinacello + Frambolade + Calibana for €64,95 (€80 separately), free shipping in Belgium and a mystery gift, linking to the Wix product `kerst-triopakket-pinacello-frambolade-calibana-3-x-500-ml`.
+
+Both share `campaign.css` and `campaign.js`; images live in `campaign-assets/`. GA4 uses `page_path` `/black-friday` (content group `BlackFriday`) and `/kerst-triopakket` (`KerstTrio`). Webshop links emit `shop_click` with `landing_page`, `product_id` and `cta_placement`, plus Meta `InitiateCheckout`; copying the coupon emits `coupon_copy`. Prices were checked against the webshop on 16 November 2026. The coupon itself must be created and time-limited in Wix; this page only displays it.
