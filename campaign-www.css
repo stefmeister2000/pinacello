@@ -1,0 +1,139 @@
+/* www.pinacello.com look for the campaign template pages (/drink-with-your-friends, /kerst-triopakket).
+   Loaded after the page's own stylesheet; active with body class "www-campaign". */
+body.www-campaign{
+  --tent:#FFC72C;--ink:#141210;--shelf:#F1EFEA;--blue:#1F8FD0;--muted:#5b574f;--on-tent:var(--ink);--pop:var(--blue);
+  --wide:"wdth" 125;
+  background:#fff;color:var(--ink);font-family:"Archivo",system-ui,sans-serif;overflow-x:clip
+}
+body.www-campaign.theme-xmas{--tent:#B8262F;--on-tent:#fff;--pop:#B8262F;--shelf:#F7ECE6}
+.www-campaign h1,.www-campaign h2,.www-campaign h3,.www-campaign .price-block .price,.www-campaign .sticker b,.www-campaign .step-no{
+  font-family:"Archivo",system-ui,sans-serif!important;font-variation-settings:var(--wide);font-weight:800!important;
+  text-transform:none!important;letter-spacing:-.02em!important;color:inherit}
+.www-campaign h1{font-size:clamp(2.6rem,6vw,5.4rem)!important;line-height:.95!important}
+.www-campaign h2{font-size:clamp(2rem,4vw,3.4rem)!important;line-height:1!important}
+.www-campaign h3{font-size:1.25rem!important;line-height:1.15!important}
+.www-campaign h2 span{color:var(--pop)!important}
+.www-campaign h1 span{color:inherit!important;background:#fff;color:var(--ink)!important;border:2px solid var(--ink);border-radius:12px;padding:0 .14em;display:inline-block;margin-top:.08em;box-shadow:5px 5px 0 var(--ink)}
+.www-campaign a:focus-visible,.www-campaign button:focus-visible,.www-campaign summary:focus-visible,.www-campaign input:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+
+/* promo bar + sticky header */
+.www-campaign .topline{background:var(--ink)!important;color:#fff!important;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:9px 16px}
+.www-campaign .topline b{color:#FFC72C}
+.www-campaign .site-head{position:sticky;top:0;z-index:40;background:var(--tent);border-bottom:2px solid var(--ink);color:var(--on-tent)}
+.www-campaign .site-head nav{padding:12px 0}
+.www-campaign .theme-xmas .logo,.www-campaign.theme-xmas .logo{filter:brightness(0) invert(1)}
+.www-campaign .nav-links a{color:var(--on-tent);font-weight:600}
+
+/* buttons */
+.www-campaign .button{background:var(--ink)!important;color:#fff!important;border:0!important;border-radius:999px!important;box-shadow:none!important;font-weight:700;padding:16px 26px;gap:12px;transition:transform .2s,background .2s}
+.www-campaign .button:hover{background:var(--blue)!important;transform:translateY(-2px)}
+.www-campaign.theme-xmas .site-head .button,.www-campaign.theme-xmas .hero-band .button{background:#fff!important;color:var(--ink)!important}
+.www-campaign.theme-xmas .site-head .button:hover,.www-campaign.theme-xmas .hero-band .button:hover{background:#FFC72C!important}
+.www-campaign .button.small{padding:11px 18px}
+.www-campaign .text-button{color:var(--ink);font-weight:700}
+
+/* eyebrow = white pill */
+.www-campaign .eyebrow{display:inline-flex;background:#fff;color:var(--ink);border:1.5px solid var(--ink);border-radius:999px;padding:6px 13px;font-size:.66rem;letter-spacing:.08em;margin-bottom:18px}
+
+/* hero: coloured market band + scalloped awning */
+.www-campaign .hero-band{background:var(--tent)!important;color:var(--on-tent)!important;padding:clamp(28px,4vw,56px) 0 clamp(34px,4vw,56px)!important}
+.www-campaign .hero{gap:clamp(24px,4vw,60px)!important;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)!important}
+.www-campaign .hero-copy{min-width:0}
+.www-campaign .hero .intro{color:inherit;opacity:.92;font-size:clamp(1rem,1.3vw,1.15rem)}
+.www-campaign .offer-line{color:inherit}
+.www-campaign .hero-photo,.www-campaign .trio-visual{position:relative;border:2px solid var(--ink);border-radius:14px;overflow:visible;background:#fff;box-shadow:6px 6px 0 var(--ink)}
+.www-campaign .hero-photo>img,.www-campaign .trio-visual img{border-radius:12px!important;transform:none!important;box-shadow:none!important;width:100%}
+.www-campaign .hero-photo figcaption{position:absolute;left:14px;bottom:14px;background:var(--ink);color:#fff;border-radius:999px;padding:9px 15px;font-size:.8rem;font-weight:700}
+.www-campaign .sticker{background:#FFC72C!important;color:var(--ink)!important;border:2px solid var(--ink)!important;box-shadow:4px 4px 0 var(--ink)}
+.www-campaign .sticker b{color:var(--ink)!important}
+.www-campaign .hero-awning{height:22px;background:linear-gradient(var(--tent) 3px,transparent 3px),radial-gradient(circle at 50% 0,var(--tent) 22px,transparent 22.5px);background-size:100% 22px,44px 22px;background-repeat:no-repeat,repeat-x}
+
+/* price */
+.www-campaign .price-block .price{font-size:clamp(2.4rem,4vw,3.2rem)!important;color:inherit!important}
+.www-campaign .price-block s{color:inherit;opacity:.75}
+.www-campaign .price-block .save{background:#fff!important;color:var(--ink)!important;border:1.5px solid var(--ink);border-radius:999px;font-weight:800}
+.www-campaign .perks li{color:inherit;border-color:currentColor!important;background:transparent!important}
+
+/* signup card */
+.www-campaign .signup{background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:14px;box-shadow:6px 6px 0 var(--ink);padding:20px}
+.www-campaign .signup label{color:var(--ink)}
+.www-campaign .signup input:not([type=checkbox]){border:2px solid var(--ink)!important;border-radius:10px!important;background:#fff;color:var(--ink);min-width:0;width:100%}
+.www-campaign .form-fields>div{min-width:0}
+.www-campaign .coupon{border:2px dashed var(--ink)!important;border-radius:12px!important;background:#FFC72C!important;color:var(--ink)!important}
+
+/* ribbon = ink ticker strip */
+.www-campaign .ribbon{background:var(--ink)!important;color:#fff!important;border:0!important;transform:none!important;font-family:"Archivo",sans-serif;font-variation-settings:var(--wide);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+
+/* cards: white, ink outline, hard shadow */
+.www-campaign .product{background:#fff!important;border:2px solid var(--ink)!important;border-radius:14px!important;box-shadow:4px 4px 0 var(--ink)!important;overflow:hidden;transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s;color:var(--ink);text-decoration:none}
+.www-campaign a.product:hover,.www-campaign .product:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink)!important}
+.www-campaign .product-image{background:var(--shelf)!important;border-radius:0!important;border-bottom:2px solid var(--ink)}
+.www-campaign .product-image img{border-radius:0!important}
+.www-campaign .product-copy{padding:18px 20px 20px!important}
+.www-campaign .product-copy>p:not(.desc){color:var(--muted)!important;text-transform:uppercase;letter-spacing:.08em;font-size:.68rem;font-weight:700}
+.www-campaign .product-copy .desc{color:var(--ink)!important;text-transform:none;letter-spacing:0;font-size:.92rem;font-weight:400}
+.www-campaign .deal s{color:var(--muted)}
+.www-campaign .steps li{background:#fff!important;border:2px solid var(--ink)!important;border-radius:14px!important;box-shadow:4px 4px 0 var(--ink)}
+.www-campaign .step-no{background:#FFC72C!important;color:var(--ink)!important;border:2px solid var(--ink);border-radius:10px!important}
+.www-campaign .story-photo img,.www-campaign .gallery-grid img{border:2px solid var(--ink);border-radius:14px!important}
+.www-campaign .faq details{background:#fff!important;border:2px solid var(--ink)!important;border-radius:12px!important;margin-bottom:10px}
+.www-campaign .faq summary{font-weight:700}
+.www-campaign .products,.www-campaign .flavours{background:var(--shelf)!important}
+
+/* final: tent band with the awning edge on top */
+.www-campaign .final{position:relative;background:var(--tent)!important;color:var(--on-tent)!important;margin-top:22px}
+.www-campaign .final::before{content:"";position:absolute;left:0;right:0;top:-22px;height:22px;background:linear-gradient(to top,var(--tent) 3px,transparent 3px),radial-gradient(circle at 50% 100%,var(--tent) 22px,transparent 22.5px);background-size:100% 22px,44px 22px;background-repeat:no-repeat,repeat-x}
+.www-campaign .final h2,.www-campaign .final .micro{color:inherit!important}
+.www-campaign.theme-xmas .final .button{background:#fff!important;color:var(--ink)!important}
+.www-campaign footer{background:var(--ink)!important;color:#fff!important}
+.www-campaign footer a{color:#fff}
+
+/* motion */
+@keyframes cw-rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes cw-drop{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@media(prefers-reduced-motion:no-preference){
+  .www-campaign .hero-copy>*{animation:cw-rise .8s cubic-bezier(.22,1,.36,1) both}
+  .www-campaign .hero-copy>*:nth-child(2){animation-delay:.08s}
+  .www-campaign .hero-copy>*:nth-child(3){animation-delay:.16s}
+  .www-campaign .hero-copy>*:nth-child(n+4){animation-delay:.26s}
+  .www-campaign .hero-photo,.www-campaign .trio-visual{animation:cw-rise 1s cubic-bezier(.22,1,.36,1) .12s both}
+  .www-campaign .hero-awning{transform-origin:top;animation:cw-drop .5s cubic-bezier(.2,.8,.2,1) .45s both}
+}
+
+/* phones */
+@media(max-width:900px){.www-campaign .hero{grid-template-columns:minmax(0,1fr)!important}}
+@media(max-width:600px){
+  .www-campaign .hero-band{padding:20px 0 28px!important}
+  .www-campaign h1{font-size:clamp(2.3rem,12vw,3.4rem)!important}
+  .www-campaign h2{font-size:clamp(1.8rem,9vw,2.4rem)!important}
+  .www-campaign .hero-photo,.www-campaign .trio-visual{box-shadow:4px 4px 0 var(--ink)}
+  .www-campaign .signup{padding:16px;box-shadow:4px 4px 0 var(--ink)}
+  .www-campaign .nav-links{display:none}
+  .www-campaign .hero-photo .sticker,.www-campaign .trio-visual .sticker{right:10px!important;left:auto!important;top:-14px!important}
+  .www-campaign .topline{font-size:.62rem}
+}
+
+/* steps: separate cards, number badge inside, everything on one top line */
+.www-campaign .steps{display:grid;gap:16px}
+.www-campaign .steps li,.www-campaign .steps li:first-child,.www-campaign .steps li:last-child{display:grid!important;grid-template-columns:48px minmax(0,1fr);gap:18px;align-items:start;padding:22px 24px!important;border:2px solid var(--ink)!important;border-radius:14px!important;background:#fff!important;box-shadow:4px 4px 0 var(--ink);transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s}
+.www-campaign .steps li:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--ink)}
+.www-campaign .step-no{width:48px!important;height:48px!important;margin:0!important;border-radius:12px!important;font-size:.95rem!important;display:grid!important;place-items:center}
+.www-campaign .steps h3{margin:2px 0 0!important;line-height:1.15!important}
+.www-campaign .steps p{margin-top:8px!important;font-size:.95rem;line-height:1.55}
+
+/* FAQ: equal cards, question and +/- sign on one centred row */
+.www-campaign .faq details,.www-campaign .faq details:first-child{padding:0!important;margin:0 0 12px!important;border:2px solid var(--ink)!important;border-radius:12px!important;background:#fff!important;overflow:hidden;transition:box-shadow .25s}
+.www-campaign .faq details[open]{box-shadow:4px 4px 0 var(--ink)}
+.www-campaign .faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;font-weight:700;font-size:1.02rem;line-height:1.3;cursor:pointer}
+.www-campaign .faq summary::-webkit-details-marker{display:none}
+.www-campaign .faq summary::marker{content:""}
+.www-campaign .faq summary::after{content:"+";flex:0 0 30px;height:30px;display:grid;place-items:center;border:2px solid var(--ink);border-radius:50%;font-size:1.1rem;font-weight:800;line-height:1;transition:transform .25s,background .25s}
+.www-campaign .faq details[open] summary::after{content:"−";background:#FFC72C}
+.www-campaign .faq details>p,.www-campaign .faq details>a{margin:0 22px 18px!important;font-size:.95rem;line-height:1.55}
+.www-campaign .faq details>p{padding-top:14px;border-top:1.5px dashed rgba(20,18,16,.25)}
+@media(max-width:600px){
+  .www-campaign .steps li,.www-campaign .steps li:first-child,.www-campaign .steps li:last-child{grid-template-columns:40px minmax(0,1fr);gap:14px;padding:18px!important}
+  .www-campaign .step-no{width:40px!important;height:40px!important;font-size:.85rem!important}
+  .www-campaign .faq summary{padding:16px 18px;font-size:.95rem}
+  .www-campaign .faq details>p,.www-campaign .faq details>a{margin:0 18px 16px!important}
+}

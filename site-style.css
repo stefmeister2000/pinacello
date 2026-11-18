@@ -229,3 +229,14 @@
 @media(max-width:600px){.www-style .hero-v2 h1{hyphens:auto}.www-style .hero-pdp h1{font-size:clamp(2.2rem,11vw,3.3rem)!important}}
 @media(max-width:700px){.www-style .flavour-offer{grid-template-columns:minmax(0,1fr)!important}.www-style .flavour-offer img,.www-style .offer-copy{min-width:0;max-width:100%}}
 html:has(body.www-style),body.www-style{overflow-x:clip}
+/* order card: the bottle itself is the picture, big enough to recognise on every screen */
+.www-style .hero-v2:not(.hero-pdp) .hero-content{grid-template-columns:190px minmax(0,1fr)!important}
+.www-style .hero-v2 .product-art .pina-photo,.www-style .hero-v2 .product-art .coco-hero-photo{object-position:center 40%!important}
+.www-style .hero-v2 .product-art .art-sticker{display:none}
+@media(max-width:600px){
+  .www-style .hero-v2:not(.hero-pdp) .hero-content{grid-template-columns:42% minmax(0,1fr)!important}
+  .www-style .hero-v2:not(.hero-pdp) .product-art{min-height:230px!important}
+  .www-style .hero-v2 .product-art .pina-photo,.www-style .hero-v2 .product-art .coco-hero-photo{object-position:center 45%!important}
+  .www-style .hero-v2:not(.hero-pdp) .buy-row{grid-template-columns:1fr!important}
+  .www-style .hero-v2:not(.hero-pdp) .qty{justify-self:start}
+}
