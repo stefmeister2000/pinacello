@@ -240,3 +240,18 @@ html:has(body.www-style),body.www-style{overflow-x:clip}
   .www-style .hero-v2:not(.hero-pdp) .buy-row{grid-template-columns:1fr!important}
   .www-style .hero-v2:not(.hero-pdp) .qty{justify-self:start}
 }
+/* order card: always the whole bottle, never cropped (contain + matching backdrop) */
+.www-style .hero-v2 .product-art .pina-photo,.www-style .hero-v2 .product-art .coco-hero-photo{object-fit:contain!important;object-position:center bottom!important}
+.www-style .hero-v2:not(.is-coco) .product-art{background:linear-gradient(#b4e6e9,#a7e0e3 60%,#c9e6de)!important}
+.www-style .hero-v2.is-coco .product-art{background:linear-gradient(#f6e0c9,#f4dac3 60%,#ecd0b2)!important}
+/* long Cococello headline ("ontsnapping.") must fit on one line per word */
+.www-style .hero-v2.is-coco h1{font-size:min(5.6rem,4.6vw)!important}
+@media(max-width:900px){.www-style .hero-v2.is-coco h1{font-size:min(4.4rem,9.4vw)!important}}
+.www-style .hero-v2:not(.hero-pdp) .product-art{min-height:240px!important}
+/* homepage order card: text + order button only (the bottles are shown further down) */
+.www-style .hero-v2:not(.hero-pdp) .product-art{display:none!important}
+.www-style .hero-v2:not(.hero-pdp) .hero-content{grid-template-columns:minmax(0,1fr)!important}
+.www-style .hero-v2:not(.hero-pdp) .pc-body{padding:20px 22px}
+@media(max-width:600px){.www-style .hero-v2:not(.hero-pdp) .buy-row{grid-template-columns:auto minmax(0,1fr)!important}}
+/* Cococello (?smaak=coco) gets its own coconut palette */
+.playful.www-style.theme-coco{--tent:#E8D6B5;--shelf:#F5EEE1;--ink:#3A2C20;--deep:#3A2C20;--muted:#6e5d4c;--blue:#8A6A4A}

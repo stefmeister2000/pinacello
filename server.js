@@ -78,9 +78,13 @@ app.post('/api/collect', express.text({ type: '*/*', limit: '40kb' }), async (re
 
 // Server and internal files must not be served by the static website.
 app.use((req,res,next)=>{
-  if (/^\/(?:server\.js|friends-signup\.cjs|README\.md|package(?:-lock)?\.json)$/.test(req.path) || /^\/(?:tests|work|node_modules)(?:\/|$)/.test(req.path)) return res.status(404).end();
+  if (/^\/(?:server\.js|checkout\.js|friends-signup\.cjs|README\.md|package(?:-lock)?\.json)$/.test(req.path) || /^\/(?:tests|work|node_modules)(?:\/|$)/.test(req.path)) return res.status(404).end();
   next();
 });
+
+// Direct checkout: buy buttons go to /bestel and land on the Wix checkout (see checkout.js).
+const { createCheckout } = require('./checkout.js');
+app.get('/bestel', createCheckout({ apiKey: process.env.WIX_API_KEY, siteId: process.env.WIX_SITE_ID }));
 
 // extensions:['html'] → /verhaal serveert verhaal.html, /terms → terms.html, enz.
 app.use(express.static(__dirname, {

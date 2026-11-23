@@ -62,7 +62,7 @@ fbq('track', 'PageView');
 </script>
 
 <!-- End Meta Pixel Code -->
-<title>Pinacello — Ananas Citroen Likeur | Feest in je glas</title>
+<title>Pinacello — Ananas Citroen Likeur | Ons origineel</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍍</text></svg>">
 <meta name="description" content="Pinacello: ambachtelijke ananas-citroen likeur (22% · 500ml). Puur, met ijs of in cocktails. Bestel het Pina + Coco pakket met gratis verzending — levering in BE & NL binnen 1-2 werkdagen.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -533,7 +533,8 @@ fbq('track', 'PageView');
 <link rel="stylesheet" href="/moments/moments.css?v=1">
 <script src="/moments/moments.js?v=1" defer></script>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/site-style.css?v=17">
+<link rel="stylesheet" href="/site-style.css?v=20">
+<script src="/direct-checkout-links.js?v=1" defer></script>
 </head>
 <body class="playful theme-pina home-page www-style">
 
@@ -564,7 +565,7 @@ fbq('track', 'PageView');
   <div class="hero-band"><div class="wrap hero-grid">
     <div class="hero-copy">
       <span class="eyebrow-note"><span class="belgian-flag" aria-hidden="true"></span> <b>Volledig zelfgemaakt</b> in Dilbeek · 18+</span>
-      <h1 id="flavour-headline">Feest in je glas.</h1>
+      <h1 id="flavour-headline">Pinacello. Ons origineel.</h1>
       <p class="hero-lead">Fruitige likeuren, fles per fles gemaakt door twee broers. Puur, op ijs of als cadeau onder de boom.</p>
       <div class="hero-content">
         <div class="product-art"><span class="art-sticker" id="taste-sticker">Ananas · citroen</span><img class="pina-photo" loading="lazy" src="/hero/pina-bottle-card.webp" alt="Fles Pinacello ananas-citroenlikeur, 500 ml" width="600" height="800" decoding="async" fetchpriority="high"><img class="coco-hero-photo" src="/hero/coco-bottle-card.webp" alt="Fles Cococello kokosnoot-crèmelikeur, 500 ml" width="600" height="800" hidden decoding="async" loading="lazy"></div>
@@ -990,7 +991,7 @@ fbq('track', 'PageView');
       document.querySelector('.hero').classList.toggle('is-coco',key==='coco');
       document.body.classList.toggle('theme-coco',key==='coco');
       document.getElementById('taste-sticker').textContent=key==='coco'?'Kokos · crème':'Ananas · citroen';
-      document.getElementById('flavour-headline').textContent=key==='coco'?'Een romige ontsnapping.':'Feest in je glas.';
+      document.getElementById('flavour-headline').textContent=key==='coco'?'Een romige ontsnapping.':'Pinacello. Ons origineel.';
       document.querySelector('.product-title').textContent=f.name;
       var cocoHero=document.querySelector('.coco-hero-photo');
       cocoHero.hidden=key!=='coco';
