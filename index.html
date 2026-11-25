@@ -536,6 +536,7 @@ fbq('track', 'PageView');
 <link rel="stylesheet" href="/site-style.css?v=20">
 <script src="/direct-checkout-links.js?v=1" defer></script>
 <script src="/black-friday-sale.js?v=3" defer></script>
+<script src="/scratch-popup.js?v=1" defer></script>
 </head>
 <body class="playful theme-pina home-page www-style">
 
@@ -1048,13 +1049,9 @@ fbq('track', 'PageView');
       try {localStorage.setItem(KEY,'1');} catch(err) {}
       if(previousFocus)previousFocus.focus();
     }
-    document.getElementById('newsletter-open').onclick=function(){open(true);};
+    document.getElementById('newsletter-open').onclick=function(){if(window.pinaScratchOpen)window.pinaScratchOpen();else open(true);};
     function onScroll(){var d=(window.scrollY+window.innerHeight)/document.documentElement.scrollHeight;if(d>0.45)open();}
-    // No automatic pop-up during Black Friday; it comes back by itself on 1 December.
-    if(Date.now()>=Date.parse('2026-12-01T00:00:00+01:00')){
-      timer=setTimeout(open,7000);
-      window.addEventListener('scroll',onScroll,{passive:true});
-    }
+    // This old ZOMER5 pop-up no longer opens by itself: the scratch pop-up (scratch-popup.js) replaces it from 1 December.
     document.getElementById('promo-close').onclick=close;
     promo.addEventListener('click',function(e){if(e.target===promo)close();});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!promo.hidden)close();});
