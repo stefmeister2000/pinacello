@@ -1049,8 +1049,11 @@ fbq('track', 'PageView');
     }
     document.getElementById('newsletter-open').onclick=function(){open(true);};
     function onScroll(){var d=(window.scrollY+window.innerHeight)/document.documentElement.scrollHeight;if(d>0.45)open();}
-    timer=setTimeout(open,7000);
-    window.addEventListener('scroll',onScroll,{passive:true});
+    // No automatic pop-up during Black Friday; it comes back by itself on 1 December.
+    if(Date.now()>=Date.parse('2026-12-01T00:00:00+01:00')){
+      timer=setTimeout(open,7000);
+      window.addEventListener('scroll',onScroll,{passive:true});
+    }
     document.getElementById('promo-close').onclick=close;
     promo.addEventListener('click',function(e){if(e.target===promo)close();});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!promo.hidden)close();});

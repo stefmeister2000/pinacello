@@ -70,7 +70,7 @@ function setupPopup({clipboard,storageFails=false}={}){
 
 test('successful signup shows and focuses the code even when storage is unavailable',async()=>{
   const s=setupPopup({storageFails:true});
-  s.timers[0]();
+  s.elements['newsletter-open'].onclick();
   assert.equal(s.elements.promo.hidden,false);
   await s.submit();
   assert.equal(s.elements['promo-body'].hidden,true);
