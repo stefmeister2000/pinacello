@@ -137,6 +137,19 @@ app.get('/api/health', async (req, res) => {
   });
 });
 
+// www.pinacello.com (separate static site on Vercel) posts its pop-up / footer sign-ups here too.
+const SUBSCRIBE_ORIGINS = new Set(['https://www.pinacello.com', 'https://pinacello.com']);
+function subscribeCors(req, res, next) {
+  const origin = req.get('origin');
+  if (origin && SUBSCRIBE_ORIGINS.has(origin)) {
+    res.set({ 'Access-Control-Allow-Origin': origin, 'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Max-Age': '86400', Vary: 'Origin' });
+  }
+  next();
+}
+app.options('/api/subscribe', subscribeCors, (req, res) => res.status(204).end());
+app.use('/api/subscribe', subscribeCors);
+
 app.post('/api/subscribe', async (req, res) => {
   const email = ((req.body && req.body.email) || '').trim().toLowerCase();
   if (!EMAIL_RE.test(email)) {
